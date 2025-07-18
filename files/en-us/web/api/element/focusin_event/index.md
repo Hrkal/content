@@ -18,13 +18,16 @@ The `focusin` event is not cancelable.
 
 Use the event name in methods like {{domxref("EventTarget.addEventListener", "addEventListener()")}}.
 
-```js
-addEventListener("focusin", (event) => {});
+```js-nolint
+addEventListener("focusin", (event) => { })
 ```
+
+> [!NOTE]
+> There is no `onfocusin` event handler property for this event.
 
 ## Event type
 
-A {{domxref("FocusEvent")}}. Inherits from {{domxref("Event")}}.
+A {{domxref("FocusEvent")}}. Inherits from {{domxref("UIEvent")}} and {{domxref("Event")}}.
 
 {{InheritanceDiagram("FocusEvent")}}
 
@@ -76,7 +79,8 @@ form.addEventListener("focusout", (event) => {
 
 {{Specifications}}
 
-**Note:** The _UI Events_ specification describes an [order of focus events](/en-US/docs/Web/API/FocusEvent#order_of_events) that's different from what current browsers implement.
+> [!NOTE]
+> The _UI Events_ specification describes an [order of focus events](/en-US/docs/Web/API/FocusEvent#order_of_events) that's different from what current browsers implement.
 
 ## Browser compatibility
 

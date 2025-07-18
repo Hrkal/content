@@ -22,10 +22,8 @@ new ResizeObserver(callback)
 ### Parameters
 
 - `callback`
-
   - : The function called whenever an observed resize occurs. The function is called with
     two parameters:
-
     - `entries`
       - : An array of {{domxref('ResizeObserverEntry')}} objects that can be used to
         access the new dimensions of the element after each change.
@@ -58,27 +56,27 @@ const resizeObserver = new ResizeObserver((entries) => {
       if (entry.contentBoxSize[0]) {
         h1Elem.style.fontSize = `${Math.max(
           1.5,
-          entry.contentBoxSize[0].inlineSize / 200
+          entry.contentBoxSize[0].inlineSize / 200,
         )}rem`;
         pElem.style.fontSize = `${Math.max(
           1,
-          entry.contentBoxSize[0].inlineSize / 600
+          entry.contentBoxSize[0].inlineSize / 600,
         )}rem`;
       } else {
         // legacy path
         h1Elem.style.fontSize = `${Math.max(
           1.5,
-          entry.contentBoxSize.inlineSize / 200
+          entry.contentBoxSize.inlineSize / 200,
         )}rem`;
         pElem.style.fontSize = `${Math.max(
           1,
-          entry.contentBoxSize.inlineSize / 600
+          entry.contentBoxSize.inlineSize / 600,
         )}rem`;
       }
     } else {
       h1Elem.style.fontSize = `${Math.max(
         1.5,
-        entry.contentRect.width / 200
+        entry.contentRect.width / 200,
       )}rem`;
       pElem.style.fontSize = `${Math.max(1, entry.contentRect.width / 600)}rem`;
     }

@@ -38,19 +38,21 @@ Note: the URL type is `uri-list` with an _I_, not an _L_.
 
 To drag multiple links, separate each link inside the `text/uri-list` data with a CRLF linebreak. Lines that begin with a number sign (`#`) are comments, and should not be considered URLs. You can use comments to indicate the purpose of a URL, the title associated with a URL, or other data.
 
-> **Warning:** The `text/plain` fallback for multiple links should include all URLs, but no comments.
+> [!WARNING]
+> The `text/plain` fallback for multiple links should include all URLs, but no comments.
 
 For example, this sample `text/uri-list` data contains two links and a comment:
 
-```
-http://www.mozilla.org
+```plain
+https://www.mozilla.org
 #A second link
 http://www.example.com
 ```
 
 When retrieving a dropped link, ensure you handle when multiple links are dragged, including any comments. For convenience, the special type `URL` may be used to refer to the first valid link within data for the `text/uri-list` type.
 
-> **Warning:** Do not add data with the `URL` type — attempting to do so will set the value of the `text/uri-list` type instead.
+> [!WARNING]
+> Do not add data with the `URL` type — attempting to do so will set the value of the `text/uri-list` type instead.
 
 ```js
 const url = event.dataTransfer.getData("URL");
@@ -58,8 +60,8 @@ const url = event.dataTransfer.getData("URL");
 
 You may also see data with the Mozilla-specific type `text/x-moz-url`. If it appears, it should appear before the `text/uri-list` type. It holds the URLs of links followed by their titles, separated by a linebreak. For example:
 
-```
-http://www.mozilla.org
+```plain
+https://www.mozilla.org
 Mozilla
 http://www.example.com
 Example
@@ -95,7 +97,7 @@ You could use feature detection to determine which method is supported on `types
 
 ## Dragging Images
 
-Direct image dragging is not common. In fact, Mozilla does not support direct image dragging on Mac or Linux. Instead, images are usually dragged only by their URLs. To do this, use the `text/uri-list` type as with other URLs. The data should be the URL of the image, or a [`data:` URL](/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URLs) if the image is not stored on a website or disk.
+Direct image dragging is not common. In fact, Mozilla does not support direct image dragging on Mac or Linux. Instead, images are usually dragged only by their URLs. To do this, use the `text/uri-list` type as with other URLs. The data should be the URL of the image, or a [`data:` URL](/en-US/docs/Web/URI/Reference/Schemes/data) if the image is not stored on a website or disk.
 
 As with links, the data for the `text/plain` type should also contain the URL. However, a `data:` URL is not usually useful in a text context, so you may wish to exclude the `text/plain` data in this situation.
 
@@ -107,8 +109,8 @@ It is important to set the data in the right order, from most-specific to least-
 
 ```js
 const dt = event.dataTransfer;
-dt.setData("text/uri-list", imageurl);
-dt.setData("text/plain", imageurl);
+dt.setData("text/uri-list", imageURL);
+dt.setData("text/plain", imageURL);
 ```
 
 ## Dragging Nodes
@@ -132,7 +134,7 @@ currentEvent.dataTransfer.setData("text/x-moz-url", URL);
 currentEvent.dataTransfer.setData("application/x-moz-file-promise-url", URL);
 currentEvent.dataTransfer.setData(
   "application/x-moz-file-promise-dest-filename",
-  leafName
+  leafName,
 );
 
 function dataProvider() {}
@@ -154,10 +156,10 @@ dataProvider.prototype = {
       aTransferable.getTransferData(
         "application/x-moz-file-promise-url",
         urlPrimitive,
-        dataSize
+        dataSize,
       );
       const url = urlPrimitive.value.QueryInterface(
-        Components.interfaces.nsISupportsString
+        Components.interfaces.nsISupportsString,
       ).data;
       console.log(`URL file original is = ${url}`);
 
@@ -165,10 +167,10 @@ dataProvider.prototype = {
       aTransferable.getTransferData(
         "application/x-moz-file-promise-dest-filename",
         namePrimitive,
-        dataSize
+        dataSize,
       );
       const name = namePrimitive.value.QueryInterface(
-        Components.interfaces.nsISupportsString
+        Components.interfaces.nsISupportsString,
       ).data;
 
       console.log(`target filename is = ${name}`);
@@ -177,16 +179,16 @@ dataProvider.prototype = {
       aTransferable.getTransferData(
         "application/x-moz-file-promise-dir",
         dirPrimitive,
-        dataSize
+        dataSize,
       );
       const dir = dirPrimitive.value.QueryInterface(
-        Components.interfaces.nsILocalFile
+        Components.interfaces.nsILocalFile,
       );
 
       console.log(`target folder is = ${dir.path}`);
 
       const file = Cc["@mozilla.org/file/local;1"].createInstance(
-        Components.interfaces.nsILocalFile
+        Components.interfaces.nsILocalFile,
       );
       file.initWithPath(dir.path);
       file.appendRelativePath(name);

@@ -1,11 +1,11 @@
 ---
 title: Intl.Locale.prototype.hourCycle
+short-title: hourCycle
 slug: Web/JavaScript/Reference/Global_Objects/Intl/Locale/hourCycle
 page-type: javascript-instance-accessor-property
 browser-compat: javascript.builtins.Intl.Locale.hourCycle
+sidebar: jsref
 ---
-
-{{JSRef}}
 
 The **`hourCycle`** accessor property of {{jsxref("Intl.Locale")}} instances returns the hour cycle type for this locale.
 
@@ -51,4 +51,4 @@ console.log(locale.hourCycle); // "h12"
 
 - {{jsxref("Intl.Locale")}}
 - [`Intl.Locale.prototype.getHourCycles()`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/getHourCycles)
-- [Unicode Hour Cycle extension key spec](https://www.unicode.org/reports/tr35/#UnicodeHourCycleIdentifier)
+- [Unicode Hour Cycle Identifier](https://www.unicode.org/reports/tr35/#UnicodeHourCycleIdentifier) in the Unicode locale data markup language spec

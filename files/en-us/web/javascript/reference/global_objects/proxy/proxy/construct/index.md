@@ -1,15 +1,35 @@
 ---
 title: handler.construct()
+short-title: construct()
 slug: Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/construct
 page-type: javascript-instance-method
 browser-compat: javascript.builtins.Proxy.handler.construct
+sidebar: jsref
 ---
-
-{{JSRef}}
 
 The **`handler.construct()`** method is a trap for the `[[Construct]]` [object internal method](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), which is used by operations such as the {{jsxref("Operators/new", "new")}} operator. In order for the new operation to be valid on the resulting Proxy object, the target used to initialize the proxy must itself be a valid constructor.
 
-{{EmbedInteractiveExample("pages/js/proxyhandler-construct.html", "taller")}}
+{{InteractiveExample("JavaScript Demo: handler.construct()", "taller")}}
+
+```js interactive-example
+function monster1(disposition) {
+  this.disposition = disposition;
+}
+
+const handler1 = {
+  construct(target, args) {
+    console.log(`Creating a ${target.name}`);
+    // Expected output: "Creating a monster1"
+
+    return new target(...args);
+  },
+};
+
+const proxy1 = new Proxy(monster1, handler1);
+
+console.log(new proxy1("fierce").disposition);
+// Expected output: "fierce"
+```
 
 ## Syntax
 
@@ -17,7 +37,7 @@ The **`handler.construct()`** method is a trap for the `[[Construct]]` [object i
 new Proxy(target, {
   construct(target, argumentsList, newTarget) {
   }
-});
+})
 ```
 
 ### Parameters
@@ -25,15 +45,15 @@ new Proxy(target, {
 The following parameters are passed to the `construct()` method. `this` is bound to the handler.
 
 - `target`
-  - : The target object.
+  - : The target constructor object.
 - `argumentsList`
-  - : The list of arguments for the constructor.
+  - : An {{jsxref("Array")}} containing the arguments passed to the constructor.
 - `newTarget`
   - : The constructor that was originally called.
 
 ### Return value
 
-The `construct` method must return an object.
+The `construct()` method must return an object, representing the newly created object.
 
 ## Description
 
@@ -48,9 +68,10 @@ Or any other operation that invokes the `[[Construct]]` [internal method](/en-US
 
 ### Invariants
 
-If the following invariants are violated, the trap throws a {{jsxref("TypeError")}} when invoked.
+The proxy's `[[Construct]]` internal method throws a {{jsxref("TypeError")}} if the handler definition violates one of the following invariants:
 
-- The result must be an `Object`.
+- The `target` must be a constructor itself.
+- The result must be an {{jsxref("Object")}}.
 
 ## Examples
 
@@ -109,5 +130,5 @@ new p(); // TypeError is thrown, "p" is not a constructor
 
 - {{jsxref("Proxy")}}
 - [`Proxy()` constructor](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy)
-- {{jsxref("Operators/new", "new")}} operator.
+- {{jsxref("Operators/new", "new")}}
 - {{jsxref("Reflect.construct()")}}

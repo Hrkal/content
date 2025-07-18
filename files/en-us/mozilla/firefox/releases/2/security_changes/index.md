@@ -1,9 +1,9 @@
 ---
 title: Security in Firefox 2
 slug: Mozilla/Firefox/Releases/2/Security_changes
+page-type: guide
+sidebar: firefox
 ---
-
-{{FirefoxSidebar}}
 
 This article discusses changes that affect security in Firefox 2.
 

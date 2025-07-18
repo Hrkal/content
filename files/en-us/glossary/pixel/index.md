@@ -2,6 +2,7 @@
 title: Pixel
 slug: Glossary/Pixel
 page-type: glossary-definition
+sidebar: glossarysidebar
 ---
 
 A pixel is the smallest building block of a graphical display like a computer screen.

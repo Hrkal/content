@@ -6,7 +6,7 @@ page-type: web-api-instance-property
 browser-compat: api.IDBRequest.transaction
 ---
 
-{{ APIRef("IndexedDB") }}
+{{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
 The **`transaction`** read-only property of the IDBRequest
 interface returns the transaction for the request, that is, the transaction the
@@ -22,8 +22,6 @@ version upgrade is needed when opening a database then during the
 to `"versionchange"`, and can be used to access existing object stores and
 indexes, or abort the upgrade. Following the upgrade, the
 **`transaction`** property will again be `null`.
-
-{{AvailableInWorkers}}
 
 ## Value
 
@@ -48,7 +46,7 @@ const objectStore = db
   .transaction(["toDoList"], "readwrite")
   .objectStore("toDoList");
 
-// Get the to-do list object that has this title as it's title
+// Get the to-do list object that has this title as its title
 const objectStoreTitleRequest = objectStore.get(title);
 
 objectStoreTitleRequest.onsuccess = () => {
@@ -64,7 +62,7 @@ objectStoreTitleRequest.onsuccess = () => {
 
   // Log the transaction that originated this request
   console.log(
-    `The transaction that originated this request is ${updateTitleRequest.transaction}`
+    `The transaction that originated this request is ${updateTitleRequest.transaction}`,
   );
 
   // When this new request succeeds, run the displayData()

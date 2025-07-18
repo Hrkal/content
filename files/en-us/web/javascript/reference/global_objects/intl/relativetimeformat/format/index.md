@@ -1,15 +1,28 @@
 ---
 title: Intl.RelativeTimeFormat.prototype.format()
+short-title: format()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/format
 page-type: javascript-instance-method
 browser-compat: javascript.builtins.Intl.RelativeTimeFormat.format
+sidebar: jsref
 ---
-
-{{JSRef}}
 
 The **`format()`** method of {{jsxref("Intl.RelativeTimeFormat")}} instances formats a `value` and `unit` according to the locale and formatting options of this `Intl.RelativeTimeFormat` object.
 
-{{EmbedInteractiveExample("pages/js/intl-relativetimeformat-prototype-format.html")}}
+{{InteractiveExample("JavaScript Demo: Intl.RelativeTimeFormat.prototype.format()")}}
+
+```js interactive-example
+const rtf1 = new Intl.RelativeTimeFormat("en", { style: "short" });
+
+console.log(rtf1.format(3, "quarter"));
+// Expected output: "in 3 qtrs."
+
+console.log(rtf1.format(-1, "day"));
+// Expected output: "1 day ago"
+
+console.log(rtf1.format(10, "seconds"));
+// Expected output: "in 10 sec."
+```
 
 ## Syntax
 
@@ -24,9 +37,12 @@ format(value, unit)
 - `unit`
   - : Unit to use in the relative time internationalized message. Possible values are: `"year"`, `"quarter"`, `"month"`, `"week"`, `"day"`, `"hour"`, `"minute"`, `"second"`. Plural forms are also permitted.
 
-## Description
+### Return value
 
-The function returned by the `format` getter formats a value and a unit into a string according to the locale and formatting options of this {{jsxref("Intl/RelativeTimeFormat", "Intl.RelativeTimeFormat")}} object.
+A string representing the given `value` and `unit` formatted according to the locale and formatting options of this {{jsxref("Intl.RelativeTimeFormat")}} object.
+
+> [!NOTE]
+> Most of the time, the formatting returned by `format()` is consistent. However, the output may vary between implementations, even within the same locale — output variations are by design and allowed by the specification. It may also not be what you expect. For example, the string may use non-breaking spaces or be surrounded by bidirectional control characters. You should not compare the results of `format()` to hardcoded constants.
 
 ## Examples
 

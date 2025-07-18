@@ -7,9 +7,9 @@ status:
 browser-compat: api.USBConnectionEvent
 ---
 
-{{securecontext_header}}{{APIRef("WebUSB API")}}{{SeeCompatTable}}
+{{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-The **`USBConnectionEvent`** interface of the {{domxref('WebUSB API','','',' ')}} is the event type passed to {{domxref("USB.onconnect")}} and {{domxref("USB.ondisconnect")}} when the user agent detects that a new USB device has been connected or disconnected.
+The **`USBConnectionEvent`** interface of the {{domxref('WebUSB API','','',' ')}} is the event type passed to `USB` {{domxref("USB.connect_event", "connect")}} and {{domxref("USB.disconnect_event", "disconnect")}} events when the user agent detects that a new USB device has been connected or disconnected.
 
 {{InheritanceDiagram}}
 

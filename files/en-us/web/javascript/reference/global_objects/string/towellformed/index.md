@@ -1,11 +1,11 @@
 ---
 title: String.prototype.toWellFormed()
+short-title: toWellFormed()
 slug: Web/JavaScript/Reference/Global_Objects/String/toWellFormed
 page-type: javascript-instance-method
 browser-compat: javascript.builtins.String.toWellFormed
+sidebar: jsref
 ---
-
-{{JSRef}}
 
 The **`toWellFormed()`** method of {{jsxref("String")}} values returns a string where all [lone surrogates](/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) of this string are replaced with the Unicode replacement character U+FFFD.
 
@@ -14,6 +14,10 @@ The **`toWellFormed()`** method of {{jsxref("String")}} values returns a string 
 ```js-nolint
 toWellFormed()
 ```
+
+### Parameters
+
+None.
 
 ### Return value
 
@@ -33,10 +37,10 @@ When ill-formed strings are used in certain contexts, such as {{domxref("TextEnc
 
 ```js
 const strings = [
-  // Lone high surrogate
+  // Lone leading surrogate
   "ab\uD800",
   "ab\uD800c",
-  // Lone low surrogate
+  // Lone trailing surrogate
   "\uDFFFab",
   "c\uDFFFab",
   // Well-formed
@@ -83,5 +87,6 @@ console.log(encodeURI(illFormed.toWellFormed())); // "https://example.com/search
 ## See also
 
 - [Polyfill of `String.prototype.toWellFormed` in `core-js`](https://github.com/zloirock/core-js#well-formed-unicode-strings)
+- [es-shims polyfill of `String.prototype.toWellFormed`](https://www.npmjs.com/package/string.prototype.towellformed)
 - {{jsxref("String.prototype.isWellFormed()")}}
 - {{jsxref("String.prototype.normalize()")}}

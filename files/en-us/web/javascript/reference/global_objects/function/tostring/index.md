@@ -1,21 +1,39 @@
 ---
 title: Function.prototype.toString()
+short-title: toString()
 slug: Web/JavaScript/Reference/Global_Objects/Function/toString
 page-type: javascript-instance-method
 browser-compat: javascript.builtins.Function.toString
+sidebar: jsref
 ---
 
-{{JSRef}}
+The **`toString()`** method of {{jsxref("Function")}} instances returns a string representing the source code of this function.
 
-The **`toString()`** method returns a string representing the source code of the specified {{jsxref("Function")}}.
+{{InteractiveExample("JavaScript Demo: Function.prototype.toString()")}}
 
-{{EmbedInteractiveExample("pages/js/function-tostring.html")}}
+```js interactive-example
+function sum(a, b) {
+  return a + b;
+}
+
+console.log(sum.toString());
+// Expected output: "function sum(a, b) {
+//                     return a + b;
+//                   }"
+
+console.log(Math.abs.toString());
+// Expected output: "function abs() { [native code] }"
+```
 
 ## Syntax
 
 ```js-nolint
 toString()
 ```
+
+### Parameters
+
+None.
 
 ### Return value
 
@@ -30,7 +48,7 @@ objects, the `toString` method returns a string containing the source text
 segment which was used to define the function.
 
 JavaScript calls the `toString` method automatically when a
-`Function` is to be represented as a text value, e.g. when a function is
+`Function` is to be represented as a text value, e.g., when a function is
 concatenated with a string.
 
 The `toString()` method will throw a {{jsxref("TypeError")}} exception
@@ -46,17 +64,18 @@ function created by {{jsxref("Function.prototype.bind()")}}, or
 other non-JavaScript functions, then `toString()` returns a
 _native function string_ which looks like
 
-```
+```plain
 function someName() { [native code] }
 ```
 
 For intrinsic object methods and functions, `someName` is the initial name of the function; otherwise its content may be implementation-defined, but will always be in property name syntax, like `[1 + 1]`, `someName`, or `1`.
 
-> **Note:** This means using [`eval()`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval) on native function strings is a guaranteed syntax error.
+> [!NOTE]
+> This means using [`eval()`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval) on native function strings is a guaranteed syntax error.
 
 If the `toString()` method is called on a function created by the `Function` constructor, `toString()` returns the source code of a synthesized function declaration named "anonymous" using the provided parameters and function body. For example, `Function("a", "b", "return a + b").toString()` will return:
 
-```
+```plain
 function anonymous(a,b
 ) {
 return a + b

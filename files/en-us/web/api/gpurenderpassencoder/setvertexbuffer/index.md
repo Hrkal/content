@@ -3,15 +3,13 @@ title: "GPURenderPassEncoder: setVertexBuffer() method"
 short-title: setVertexBuffer()
 slug: Web/API/GPURenderPassEncoder/setVertexBuffer
 page-type: web-api-instance-method
-status:
-  - experimental
 browser-compat: api.GPURenderPassEncoder.setVertexBuffer
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
 The **`setVertexBuffer()`** method of the
-{{domxref("GPURenderPassEncoder")}} interface sets the current {{domxref("GPUBuffer")}} for the given slot that will provide vertex data for subsequent drawing commands.
+{{domxref("GPURenderPassEncoder")}} interface sets or unsets the current {{domxref("GPUBuffer")}} for the given slot that will provide vertex data for subsequent drawing commands.
 
 ## Syntax
 
@@ -24,7 +22,7 @@ setVertexBuffer(slot, buffer, offset, size)
 - `slot`
   - : A number referencing the vertex buffer slot to set the vertex buffer for.
 - `buffer`
-  - : A {{domxref("GPUBuffer")}} representing the buffer containing the vertex data to use for subsequent drawing commands.
+  - : A {{domxref("GPUBuffer")}} representing the buffer containing the vertex data to use for subsequent drawing commands, or `null`, in which case any previously-set buffer in the given slot is unset.
 - `offset` {{optional_inline}}
   - : A number representing the offset, in bytes, into `buffer` where the vertex data begins. If omitted, `offset` defaults to 0.
 - `size` {{optional_inline}}
@@ -45,10 +43,12 @@ The following criteria must be met when calling **`setVertexBuffer()`**, otherwi
 
 ## Examples
 
+### Set vertex buffer
+
 In our [basic render demo](https://mdn.github.io/dom-examples/webgpu-render-demo/), several commands are recorded via a {{domxref("GPUCommandEncoder")}}. Most of these commands originate from the `GPURenderPassEncoder` created via {{domxref("GPUCommandEncoder.beginRenderPass()")}}. `setVertexBuffer()` is used as appropriate to set the source of vertex data.
 
 ```js
-// ...
+// …
 
 const renderPipeline = device.createRenderPipeline(pipelineDescriptor);
 
@@ -81,7 +81,17 @@ passEncoder.end();
 // End frame by passing array of command buffers to command queue for execution
 device.queue.submit([commandEncoder.finish()]);
 
-// ...
+// …
+```
+
+### Unset vertex buffer
+
+```js
+// Set vertex buffer in slot 0
+passEncoder.setVertexBuffer(0, vertexBuffer);
+
+// Later, unset vertex buffer in slot 0
+passEncoder.setVertexBuffer(0, null);
 ```
 
 ## Specifications

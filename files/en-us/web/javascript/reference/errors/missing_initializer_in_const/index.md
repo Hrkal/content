@@ -2,9 +2,8 @@
 title: "SyntaxError: missing = in const declaration"
 slug: Web/JavaScript/Reference/Errors/Missing_initializer_in_const
 page-type: javascript-error
+sidebar: jssidebar
 ---
-
-{{jsSidebar("Errors")}}
 
 The JavaScript exception "missing = in const declaration" occurs when a const
 declaration was not given a value in the same statement (like
@@ -13,7 +12,7 @@ declaration was not given a value in the same statement (like
 
 ## Message
 
-```
+```plain
 SyntaxError: Missing initializer in const declaration (V8-based)
 SyntaxError: missing = in const declaration (Firefox)
 SyntaxError: Unexpected token ';'. const declared variable 'x' must have an initializer. (Safari)
@@ -40,7 +39,7 @@ changed later).
 Unlike `var` or `let`, you must specify a value for a
 `const` declaration. This throws:
 
-```js example-bad
+```js-nolint example-bad
 const COLUMNS;
 // SyntaxError: missing = in const declaration
 ```

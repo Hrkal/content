@@ -2,6 +2,7 @@
 title: SEO
 slug: Glossary/SEO
 page-type: glossary-definition
+sidebar: glossarysidebar
 ---
 
 **SEO** (Search Engine Optimization) is the process of making a website more visible in search results, also termed improving search rankings.

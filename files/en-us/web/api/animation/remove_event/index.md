@@ -15,7 +15,8 @@ The **`remove`** event of the {{domxref("Animation")}} interface fires when the 
 Use the event name in methods like {{domxref("EventTarget.addEventListener", "addEventListener()")}}, or set an event handler property.
 
 ```js-nolint
-addEventListener('remove', (event) => { })
+addEventListener("remove", (event) => { })
+
 onremove = (event) => { }
 ```
 
@@ -86,7 +87,7 @@ button.addEventListener(
     document.body.addEventListener("mousemove", (event) => {
       const animation = button.animate(
         { transform: `translate(${event.clientX}px, ${event.clientY}px)` },
-        { duration: 500, fill: "forwards" }
+        { duration: 500, fill: "forwards" },
       );
       created++;
       showCounts();
@@ -98,7 +99,7 @@ button.addEventListener(
       });
     });
   },
-  { once: true }
+  { once: true },
 );
 
 function showCounts() {

@@ -1,10 +1,9 @@
 ---
-title: "TypeError: \"x\" is read-only"
+title: 'TypeError: "x" is read-only'
 slug: Web/JavaScript/Reference/Errors/Read-only
 page-type: javascript-error
+sidebar: jssidebar
 ---
-
-{{jsSidebar("Errors")}}
 
 The JavaScript [strict mode](/en-US/docs/Web/JavaScript/Reference/Strict_mode)-only exception
 "is read-only" occurs when a global variable or object
@@ -12,7 +11,7 @@ property that was assigned to is a read-only property.
 
 ## Message
 
-```
+```plain
 TypeError: Cannot assign to read only property 'x' of #<Object> (V8-based)
 TypeError: "x" is read-only (Firefox)
 TypeError: Attempted to assign to readonly property. (Safari)

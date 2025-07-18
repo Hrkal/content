@@ -16,10 +16,10 @@ This event is not cancelable and does not bubble.
 
 Use the event name in methods like {{domxref("EventTarget.addEventListener", "addEventListener()")}}, or set an event handler property.
 
-```js
-addEventListener("progress", (event) => {});
+```js-nolint
+addEventListener("progress", (event) => { })
 
-onprogress = (event) => {};
+onprogress = (event) => { }
 ```
 
 ## Event type
@@ -104,7 +104,7 @@ loadVideo.addEventListener("click", () => {
     source = document.createElement("source");
     source.setAttribute(
       "src",
-      "https://mdn.github.io/learning-area/html/multimedia-and-embedding/video-and-audio-content/rabbit320.mp4"
+      "https://mdn.github.io/learning-area/html/multimedia-and-embedding/video-and-audio-content/rabbit320.mp4",
     );
     source.setAttribute("type", "video/mp4");
 

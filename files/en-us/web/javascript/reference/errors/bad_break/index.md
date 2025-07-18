@@ -2,15 +2,14 @@
 title: "SyntaxError: unlabeled break must be inside loop or switch"
 slug: Web/JavaScript/Reference/Errors/Bad_break
 page-type: javascript-error
+sidebar: jssidebar
 ---
-
-{{jsSidebar("Errors")}}
 
 The JavaScript exception "unlabeled break must be inside loop or switch" occurs when a {{jsxref("Statements/break", "break")}} statement is not inside a loop or a {{jsxref("Statements/switch", "switch")}} statement.
 
 ## Message
 
-```
+```plain
 SyntaxError: Illegal break statement (V8-based)
 SyntaxError: unlabeled break must be inside loop or switch (Firefox)
 SyntaxError: 'break' is only valid inside a switch or loop statement. (Safari)
@@ -30,7 +29,7 @@ SyntaxError: 'break' is only valid inside a switch or loop statement. (Safari)
 
 `break` cannot be used outside `switch` or loops.
 
-```js example-bad
+```js-nolint example-bad
 let score = 0;
 
 function increment() {
@@ -47,7 +46,7 @@ Maybe instead of `break`, you intend to use {{jsxref("Statements/return", "retur
 let score = 0;
 
 function increment() {
-  if (score === 100)
+  if (score === 100) {
     return;
   }
   score++;
@@ -58,10 +57,10 @@ function increment() {
 
 `break` cannot be used in callbacks, even if the callback is called from a loop.
 
-```js example-bad
+```js-nolint example-bad
 let containingIndex = 0;
 const matrix = [
-  [1, 2, 3], 
+  [1, 2, 3],
   [4, 5, 6],
   [7, 8, 9],
 ];
@@ -98,10 +97,14 @@ outer: while (containingIndex < matrix.length) {
 
 ```js example-good
 let containingIndex = 0;
-const matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+const matrix = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+];
 
 while (containingIndex < matrix.length) {
-  if (matrix[containingIndex].includes(5))
+  if (matrix[containingIndex].includes(5)) {
     break;
   }
   containingIndex++;
@@ -110,7 +113,7 @@ while (containingIndex < matrix.length) {
 
 There's no way to early-terminate a {{jsxref("Array/forEach", "forEach()")}} loop. You can use {{jsxref("Array/some", "some()")}} instead, or convert it to a {{jsxref("Statements/for...of", "for...of")}} loop.
 
-```js example-bad
+```js-nolint example-bad
 array.forEach((value) => {
   if (value === 5) {
     break; // SyntaxError: unlabeled break must be inside loop or switch
@@ -125,6 +128,7 @@ array.some((value) => {
     return true;
   }
   // do something with value
+  return false;
 });
 ```
 

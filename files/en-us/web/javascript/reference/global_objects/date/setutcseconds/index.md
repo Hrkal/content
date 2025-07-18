@@ -1,15 +1,27 @@
 ---
 title: Date.prototype.setUTCSeconds()
+short-title: setUTCSeconds()
 slug: Web/JavaScript/Reference/Global_Objects/Date/setUTCSeconds
 page-type: javascript-instance-method
 browser-compat: javascript.builtins.Date.setUTCSeconds
+sidebar: jsref
 ---
-
-{{JSRef}}
 
 The **`setUTCSeconds()`** method of {{jsxref("Date")}} instances changes the seconds and/or milliseconds for this date according to universal time.
 
-{{EmbedInteractiveExample("pages/js/date-setutcseconds.html")}}
+{{InteractiveExample("JavaScript Demo: Date.prototype.setUTCSeconds()")}}
+
+```js interactive-example
+const date1 = new Date("December 31, 1975, 23:15:30 GMT+11:00");
+
+console.log(date1.getUTCSeconds());
+// Expected output: 30
+
+date1.setUTCSeconds(39);
+
+console.log(date1.getUTCSeconds());
+// Expected output: 39
+```
 
 ## Syntax
 
@@ -32,7 +44,7 @@ Changes the {{jsxref("Date")}} object in place, and returns its new [timestamp](
 ## Description
 
 If you do not specify the `msValue` parameter, the value returned from the
-{{jsxref("Date.prototype.getUTCMilliseconds()", "getUTCMilliseconds()")}} method is
+{{jsxref("Date/getUTCMilliseconds", "getUTCMilliseconds()")}} method is
 used.
 
 If a parameter you specify is outside of the expected range,

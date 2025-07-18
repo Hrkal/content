@@ -1,6 +1,8 @@
 ---
 title: Creating and triggering events
 slug: Web/Events/Creating_and_triggering_events
+page-type: guide
+sidebar: events
 ---
 
 This article demonstrates how to create and dispatch DOM events. Such events are commonly called **synthetic events**, as opposed to the events fired by the browser itself.
@@ -18,7 +20,7 @@ elem.addEventListener(
   (e) => {
     /* … */
   },
-  false
+  false,
 );
 
 // Dispatch the event.
@@ -26,8 +28,6 @@ elem.dispatchEvent(event);
 ```
 
 The above code example uses the [EventTarget.dispatchEvent()](/en-US/docs/Web/API/EventTarget/dispatchEvent) method.
-
-This constructor is supported in most modern browsers. For a more verbose approach, see [the old-fashioned way](#the_old-fashioned_way) below.
 
 ### Adding custom data – CustomEvent()
 
@@ -46,28 +46,39 @@ function eventHandler(e) {
 }
 ```
 
-### The old-fashioned way
+### Adding custom data – subclassing Event
 
-The older approach to creating events uses APIs inspired by Java. The following shows an example with {{domxref("document.createEvent()")}}:
+The [`Event`](/en-US/docs/Web/API/Event) interface can also be subclassed. This is particularly useful for reuse, or for more complex custom data, or even adding methods to the event.
 
 ```js
-// Create the event.
-const event = document.createEvent("Event");
+class BuildEvent extends Event {
+  #buildTime;
 
-// Define that the event name is 'build'.
-event.initEvent("build", true, true);
+  constructor(buildTime) {
+    super("build");
+    this.#buildTime = buildTime;
+  }
 
-// Listen for the event.
-elem.addEventListener(
-  "build",
-  (e) => {
-    // e.target matches elem
-  },
-  false
-);
+  get buildTime() {
+    return this.#buildTime;
+  }
+}
+```
 
-// target can be any Element or other EventTarget.
-elem.dispatchEvent(event);
+The above code example defines a `BuildEvent` class with a read-only property, and a fixed event type.
+
+The event could then be created as follows:
+
+```js
+const event = new BuildEvent(elem.dataset.time);
+```
+
+The additional data can then be accessed in the event listeners using the custom properties:
+
+```js
+function eventHandler(e) {
+  console.log(`The time is: ${e.buildTime}`);
+}
 ```
 
 ### Event bubbling
@@ -120,7 +131,7 @@ textarea.addEventListener("input", function () {
     new CustomEvent("awesome", {
       bubbles: true,
       detail: { text: () => textarea.value },
-    })
+    }),
   );
 });
 ```
@@ -156,11 +167,3 @@ function simulateClick() {
 - {{domxref("Event.initEvent()")}}
 - {{domxref("EventTarget.dispatchEvent()")}}
 - {{domxref("EventTarget.addEventListener()")}}
-
-<section id="Quick_links">
-  <ol>
-    <li><a href="/en-US/docs/Learn/JavaScript/Building_blocks/Events">Introduction to events</a></li>
-    <li><a href="/en-US/docs/Web/Events/Event_handlers">Event handlers (overview)</a></li>
-    <li><a href="/en-US/docs/Web/Events">Event reference</a></li>
-  </ol>
-</section>

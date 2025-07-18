@@ -1,15 +1,12 @@
 ---
-title: "::target-text"
+title: ::target-text
 slug: Web/CSS/::target-text
 page-type: css-pseudo-element
-status:
-  - experimental
 browser-compat: css.selectors.target-text
+sidebar: cssref
 ---
 
-{{CSSRef}}{{SeeCompatTable}}
-
-The **`::target-text`** [CSS](/en-US/docs/Web/CSS) [pseudo-element](/en-US/docs/Web/CSS/Pseudo-elements) represents the text that has been scrolled to if the browser supports [text fragments](/en-US/docs/Web/Text_fragments). It allows authors to choose how to highlight that section of text.
+The **`::target-text`** [CSS](/en-US/docs/Web/CSS) [pseudo-element](/en-US/docs/Web/CSS/Pseudo-elements) represents the text that has been scrolled to if the browser supports [text fragments](/en-US/docs/Web/URI/Reference/Fragment/Text_fragments). It allows authors to choose how to highlight that section of text.
 
 ```css
 ::target-text {
@@ -48,4 +45,4 @@ To see this CSS in action follow the link to [scroll-to-text demo](https://mdn.g
 
 ## See also
 
-- [Text fragments](/en-US/docs/Web/Text_fragments)
+- [Text fragments](/en-US/docs/Web/URI/Reference/Fragment/Text_fragments)

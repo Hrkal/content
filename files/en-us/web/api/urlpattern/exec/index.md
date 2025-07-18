@@ -3,19 +3,15 @@ title: "URLPattern: exec() method"
 short-title: exec()
 slug: Web/API/URLPattern/exec
 page-type: web-api-instance-method
-status:
-  - experimental
 browser-compat: api.URLPattern.exec
 ---
 
-{{APIRef("URL Pattern API")}}{{SeeCompatTable}}
+{{APIRef("URL Pattern API")}} {{AvailableInWorkers}}
 
 The **`exec()`** method of the {{domxref("URLPattern")}} interface takes a URL or
 object of URL parts, and returns either an object containing the results of
 matching the URL to the pattern, or `null` if the URL does not match the
 pattern.
-
-{{AvailableInWorkers}}
 
 ## Syntax
 

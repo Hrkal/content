@@ -4,7 +4,7 @@ slug: Web/API/WebGL_API/By_example/Simple_color_animation
 page-type: guide
 ---
 
-{{PreviousNext("Learn/WebGL/By_example/Clearing_by_clicking","Learn/WebGL/By_example/Color_masking")}}
+{{DefaultAPISidebar("WebGL")}}{{PreviousNext("Web/API/WebGL_API/By_example/Clearing_by_clicking","Web/API/WebGL_API/By_example/Color_masking")}}
 
 A very basic color animation created using {{Glossary("WebGL")}}, performed by clearing the drawing buffer with a different random color every second.
 
@@ -12,7 +12,7 @@ A very basic color animation created using {{Glossary("WebGL")}}, performed by c
 
 {{EmbedLiveSample("Color_animation_with_clear",660,425)}}
 
-This example provides a simple illustration of color animation with {{Glossary("WebGL")}}, as well as user interaction. The user can start, stop and restart the animation by clicking the button.
+This example provides an illustration of color animation with {{Glossary("WebGL")}}, as well as user interaction. The user can start, stop and restart the animation by clicking the button.
 
 This time we put the {{Glossary("WebGL")}} function calls within a timer event handler. A click event handler additionally enables the basic user interaction of starting and stopping the animation. The timer and the timer handler function establish the animation loop, a set of drawing commands that are executed at a regular period (typically, every frame; in this case, once per second).
 
@@ -80,7 +80,7 @@ window.addEventListener(
       // Stop animation by clearing the timer.
       clearInterval(timer);
     }
-    // Call stopAnimation() once to setup the initial event
+    // Call stopAnimation() once to set up the initial event
     // handlers for canvas and button.
     stopAnimation({ type: "click" });
 
@@ -94,7 +94,7 @@ window.addEventListener(
           clearInterval(timer);
           alert(
             "Failed to get WebGL context.\n" +
-              "Your browser or device may not support WebGL."
+              "Your browser or device may not support WebGL.",
           );
           return;
         }
@@ -115,10 +115,10 @@ window.addEventListener(
       return [Math.random(), Math.random(), Math.random()];
     }
   },
-  false
+  false,
 );
 ```
 
 The source code of this example is also available on [GitHub](https://github.com/idofilin/webgl-by-example/tree/master/simple-color-animation).
 
-{{PreviousNext("Learn/WebGL/By_example/Clearing_by_clicking","Learn/WebGL/By_example/Color_masking")}}
+{{PreviousNext("Web/API/WebGL_API/By_example/Clearing_by_clicking","Web/API/WebGL_API/By_example/Color_masking")}}

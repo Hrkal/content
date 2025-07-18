@@ -1,15 +1,29 @@
 ---
 title: Array.prototype.at()
+short-title: at()
 slug: Web/JavaScript/Reference/Global_Objects/Array/at
 page-type: javascript-instance-method
 browser-compat: javascript.builtins.Array.at
+sidebar: jsref
 ---
 
-{{JSRef}}
+The **`at()`** method of {{jsxref("Array")}} instances takes an integer value and returns the item at that index, allowing for positive and negative integers. Negative integers count back from the last item in the array.
 
-The **`at()`** method takes an integer value and returns the item at that index, allowing for positive and negative integers. Negative integers count back from the last item in the array.
+{{InteractiveExample("JavaScript Demo: Array.prototype.at()")}}
 
-{{EmbedInteractiveExample("pages/js/array-at.html")}}
+```js interactive-example
+const array1 = [5, 12, 8, 130, 44];
+
+let index = 2;
+
+console.log(`An index of ${index} returns ${array1.at(index)}`);
+// Expected output: "An index of 2 returns 8"
+
+index = -2;
+
+console.log(`An index of ${index} returns ${array1.at(index)}`);
+// Expected output: "An index of -2 returns 130"
+```
 
 ## Syntax
 
@@ -28,9 +42,11 @@ The element in the array matching the given index. Always returns {{jsxref("unde
 
 ## Description
 
-The `at()` method is equivalent to the bracket notation when `index` is non-negative. For example, `array[0]` and `array.at(0)` both return the first item. However, when counting elements from the end of the array, you cannot use `array[-1]` like you may in Python or R, because all values inside the square brackets are treated literally as string properties, so you will end up reading `array["-1"]`, which is just a normal string property instead of an array index.
+The `at()` method is equivalent to the bracket notation when `index` is a non-negative integer. For example, `array[0]` and `array.at(0)` both return the first item. However, when counting elements from the end of the array, you cannot use `array[-1]` like you may in Python or R, because all values inside the square brackets are treated literally as string properties, so you will end up reading `array["-1"]`, which is just a normal string property instead of an array index.
 
 The usual practice is to access {{jsxref("Array/length", "length")}} and calculate the index from that — for example, `array[array.length - 1]`. The `at()` method allows relative indexing, so this can be shortened to `array.at(-1)`.
+
+By combining `at()` with {{jsxref("Array/with", "with()")}}, you can both read and write (respectively) an array using negative indices.
 
 The `at()` method is [generic](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). It only expects the `this` value to have a `length` property and integer-keyed properties.
 
@@ -89,8 +105,10 @@ const arrayLike = {
   length: 2,
   0: "a",
   1: "b",
+  2: "c", // ignored by at() since length is 2
 };
-console.log(Array.prototype.at.call(arrayLike, -1)); // "b"
+console.log(Array.prototype.at.call(arrayLike, 0)); // "a"
+console.log(Array.prototype.at.call(arrayLike, 2)); // undefined
 ```
 
 ## Specifications
@@ -104,9 +122,11 @@ console.log(Array.prototype.at.call(arrayLike, -1)); // "b"
 ## See also
 
 - [Polyfill of `Array.prototype.at` in `core-js`](https://github.com/zloirock/core-js#relative-indexing-method)
-- [Indexed collections](/en-US/docs/Web/JavaScript/Guide/Indexed_collections)
+- [es-shims polyfill of `Array.prototype.at`](https://www.npmjs.com/package/array.prototype.at)
+- [Indexed collections](/en-US/docs/Web/JavaScript/Guide/Indexed_collections) guide
 - {{jsxref("Array")}}
 - {{jsxref("Array.prototype.findIndex()")}}
 - {{jsxref("Array.prototype.indexOf()")}}
+- {{jsxref("Array.prototype.with()")}}
 - {{jsxref("TypedArray.prototype.at()")}}
 - {{jsxref("String.prototype.at()")}}

@@ -17,13 +17,13 @@ can be string or {{domxref("Node")}} objects.
 ```js-nolint
 replaceChildren(param1)
 replaceChildren(param1, param2)
-replaceChildren(param1, param2, /* … ,*/ paramN)
+replaceChildren(param1, param2, /* …, */ paramN)
 ```
 
 ### Parameters
 
 - `param1`, …, `paramN`
-  - : A set of {{domxref("Node")}} or string objects to replace the
+  - : A set of {{domxref("Node")}} objects or strings to replace the
     `Element`'s existing children with. If no replacement objects are
     specified, then the `Element` is emptied of all child nodes.
 
@@ -148,7 +148,7 @@ yesBtn.addEventListener("click", () => {
 
 noBtn.addEventListener("click", () => {
   const selectedTransferOptions = document.querySelectorAll(
-    "#yes option:checked"
+    "#yes option:checked",
   );
   const existingNoOptions = document.querySelectorAll("#no option");
   noSelect.replaceChildren(...selectedTransferOptions, ...existingNoOptions);

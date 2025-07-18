@@ -1,11 +1,11 @@
 ---
 title: AggregateError() constructor
+short-title: AggregateError()
 slug: Web/JavaScript/Reference/Global_Objects/AggregateError/AggregateError
 page-type: javascript-constructor
 browser-compat: javascript.builtins.AggregateError.AggregateError
+sidebar: jsref
 ---
-
-{{JSRef}}
 
 The **`AggregateError()`** constructor creates {{jsxref("AggregateError")}} objects.
 
@@ -21,12 +21,13 @@ AggregateError(errors, message)
 AggregateError(errors, message, options)
 ```
 
-> **Note:** `AggregateError()` can be called with or without [`new`](/en-US/docs/Web/JavaScript/Reference/Operators/new). Both create a new `AggregateError` instance.
+> [!NOTE]
+> `AggregateError()` can be called with or without [`new`](/en-US/docs/Web/JavaScript/Reference/Operators/new). Both create a new `AggregateError` instance.
 
 ### Parameters
 
 - `errors`
-  - : An iterable of errors, may not actually be {{JSxRef("Error")}} instances.
+  - : An iterable of errors, may not actually be {{jsxref("Error")}} instances.
 - `message` {{optional_inline}}
   - : An optional human-readable description of the aggregate error.
 - `options` {{optional_inline}}
@@ -61,4 +62,5 @@ try {
 ## See also
 
 - [Polyfill of `AggregateError` in `core-js`](https://github.com/zloirock/core-js#ecmascript-promise)
+- [es-shims polyfill of `AggregateError`](https://www.npmjs.com/package/es-aggregate-error)
 - {{jsxref("Promise.any")}}

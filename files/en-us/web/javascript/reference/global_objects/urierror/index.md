@@ -3,13 +3,12 @@ title: URIError
 slug: Web/JavaScript/Reference/Global_Objects/URIError
 page-type: javascript-class
 browser-compat: javascript.builtins.URIError
+sidebar: jsref
 ---
-
-{{JSRef}}
 
 The **`URIError`** object represents an error when a global URI handling function was used in a wrong way.
 
-`URIError` is a {{Glossary("serializable object")}}, so it can be cloned with {{domxref("structuredClone()")}} or copied between [Workers](/en-US/docs/Web/API/Worker) using {{domxref("Worker/postMessage()", "postMessage()")}}.
+`URIError` is a {{Glossary("serializable object")}}, so it can be cloned with {{DOMxRef("Window.structuredClone", "structuredClone()")}} or copied between [Workers](/en-US/docs/Web/API/Worker) using {{domxref("Worker/postMessage()", "postMessage()")}}.
 
 `URIError` is a subclass of {{jsxref("Error")}}.
 
@@ -72,7 +71,7 @@ try {
 ## See also
 
 - {{jsxref("Error")}}
-- {{jsxref("Global_Objects/decodeURI", "decodeURI()")}}
-- {{jsxref("Global_Objects/decodeURIComponent", "decodeURIComponent()")}}
-- {{jsxref("Global_Objects/encodeURI", "encodeURI()")}}
-- {{jsxref("Global_Objects/encodeURIComponent", "encodeURIComponent()")}}
+- {{jsxref("decodeURI()")}}
+- {{jsxref("decodeURIComponent()")}}
+- {{jsxref("encodeURI()")}}
+- {{jsxref("encodeURIComponent()")}}

@@ -2,9 +2,8 @@
 title: "RangeError: repeat count must be less than infinity"
 slug: Web/JavaScript/Reference/Errors/Resulting_string_too_large
 page-type: javascript-error
+sidebar: jssidebar
 ---
-
-{{jsSidebar("Errors")}}
 
 The JavaScript exception "repeat count must be less than infinity" occurs when the
 {{jsxref("String.prototype.repeat()")}} method is used with a `count`
@@ -12,7 +11,7 @@ argument that is infinity.
 
 ## Message
 
-```
+```plain
 RangeError: Invalid string length (V8-based)
 RangeError: Invalid count value: Infinity (V8-based)
 RangeError: repeat count must be less than infinity and not overflow maximum string size (Firefox)

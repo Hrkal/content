@@ -21,9 +21,7 @@ insertAdjacentHTML(position, text)
 ### Parameters
 
 - `position`
-
   - : A string representing the position relative to the element. Must be one of the following strings:
-
     - `"beforebegin"`
       - : Before the element. Only valid if the element is in the DOM tree and has a parent element.
     - `"afterbegin"`
@@ -114,7 +112,7 @@ insert.addEventListener("click", () => {
   const positionSelect = document.querySelector("#position");
   subject.insertAdjacentHTML(
     positionSelect.value,
-    "<strong>inserted text</strong>"
+    "<strong>inserted text</strong>",
   );
 });
 

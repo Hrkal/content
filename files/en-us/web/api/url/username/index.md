@@ -6,12 +6,13 @@ page-type: web-api-instance-property
 browser-compat: api.URL.username
 ---
 
-{{ApiRef("URL API")}}
+{{ApiRef("URL API")}} {{AvailableInWorkers}}
 
-The **`username`** property of the {{domxref("URL")}} interface
-is a string containing the username specified before the domain name.
+The **`username`** property of the {{domxref("URL")}} interface is a string containing the username component of the URL. If the URL does not have a username, this property contains an empty string, `""`.
 
-{{AvailableInWorkers}}
+This property can be set to change the username of the URL. If the URL has no {{domxref("URL.host", "host")}} or its scheme is `file:`, then setting this property has no effect.
+
+The username is {{Glossary("Percent-encoding", "percent-encoded")}} when setting but not percent-decoded when reading.
 
 ## Value
 
@@ -21,7 +22,7 @@ A string.
 
 ```js
 const url = new URL(
-  "https://anonymous:flabada@developer.mozilla.org/en-US/docs/Web/API/URL/username"
+  "https://anonymous:flabada@developer.mozilla.org/en-US/docs/Web/API/URL/username",
 );
 console.log(url.username); // Logs "anonymous"
 ```

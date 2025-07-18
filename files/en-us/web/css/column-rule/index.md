@@ -3,17 +3,56 @@ title: column-rule
 slug: Web/CSS/column-rule
 page-type: css-shorthand-property
 browser-compat: css.properties.column-rule
+sidebar: cssref
 ---
 
-{{CSSRef}}
+The **`column-rule`** [shorthand](/en-US/docs/Web/CSS/CSS_cascade/Shorthand_properties) [CSS](/en-US/docs/Web/CSS) property sets the width, style, and color of the line drawn between columns in a multi-column layout.
 
-The **`column-rule`** [shorthand](/en-US/docs/Web/CSS/Shorthand_properties) [CSS](/en-US/docs/Web/CSS) property sets the width, style, and color of the line drawn between columns in a multi-column layout.
+{{InteractiveExample("CSS Demo: column-rule")}}
 
-{{EmbedInteractiveExample("pages/css/column-rule.html")}}
+```css interactive-example-choice
+column-rule: dotted;
+```
 
-It is a [shorthand property](/en-US/docs/Web/CSS/Shorthand_properties) that sets the individual `column-rule-*` properties in a single, convenient declaration: {{Cssxref("column-rule-width")}}, {{Cssxref("column-rule-style")}}, and {{Cssxref("column-rule-color")}}.
+```css interactive-example-choice
+column-rule: solid 6px;
+```
 
-> **Note:** As with all shorthand properties, any individual value that is not specified is set to its corresponding initial value (possibly overriding values previously set using non-shorthand properties).
+```css interactive-example-choice
+column-rule: solid blue;
+```
+
+```css interactive-example-choice
+column-rule: thick inset blue;
+```
+
+```html interactive-example
+<section id="default-example">
+  <p id="example-element">
+    London. Michaelmas term lately over, and the Lord Chancellor sitting in
+    Lincoln's Inn Hall. Implacable November weather. As much mud in the streets
+    as if the waters had but newly retired from the face of the earth, and it
+    would not be wonderful to meet a Megalosaurus, forty feet long or so,
+    waddling like an elephantine lizard up Holborn Hill.
+  </p>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  columns: 3;
+  column-rule: solid;
+  text-align: left;
+}
+```
+
+## Constituent properties
+
+This property is a shorthand for the following CSS properties:
+
+- {{Cssxref("column-rule-color")}}
+- {{Cssxref("column-rule-style")}}
+- {{Cssxref("column-rule-width")}}
 
 ## Syntax
 
@@ -112,7 +151,7 @@ p.abc {
 
 ## See also
 
-- [Multiple-column Layout](/en-US/docs/Learn/CSS/CSS_layout/Multiple-column_Layout)
+- [Learn: Multiple-column Layout](/en-US/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout)
 - {{CSSXref("column-rule-style")}}
 - {{CSSXref("column-rule-width")}}
 - {{CSSXref("column-rule-color")}}

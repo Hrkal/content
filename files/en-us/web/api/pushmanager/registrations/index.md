@@ -5,15 +5,17 @@ slug: Web/API/PushManager/registrations
 page-type: web-api-instance-method
 status:
   - deprecated
+  - non-standard
 browser-compat: api.PushManager.registrations
 ---
 
-{{deprecated_header}}{{ApiRef("Push API")}}
+{{ApiRef("Push API")}}{{deprecated_header}}{{non-standard_header}}{{AvailableInWorkers}}
 
 The **`registrations`** method is used to ask the system about
 existing push endpoint registrations.
 
-> **Note:** This method has been superseded by the {{domxref("PushManager.getSubscription()")}} method.
+> [!NOTE]
+> This method has been superseded by the {{domxref("PushManager.getSubscription()")}} method.
 
 ## Syntax
 
@@ -50,7 +52,7 @@ req.onsuccess = (e) => {
   if (req.result.length > 0) {
     req.result.forEach((result) => {
       console.log(
-        `Existing registration ${result.pushEndpoint} ${result.version}`
+        `Existing registration ${result.pushEndpoint} ${result.version}`,
       );
     });
     // Reuse existing endpoints.

@@ -10,7 +10,8 @@ browser-compat: api.RTCPeerConnection.datachannel_event
 
 A **`datachannel`** event is sent to an {{domxref("RTCPeerConnection")}} instance when an {{domxref("RTCDataChannel")}} has been added to the connection, as a result of the remote peer calling {{domxref("RTCPeerConnection.createDataChannel()")}}.
 
-> **Note:** This event is _not_ dispatched when the local end of the connection creates the channel.
+> [!NOTE]
+> This event is _not_ dispatched when the local end of the connection creates the channel.
 
 This event is not cancelable and does not bubble.
 
@@ -18,10 +19,10 @@ This event is not cancelable and does not bubble.
 
 Use the event name in methods like {{domxref("EventTarget.addEventListener", "addEventListener()")}}, or set an event handler property.
 
-```js
-addEventListener("datachannel", (event) => {});
+```js-nolint
+addEventListener("datachannel", (event) => { })
 
-ondatachannel = (event) => {};
+ondatachannel = (event) => { }
 ```
 
 ## Event type
@@ -50,7 +51,7 @@ pc.addEventListener(
     receiveChannel.onopen = myHandleOpen;
     receiveChannel.onclose = myHandleClose;
   },
-  false
+  false,
 );
 ```
 

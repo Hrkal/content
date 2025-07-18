@@ -16,6 +16,8 @@ When setting, it invokes {{DOMxRef("CSSStyleDeclaration.setProperty()")}} with `
 
 A string.
 
+When set to the `null` value, that `null` value is converted to the empty string (`""`), so `csd.cssFloat = null` is equivalent to `csd.cssFloat = ""`.
+
 ## Example
 
 In the below example, the stylesheet contains a single rule for `.box`, which has the {{cssxref("float")}} property with a value of `left`. This value will be returned by `cssFloat`. We then set the value to "right" using `cssFloat`, and return the new value.
@@ -32,7 +34,7 @@ let myRules = document.styleSheets[0].cssRules;
 let rule = myRules[0];
 console.log(rule.style.cssFloat); // "left"
 rule.style.cssFloat = "right";
-console.log(rule.style.cssFloat); //right
+console.log(rule.style.cssFloat); // "right"
 ```
 
 ## Specifications

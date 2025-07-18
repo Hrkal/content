@@ -2,16 +2,15 @@
 title: "InternalError: too much recursion"
 slug: Web/JavaScript/Reference/Errors/Too_much_recursion
 page-type: javascript-error
+sidebar: jssidebar
 ---
-
-{{jsSidebar("Errors")}}
 
 The JavaScript exception "too much recursion" or "Maximum call stack size exceeded"
 occurs when there are too many function calls, or a function is missing a base case.
 
 ## Message
 
-```
+```plain
 RangeError: Maximum call stack size exceeded (Chrome)
 InternalError: too much recursion (Firefox)
 RangeError: Maximum call stack size exceeded. (Safari)

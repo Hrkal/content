@@ -3,18 +3,14 @@ title: "URLPattern: test() method"
 short-title: test()
 slug: Web/API/URLPattern/test
 page-type: web-api-instance-method
-status:
-  - experimental
 browser-compat: api.URLPattern.test
 ---
 
-{{APIRef("URL Pattern API")}}{{SeeCompatTable}}
+{{APIRef("URL Pattern API")}} {{AvailableInWorkers}}
 
 The **`test()`** method of the {{domxref("URLPattern")}} interface takes a URL or
 object of URL parts, and returns a boolean indicating if the given input matches
 the current pattern.
-
-{{AvailableInWorkers}}
 
 ## Syntax
 
@@ -64,21 +60,21 @@ console.log(
   pattern.test({
     pathname: "/books/123",
     baseURL: "http://store.example.com",
-  })
+  }),
 ); // true
 console.log(
   pattern.test({
     protocol: "https",
     hostname: "store.example.com",
     pathname: "/books/123",
-  })
+  }),
 ); // true
 console.log(
   pattern.test({
     protocol: "file",
     hostname: "store.example.com",
     pathname: "/books/123",
-  })
+  }),
 ); // false
 ```
 

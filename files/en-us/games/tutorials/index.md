@@ -1,9 +1,9 @@
 ---
 title: Tutorials
 slug: Games/Tutorials
+page-type: landing-page
+sidebar: games
 ---
-
-{{GamesSidebar}}
 
 This page contains multiple tutorial series that highlight different workflows for effectively creating different types of web games.
 

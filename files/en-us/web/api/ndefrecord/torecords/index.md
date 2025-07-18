@@ -31,7 +31,7 @@ None.
 
 A list of {{DOMxRef("NDEFRecord")}}s.
 
-## Exceptions
+### Exceptions
 
 - `NotSupported` {{domxref("DOMException")}}
   - : Indicates that the {{Glossary("User Agent")}} does not know how to parse this combination of
@@ -61,7 +61,7 @@ const ndefReader = new NDEFReader();
 await ndefReader.scan();
 ndefReader.onreading = (event) => {
   const externalRecord = event.message.records.find(
-    (record) => record.type === "example.com:smart-poster"
+    (record) => record.type === "example.com:smart-poster",
   );
 
   let action, text;

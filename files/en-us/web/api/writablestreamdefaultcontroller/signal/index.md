@@ -6,7 +6,7 @@ page-type: web-api-instance-property
 browser-compat: api.WritableStreamDefaultController.signal
 ---
 
-{{APIRef("Streams")}}
+{{APIRef("Streams")}}{{AvailableInWorkers}}
 
 The read-only **`signal`** property of the {{domxref("WritableStreamDefaultController")}} interface returns the {{domxref("AbortSignal")}} associated with the controller.
 
@@ -23,10 +23,10 @@ In this example, we simulate a slow operation using a local sink: We do nothing 
 ```js
 const writingStream = new WritableStream({
   // Define the slow local sink to simulate a long operation
-  write(controller) {
+  write(chunk, controller) {
     return new Promise((resolve, reject) => {
       controller.signal.addEventListener("abort", () =>
-        reject(controller.signal.reason)
+        reject(controller.signal.reason),
       );
 
       // Do nothing but wait with the data: it is a local sink
@@ -50,7 +50,7 @@ In this example, we use the [Fetch API](/en-US/docs/Web/API/Fetch_API) to actual
 ```js
 const endpoint = "https://www.example.com/api"; // Fake URL for example purpose
 const writingStream = new WritableStream({
-  async write(controller, chunk) {
+  async write(chunk, controller) {
     // Write to the server using the Fetch API
     const response = await fetch(endpoint, {
       signal: controller.signal, // We use the same object for both fetch and controller

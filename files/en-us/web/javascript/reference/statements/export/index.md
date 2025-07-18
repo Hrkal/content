@@ -3,9 +3,8 @@ title: export
 slug: Web/JavaScript/Reference/Statements/export
 page-type: javascript-statement
 browser-compat: javascript.statements.export
+sidebar: jssidebar
 ---
-
-{{jsSidebar("Statements")}}
 
 The **`export`** declaration is used to export values from a JavaScript module. Exported values can then be imported into other programs with the {{jsxref("Statements/import", "import")}} declaration or [dynamic import](/en-US/docs/Web/JavaScript/Reference/Operators/import). The value of an imported binding is subject to change in the module that exports it — when a module updates the value of a binding that it exports, the update will be visible in its imported value.
 
@@ -92,7 +91,8 @@ export default function () { /* … */ }
 export default class { /* … */ }
 ```
 
-> **Note:** Names for export declarations must be distinct from each other. Having exports with duplicate names or using more than one `default` export will result in a {{jsxref("SyntaxError")}} and prevent the module from being evaluated.
+> [!NOTE]
+> Names for export declarations must be distinct from each other. Having exports with duplicate names or using more than one `default` export will result in a {{jsxref("SyntaxError")}} and prevent the module from being evaluated.
 
 The `export default` syntax allows any expression.
 
@@ -129,6 +129,7 @@ export default k;
 ```js
 // some other file
 import m from "./test"; // note that we have the freedom to use import m instead of import k, because k was default export
+
 console.log(m); // 12
 ```
 
@@ -158,6 +159,7 @@ Which is comparable to a combination of import and export, except that `function
 
 ```js
 import { default as function1, function2 } from "bar.js";
+
 export { function1, function2 };
 ```
 
@@ -184,6 +186,7 @@ export * from "./mod2.js";
 
 // -- main.js --
 import * as ns from "./barrel.js";
+
 console.log(ns.a); // undefined
 ```
 
@@ -196,7 +199,7 @@ import { a } from "./barrel.js";
 
 The following is syntactically invalid despite its import equivalent:
 
-```js example-bad
+```js-nolint example-bad
 export DefaultExport from "bar.js"; // Invalid
 ```
 
@@ -210,6 +213,12 @@ The "export from" syntax allows the `as` token to be omitted, which makes the de
 
 ```js
 export { default, function2 } from "bar.js";
+```
+
+`export from` supports all features that `import` supports — for example, [import attributes](/en-US/docs/Web/JavaScript/Reference/Statements/import/with):
+
+```js
+export { default } from "./data.json" with { type: "json" };
 ```
 
 ## Examples
@@ -249,22 +258,22 @@ graph.options = {
   thickness: "3px",
 };
 
-graph.draw();
+graph.draw(); // Logs "From graph draw function"
 console.log(cube(3)); // 27
 console.log(foo); // 4.555806215962888
 ```
 
 It is important to note the following:
 
-- You need to include this script in your HTML with a {{htmlelement("script")}} element of `type="module"`, so that it gets recognized as a module and dealt with appropriately.
-- You can't run JS modules via a `file://` URL — you'll get [CORS](/en-US/docs/Web/HTTP/CORS) errors. You need to run it via an HTTP server.
+- You need to include this script in your HTML with a {{HTMLElement("script")}} element of `type="module"`, so that it gets recognized as a module and dealt with appropriately.
+- You can't run JS modules via a `file://` URL — you'll get [CORS](/en-US/docs/Web/HTTP/Guides/CORS) errors. You need to run it via an HTTP server.
 
 ### Using the default export
 
-If we want to export a single value or to have a fallback value for your module, you could use a default export:
+If we want to export a single value representing an entire module, we could use a default export:
 
 ```js
-// module "my-module.js"
+// module "cube.js"
 
 export default function cube(x) {
   return x * x * x;
@@ -274,7 +283,8 @@ export default function cube(x) {
 Then, in another script, it is straightforward to import the default export:
 
 ```js
-import cube from "./my-module.js";
+import cube from "./cube.js";
+
 console.log(cube(3)); // 27
 ```
 
@@ -336,6 +346,6 @@ import { myFunction, myVariable, MyClass } from "parentModule.js";
 
 - {{jsxref("Statements/import", "import")}}
 - [JavaScript modules](/en-US/docs/Web/JavaScript/Guide/Modules) guide
-- [ES6 in Depth: Modules](https://hacks.mozilla.org/2015/08/es6-in-depth-modules/), Hacks blog post by Jason Orendorff
-- [ES modules: A cartoon deep-dive](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/), Hacks blog post by Lin Clark
-- [Axel Rauschmayer's book: "Exploring JS: Modules"](https://exploringjs.com/es6/ch_modules.html)
+- [ES6 in Depth: Modules](https://hacks.mozilla.org/2015/08/es6-in-depth-modules/) on hacks.mozilla.org (2015)
+- [ES modules: A cartoon deep-dive](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/) on hacks.mozilla.org (2018)
+- [Exploring JS, Ch.16: Modules](https://exploringjs.com/es6/ch_modules.html) by Dr. Axel Rauschmayer

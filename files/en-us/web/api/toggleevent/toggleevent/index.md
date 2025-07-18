@@ -3,12 +3,10 @@ title: "ToggleEvent: ToggleEvent() constructor"
 short-title: ToggleEvent()
 slug: Web/API/ToggleEvent/ToggleEvent
 page-type: web-api-constructor
-status:
-  - experimental
 browser-compat: api.ToggleEvent.ToggleEvent
 ---
 
-{{APIRef("Popover API")}}{{SeeCompatTable}}
+{{APIRef("Popover API")}}
 
 The **`ToggleEvent()`** constructor creates a new {{domxref("ToggleEvent")}} object.
 
@@ -21,7 +19,7 @@ new ToggleEvent(type, init)
 ### Parameters
 
 - `type`
-  - : A string representing the type of event. In the case of `ToggleEvent` this is always `toggleevent`.
+  - : A string representing the type of event. In the case of `ToggleEvent` this is always `beforetoggle` or `toggle`.
 - `init`
   - : An object containing the following properties:
     - `newState`
@@ -38,7 +36,7 @@ For example:
 ```js
 const popover = document.getElementById("mypopover");
 
-// ...
+// …
 
 popover.addEventListener("beforetoggle", (event) => {
   if (event.newState === "open") {

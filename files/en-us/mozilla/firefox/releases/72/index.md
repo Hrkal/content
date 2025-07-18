@@ -1,9 +1,10 @@
 ---
 title: Firefox 72 for Developers
+short-title: Firefox 72
 slug: Mozilla/Firefox/Releases/72
+page-type: firefox-release-notes
+sidebar: firefox
 ---
-
-{{FirefoxSidebar}}
 
 This article provides information about the changes in Firefox 72 that will affect developers. Firefox 72 was released on January 7, 2020.
 
@@ -38,9 +39,8 @@ _No changes._
 
 ### CSS
 
-- CSS Shadow Parts are now enabled. This includes the [`part` attribute](/en-US/docs/Web/HTML/Global_attributes/part) and [`::part` pseudo-element](/en-US/docs/Web/CSS/::part), which allow shadow hosts to selectively expose chosen elements from their shadow tree to the outside page for styling purposes ([Firefox bug 1559074](https://bugzil.la/1559074)).
-- [CSS Motion Path](/en-US/docs/Web/CSS/CSS_Motion_Path) has been shipped ([Firefox bug 1582554](https://bugzil.la/1582554), also see the [Intent to Ship](https://groups.google.com/forum/#!topic/mozilla.dev.platform/nOOIRsuxvuc)). This includes:
-
+- CSS Shadow Parts are now enabled. This includes the [`part` attribute](/en-US/docs/Web/HTML/Reference/Global_attributes/part) and [`::part` pseudo-element](/en-US/docs/Web/CSS/::part), which allow shadow hosts to selectively expose chosen elements from their shadow tree to the outside page for styling purposes ([Firefox bug 1559074](https://bugzil.la/1559074)).
+- [CSS Motion Path](/en-US/docs/Web/CSS/CSS_motion_path) has been shipped ([Firefox bug 1582554](https://bugzil.la/1582554), also see the [Intent to Ship](https://groups.google.com/forum/#!topic/mozilla.dev.platform/nOOIRsuxvuc)). This includes:
   - {{cssxref("offset")}}
   - {{cssxref("offset-path")}}
   - {{cssxref("offset-anchor")}}
@@ -57,47 +57,45 @@ _No changes._
 
 ### JavaScript
 
-- The [nullish coalescing operator](/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator) has been implemented ([Firefox bug 1566141](https://bugzil.la/1566141)).
+- The [nullish coalescing operator](/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing) has been implemented ([Firefox bug 1566141](https://bugzil.la/1566141)).
 
 ### APIs
 
 #### New APIs
 
-- {{domxref("FormDataEvent")}} and [event-based form participation](/en-US/docs/Web/API/FormData/Using_FormData_Objects#using_a_formdata_event) is now enabled by default ([Firefox bug 1594708](https://bugzil.la/1594708)).
-- The {{domxref("crossOriginIsolated")}} property is now supported ([Firefox bug 1591892](https://bugzil.la/1591892)).
+- {{domxref("FormDataEvent")}} and [event-based form participation](/en-US/docs/Web/API/XMLHttpRequest_API/Using_FormData_Objects#using_a_formdata_event) is now enabled by default ([Firefox bug 1594708](https://bugzil.la/1594708)).
+- The {{domxref("Window.crossOriginIsolated")}} property and the {{domxref("WorkerGlobalScope.crossOriginIsolated")}} property is now supported ([Firefox bug 1591892](https://bugzil.la/1591892)).
 
 #### DOM
 
 - The [Geolocation API](/en-US/docs/Web/API/Geolocation_API) has had some interface name updates, as per recent spec changes ([Firefox bug 1575144](https://bugzil.la/1575144)):
-
   - `Coordinates` has been changed to {{domxref("GeolocationCoordinates")}}.
   - `Position` has been changed to {{domxref("GeolocationPosition")}}.
   - `PositionError` has been changed to {{domxref("GeolocationPositionError")}}.
 
 - A number of properties have been updated to use standard stringifiers ([Firefox bug 824857](https://bugzil.la/824857)):
-
   - {{domxref("DOMTokenList.value")}}
   - {{domxref("HTMLAnchorElement.href")}}
   - {{domxref("Location.href")}}
   - {{domxref("MediaList.mediaText")}}
   - {{domxref("URL.href")}}
-  - {{domxref("URLUtilsReadOnly/href", "WorkerLocation.href")}}
+  - {{domxref("WorkerLocation.href")}}
 
 #### DOM events
 
-- {{domxref("Notification.requestPermission()")}} and {{domxref("PushManager.subscribe()")}} can now only be called in response to a user gesture such as a [`click`](/en-US/docs/Web/API/Element/click_event) event ([Firefox bug 1593644](https://bugzil.la/1593644)).
+- {{domxref("Notification.requestPermission_static", "Notification.requestPermission()")}} and {{domxref("PushManager.subscribe()")}} can now only be called in response to a user gesture such as a [`click`](/en-US/docs/Web/API/Element/click_event) event ([Firefox bug 1593644](https://bugzil.la/1593644)).
 
 #### Media, Web Audio, and WebRTC
 
 - The {{domxref("MediaDevices.getDisplayMedia()")}} method can now only be called in response to a user gesture such as a [`click`](/en-US/docs/Web/API/Element/click_event) event ([Firefox bug 1580944](https://bugzil.la/1580944)).
-- The {{domxref("RTCRtpContributingSource")}} dictionary can now include the {{domxref("RTCRtpContributingSource.rtpTimestamp", "rtpTimestamp")}} property, which is a source-generated time at which the packet's media was generated or sampled ([Firefox bug 1583867](https://bugzil.la/1583867)).
+- The `RTCRtpContributingSource` dictionary can now include the `rtpTimestamp` property, which is a source-generated time at which the packet's media was generated or sampled ([Firefox bug 1583867](https://bugzil.la/1583867)).
 
 #### Removals
 
 - Removed the non-standard `window.mozPaintCount` property. ([Firefox bug 1591968](https://bugzil.la/1591968))
 - The {{domxref("BatteryManager")}} interface is no longer exposed to web content ([Firefox bug 1441976](https://bugzil.la/1441976)).
 - {{domxref("Navigator.vibrate()")}} is no longer supported in cross-origin {{htmlelement("iframe")}}s ([Firefox bug 1591113](https://bugzil.la/1591113)).
-- WebRTC no longer supports the `rid=` and `pt=` parameters on the `simulcast` attribute. The new syntax for a line such as "`a=simulcast: send rid=7 recv rid=8`" is now "`a=simulcast: send 7 recv 8`". The new syntax has been supported since Firefox 68, so now it's time tor retire support for the old syntax ([Firefox bug 1470568](https://bugzil.la/1470568)).
+- WebRTC no longer supports the `rid=` and `pt=` parameters on the `simulcast` attribute. The new syntax for a line such as `a=simulcast: send rid=7 recv rid=8` is now `a=simulcast: send 7 recv 8`. The new syntax has been supported since Firefox 68, so now it's time tor retire support for the old syntax ([Firefox bug 1470568](https://bugzil.la/1470568)).
 
 ### Security
 
@@ -130,7 +128,3 @@ _No changes._
 ## See also
 
 - Hacks release post: [Firefox 72 — our first song of 2020](https://hacks.mozilla.org/2020/01/firefox-72-our-first-song-of-2020/)
-
-## Older versions
-
-{{Firefox_for_developers(71)}}

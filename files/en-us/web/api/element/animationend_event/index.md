@@ -8,16 +8,16 @@ browser-compat: api.Element.animationend_event
 
 {{APIRef}}
 
-The **`animationend`** event is fired when a [CSS Animation](/en-US/docs/Web/CSS/CSS_Animations) has completed. If the animation aborts before reaching completion, such as if the element is removed from the DOM or the animation is removed from the element, the `animationend` event is not fired.
+The **`animationend`** event is fired when a [CSS Animation](/en-US/docs/Web/CSS/CSS_animations) has completed. If the animation aborts before reaching completion, such as if the element is removed from the DOM or the animation is removed from the element, the `animationend` event is not fired.
 
 ## Syntax
 
 Use the event name in methods like {{domxref("EventTarget.addEventListener", "addEventListener()")}}, or set an event handler property.
 
-```js
-addEventListener("animationend", (event) => {});
+```js-nolint
+addEventListener("animationend", (event) => { })
 
-onanimationend = (event) => {};
+onanimationend = (event) => { }
 ```
 
 ## Event type
@@ -90,19 +90,17 @@ animated.onanimationend = () => {
 
 .animation.active {
   animation-duration: 2s;
-  animation-name: slidein;
+  animation-name: slide-in;
   animation-iteration-count: 2;
 }
 
-@keyframes slidein {
+@keyframes slide-in {
   from {
-    margin-left: 100%;
-    width: 300%;
+    transform: translateX(100%) scaleX(3);
   }
 
   to {
-    margin-left: 0%;
-    width: 100%;
+    transform: translateX(0) scaleX(1);
   }
 }
 ```
@@ -112,10 +110,10 @@ animated.onanimationend = () => {
 ```js
 const animation = document.querySelector("p.animation");
 const animationEventLog = document.querySelector(
-  ".animation-example>.event-log"
+  ".animation-example>.event-log",
 );
 const applyAnimation = document.querySelector(
-  ".animation-example>button.activate"
+  ".animation-example>button.activate",
 );
 let iterationCount = 0;
 
@@ -163,9 +161,7 @@ applyAnimation.addEventListener("click", () => {
 
 ## See also
 
-- [CSS Animations](/en-US/docs/Web/CSS/CSS_Animations)
-- [Using CSS Animations](/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations)
+- [CSS Animations](/en-US/docs/Web/CSS/CSS_animations)
+- [Using CSS Animations](/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations)
 - {{domxref("AnimationEvent")}}
 - Related events: {{domxref("Element/animationstart_event", "animationstart")}}, {{domxref("Element/animationcancel_event", "animationcancel")}}, {{domxref("Element/animationiteration_event", "animationiteration")}}
-- This event on {{domxref("Document")}} targets: {{domxref("Document/animationend_event", "animationend")}}
-- This event on {{domxref("Window")}} targets: {{domxref("Window/animationend_event", "animationend")}}

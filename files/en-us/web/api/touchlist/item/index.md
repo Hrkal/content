@@ -32,7 +32,7 @@ item(index)
 ## Examples
 
 This code example illustrates the use of the {{domxref("TouchList")}} interface's
-{{domxref("TouchList.item()","item")}} method and the
+`item` method and the
 {{domxref("TouchList.length","length")}} property.
 
 ```js
@@ -49,7 +49,7 @@ target.addEventListener(
         ? ev.targetTouches.item(0)
         : ev.touches.item(0);
   },
-  false
+  false,
 );
 ```
 

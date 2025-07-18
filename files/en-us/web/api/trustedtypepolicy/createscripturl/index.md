@@ -6,9 +6,9 @@ page-type: web-api-instance-method
 browser-compat: api.TrustedTypePolicy.createScriptURL
 ---
 
-{{DefaultAPISidebar("Trusted Types API")}}
+{{APIRef("Trusted Types API")}}{{AvailableInWorkers}}
 
-The **`createScriptURL()`** method of the {{domxref("TrustedTypePolicy")}} interface creates a {{domxref("TrustedScriptURL")}} object using a policy created by {{domxref("TrustedTypePolicyFactory.createPolicy","TrustedTypePolicyFactory.createPolicy()")}}.
+The **`createScriptURL()`** method of the {{domxref("TrustedTypePolicy")}} interface creates a {{domxref("TrustedScriptURL")}} object using a policy created by {{domxref("TrustedTypePolicyFactory.createPolicy()")}}.
 
 ## Syntax
 
@@ -39,7 +39,7 @@ In the below example a string containing the URL to an external resource is used
 
 ```js
 const escaped = escapeURLPolicy.createScriptURL(
-  "https://example.com/my-script.js"
+  "https://example.com/my-script.js",
 );
 ```
 

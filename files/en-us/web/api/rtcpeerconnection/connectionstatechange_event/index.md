@@ -17,10 +17,10 @@ This event is not cancelable and does not bubble.
 
 Use the event name in methods like {{domxref("EventTarget.addEventListener", "addEventListener()")}}, or set an event handler property.
 
-```js
-addEventListener("connectionstatechange", (event) => {});
+```js-nolint
+addEventListener("connectionstatechange", (event) => { })
 
-onconnectionstatechange = (event) => {};
+onconnectionstatechange = (event) => { }
 ```
 
 ## Event type
@@ -38,7 +38,7 @@ peerConnection.addEventListener(
   (event) => {
     switch (peerConnection.connectionState) {
       case "new":
-      case "checking":
+      case "connecting":
         setOnlineStatus("Connecting…");
         break;
       case "connected":
@@ -58,7 +58,7 @@ peerConnection.addEventListener(
         break;
     }
   },
-  false
+  false,
 );
 ```
 
@@ -68,7 +68,7 @@ You can also create a handler for the `connectionstatechange` event using the `R
 peerConnection.onconnectionstatechange = (ev) => {
   switch (peerConnection.connectionState) {
     case "new":
-    case "checking":
+    case "connecting":
       setOnlineStatus("Connecting…");
       break;
     // …

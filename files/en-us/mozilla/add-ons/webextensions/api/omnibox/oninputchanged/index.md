@@ -3,9 +3,8 @@ title: omnibox.onInputChanged
 slug: Mozilla/Add-ons/WebExtensions/API/omnibox/onInputChanged
 page-type: webextension-api-event
 browser-compat: webextensions.api.omnibox.onInputChanged
+sidebar: addonsidebar
 ---
-
-{{AddonSidebar()}}
 
 Fired whenever the user changes their input, after they have started interacting with your extension by entering its keyword in the address bar and then pressing the space key.
 
@@ -42,10 +41,6 @@ The listener function is passed two parameters: a string `text`, and the functio
 - `suggest`
   - : `Function`. A function that the event listener can call to supply suggestions for the address bar's drop-down list. The function expects to receive an array of {{WebExtAPIRef("omnibox.SuggestResult")}} objects, one for each suggestion. Only the first six suggestions will be displayed.
 
-## Browser compatibility
-
-{{Compat}}
-
 ## Examples
 
 This example interprets the user's input as a CSS property name and populates the drop-down list with one {{WebExtAPIRef("omnibox.SuggestResult")}} object for each CSS property matching the input. The `description` property of `SuggestResult` is the full name of the property, and the `content` is the MDN page for that property.
@@ -54,7 +49,7 @@ The example also listens to {{WebExtAPIRef("omnibox.onInputEntered")}}, and open
 
 ```js
 browser.omnibox.setDefaultSuggestion({
-  description: "Type the name of a CSS property"
+  description: "Type the name of a CSS property",
 });
 
 /*
@@ -78,7 +73,7 @@ const props = [
   "padding",
   "position",
   "transform",
-  "transition"
+  "transition",
 ];
 
 const baseURL = "https://developer.mozilla.org/en-US/docs/Web/CSS/";
@@ -94,8 +89,8 @@ function getMatchingProperties(input) {
       console.log(prop);
       const suggestion = {
         content: `${baseURL}${prop}`,
-        description: prop
-      }
+        description: prop,
+      };
       result.push(suggestion);
     } else if (result.length !== 0) {
       return result;
@@ -111,13 +106,13 @@ browser.omnibox.onInputChanged.addListener((input, suggest) => {
 browser.omnibox.onInputEntered.addListener((url, disposition) => {
   switch (disposition) {
     case "currentTab":
-      browser.tabs.update({url});
+      browser.tabs.update({ url });
       break;
     case "newForegroundTab":
-      browser.tabs.create({url});
+      browser.tabs.create({ url });
       break;
     case "newBackgroundTab":
-      browser.tabs.create({url, active: false});
+      browser.tabs.create({ url, active: false });
       break;
   }
 });
@@ -125,4 +120,9 @@ browser.omnibox.onInputEntered.addListener((url, disposition) => {
 
 {{WebExtExamples}}
 
-> **Note:** This API is based on Chromium's [`chrome.omnibox`](https://developer.chrome.com/docs/extensions/reference/omnibox/) API.
+## Browser compatibility
+
+{{Compat}}
+
+> [!NOTE]
+> This API is based on Chromium's [`chrome.omnibox`](https://developer.chrome.com/docs/extensions/reference/api/omnibox) API.

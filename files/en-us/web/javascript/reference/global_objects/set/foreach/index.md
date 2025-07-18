@@ -1,16 +1,28 @@
 ---
 title: Set.prototype.forEach()
+short-title: forEach()
 slug: Web/JavaScript/Reference/Global_Objects/Set/forEach
 page-type: javascript-instance-method
 browser-compat: javascript.builtins.Set.forEach
+sidebar: jsref
 ---
 
-{{JSRef}}
+The **`forEach()`** method of {{jsxref("Set")}} instances executes a provided function once
+for each value in this set, in insertion order.
 
-The **`forEach()`** method executes a provided function once
-for each value in the `Set` object, in insertion order.
+{{InteractiveExample("JavaScript Demo: Set.prototype.forEach()")}}
 
-{{EmbedInteractiveExample("pages/js/set-prototype-foreach.html")}}
+```js interactive-example
+function logSetElements(value1, value2, set) {
+  console.log(`s[${value1}] = ${value2}`);
+}
+
+new Set(["foo", "bar", undefined]).forEach(logSetElements);
+
+// Expected output: "s[foo] = foo"
+// Expected output: "s[bar] = bar"
+// Expected output: "s[undefined] = undefined"
+```
 
 ## Syntax
 
@@ -34,7 +46,7 @@ forEach(callbackFn, thisArg)
 
 ### Return value
 
-{{jsxref("undefined")}}.
+None ({{jsxref("undefined")}}).
 
 ## Description
 
@@ -51,8 +63,7 @@ it is executed for values which are present but have the value `undefined`.
 
 There are no keys in `Set` objects, however, so the first two arguments are
 both **values** contained in the {{jsxref("Set")}}. This is to make it
-consistent with other `forEach()` methods for {{jsxref("Map/foreach",
-  "Map")}} and {{jsxref("Array/forEach","Array")}}.
+consistent with other `forEach()` methods for {{jsxref("Map/foreach", "Map")}} and {{jsxref("Array/forEach", "Array")}}.
 
 If a `thisArg` parameter is provided to `forEach()`,
 it will be passed to `callback` when invoked, for use as its

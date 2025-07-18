@@ -3,7 +3,7 @@ title: "RTCInboundRtpStreamStats: sliCount property"
 short-title: sliCount
 slug: Web/API/RTCInboundRtpStreamStats/sliCount
 page-type: web-api-instance-property
-browser-compat: api.RTCInboundRtpStreamStats.sliCount
+browser-compat: api.RTCStatsReport.type_inbound-rtp.sliCount
 ---
 
 {{APIRef("WebRTC")}}
@@ -28,10 +28,10 @@ An unsigned integer indicating the number of SLI packets this receiver sent to t
 remote sender due to lost runs of macroblocks. A high value of `sliCount` may
 be an indication of an unreliable network.
 
-This is a very technical part of how video codecs work. For details, see {{RFC(4585,
-  "6.3.2")}}.
+This is a very technical part of how video codecs work. For details, see {{RFC(4585, "6.3.2")}}.
 
-> **Note:** This value is only present for video media.
+> [!NOTE]
+> This value is only present for video media.
 
 ## Specifications
 

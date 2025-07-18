@@ -1,9 +1,10 @@
 ---
 title: Firefox 97 for developers
+short-title: Firefox 97
 slug: Mozilla/Firefox/Releases/97
+page-type: firefox-release-notes
+sidebar: firefox
 ---
-
-{{FirefoxSidebar}}
 
 This article provides information about the changes in Firefox 97 that affect developers. Firefox 97 was released on February 8, 2022.
 
@@ -36,7 +37,7 @@ No notable changes
 ### SVG
 
 - The SVG {{SVGAttr('d')}} attribute, used to define a path to be drawn, can now be used as a property in CSS.
-  It accepts the values [path()](/en-US/docs/Web/CSS/path) or `none`. (See [Firefox bug 1744599](https://bugzil.la/1744599) for details.)
+  It accepts the values [path()](/en-US/docs/Web/CSS/basic-shape/path) or `none`. (See [Firefox bug 1744599](https://bugzil.la/1744599) for details.)
 
 #### Removals
 
@@ -46,12 +47,12 @@ No notable changes
 
 ### APIs
 
-- `AnimationFrameProvider` is now available in a [`DedicatedWorkerGlobalScope`](/en-US/docs/Web/API/DedicatedWorkerGlobalScope). This means the [`requestAnimationFrame`](/en-US/docs/Web/API/window/requestAnimationFrame) and [`cancelAnimationFrame`](/en-US/docs/Web/API/Window/cancelAnimationFrame) methods can be used within a dedicated worker.
+- `AnimationFrameProvider` is now available in a [`DedicatedWorkerGlobalScope`](/en-US/docs/Web/API/DedicatedWorkerGlobalScope). This means the [`requestAnimationFrame`](/en-US/docs/Web/API/Window/requestAnimationFrame) and [`cancelAnimationFrame`](/en-US/docs/Web/API/Window/cancelAnimationFrame) methods can be used within a dedicated worker.
   (See [Firefox bug 1388931](https://bugzil.la/1388931) for more details.)
 
 #### DOM
 
-- The reason for an abort signal can now be set using {{domxref("AbortController.abort()")}} (or {{domxref("AbortSignal.abort()")}}), and will be available in the {{domxref("AbortSignal.reason")}} property.
+- The reason for an abort signal can now be set using {{domxref("AbortController.abort()")}} (or {{domxref("AbortSignal.abort_static", "AbortSignal.abort()")}}), and will be available in the {{domxref("AbortSignal.reason")}} property.
   This reason defaults to being an "AbortError" {{domxref("DOMException")}}.
   The reason can be thrown or handled via promise rejection as appropriate.
   ([Firefox bug 1737771](https://bugzil.la/1737771)).
@@ -67,7 +68,3 @@ No notable changes
 
 - `cookieStoreId` in {{WebExtAPIRef("tabs.query")}} supports an array of strings. This enables queries to match tabs against more than one cookie store ID ([Firefox bug 1730931](https://bugzil.la/1730931)).
 - `cookieStoreId` added to {{WebExtAPIRef("contentScripts.register")}}. This enables extensions to register container-specific content scripts ([Firefox bug 1470651](https://bugzil.la/1470651)).
-
-## Older versions
-
-{{Firefox_for_developers(96)}}

@@ -1,6 +1,6 @@
 ---
 title: Using the Document Object Model
-slug: Web/API/Document_object_model/Using_the_Document_Object_Model
+slug: Web/API/Document_Object_Model/Using_the_Document_Object_Model
 page-type: guide
 ---
 
@@ -36,7 +36,7 @@ When a web browser parses an HTML document, it builds a DOM tree and then uses i
 
 The Document API, also sometimes called the DOM API, allows you to modify a DOM tree in _any way you want_. It enables you to create any HTML or XML document from scratch or to change any contents of a given HTML or XML document. Web page authors can edit the DOM of a document using JavaScript to access the `document` property of the global object. This `document` object implements the {{domxref("Document")}} interface.
 
-## A simple example
+## Reading and modifying the tree
 
 Suppose the author wants to change the header of the above document and write two paragraphs instead of one. The following script would do the job:
 
@@ -48,7 +48,7 @@ Suppose the author wants to change the header of the above document and write tw
     <title>My Document</title>
   </head>
   <body>
-    <input type="button" value="Change this document." onclick="change()" />
+    <input type="button" value="Change this document." />
     <h2>Header</h2>
     <p>Paragraph</p>
   </body>
@@ -58,7 +58,7 @@ Suppose the author wants to change the header of the above document and write tw
 ### JavaScript
 
 ```js
-function change() {
+document.querySelector("input").addEventListener("click", () => {
   // document.getElementsByTagName("h2") returns a NodeList of the <h2>
   // elements in the document, and the first is number 0:
   const header = document.getElementsByTagName("h2").item(0);
@@ -84,14 +84,39 @@ function change() {
   // Put the paragraph on the end of the document by appending it to
   // the body (which is the parent of para)
   para.parentNode.appendChild(newElement);
-}
+});
 ```
 
-{{ EmbedLiveSample('A_simple_example', 800, 300) }}
+{{ EmbedLiveSample('reading_and_modifying_the_tree', 800, 300) }}
+
+## Creating a tree
+
+You can create the above tree entirely in JavaScript too.
+
+```js
+const root = document.createElement("html");
+root.lang = "en";
+
+const head = document.createElement("head");
+const title = document.createElement("title");
+title.appendChild(document.createTextNode("My Document"));
+head.appendChild(title);
+
+const body = document.createElement("body");
+const header = document.createElement("h1");
+header.appendChild(document.createTextNode("Header"));
+const paragraph = document.createElement("p");
+paragraph.appendChild(document.createTextNode("Paragraph"));
+body.appendChild(header);
+body.appendChild(paragraph);
+
+root.appendChild(head);
+root.appendChild(body);
+```
 
 ## How can I learn more?
 
-Now that you are familiar with the basic concepts of the DOM, you may want to learn about the more about fundamental features of the Document API by reading [how to traverse an HTML table with JavaScript and DOM interfaces](/en-US/docs/Web/API/Document_Object_Model/Traversing_an_HTML_table_with_JavaScript_and_DOM_Interfaces).
+Now that you are familiar with the basic concepts of the DOM, you may want to learn more about the fundamental features of the Document API by reading [how to traverse an HTML table with JavaScript and DOM interfaces](/en-US/docs/Web/API/Document_Object_Model/Traversing_an_HTML_table_with_JavaScript_and_DOM_Interfaces).
 
 ## See also
 

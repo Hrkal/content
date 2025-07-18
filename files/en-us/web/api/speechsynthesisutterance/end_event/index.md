@@ -14,10 +14,10 @@ The **`end`** event of the [Web Speech API](/en-US/docs/Web/API/Web_Speech_API) 
 
 Use the event name in methods like {{domxref("EventTarget.addEventListener", "addEventListener()")}}, or set an event handler property.
 
-```js
-addEventListener("end", (event) => {});
+```js-nolint
+addEventListener("end", (event) => { })
 
-onend = (event) => {};
+onend = (event) => { }
 ```
 
 ## Event type
@@ -46,7 +46,7 @@ You can use the `end` event in an [`addEventListener`](/en-US/docs/Web/API/Event
 ```js
 utterThis.addEventListener("end", (event) => {
   console.log(
-    `Utterance has finished being spoken after ${event.elapsedTime} seconds.`
+    `Utterance has finished being spoken after ${event.elapsedTime} seconds.`,
   );
 });
 ```
@@ -56,7 +56,7 @@ Or use the `onend` event handler property:
 ```js
 utterThis.onend = (event) => {
   console.log(
-    `Utterance has finished being spoken after ${event.elapsedTime} seconds.`
+    `Utterance has finished being spoken after ${event.elapsedTime} seconds.`,
   );
 };
 ```

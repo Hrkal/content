@@ -7,7 +7,7 @@ browser-compat: api.CSSPropertyRule
 
 {{APIRef("CSS Properties and Values API")}}
 
-The **`CSSPropertyRule`** interface of the {{domxref('CSS_Properties_and_Values_API','','',' ')}} represents a single CSS {{cssxref("@property")}} rule.
+The **`CSSPropertyRule`** interface of the [CSS Properties and Values API](/en-US/docs/Web/API/CSS_Properties_and_Values_API) represents a single CSS {{cssxref("@property")}} rule.
 
 {{InheritanceDiagram}}
 
@@ -17,7 +17,7 @@ _Inherits properties from its ancestor {{domxref("CSSRule")}}._
 
 - {{domxref("CSSPropertyRule.inherits")}} {{ReadOnlyInline}}
   - : Returns the inherit flag of the custom property.
-- {{domxref("CSSPropertyRule.initialvalue")}} {{ReadOnlyInline}}
+- {{domxref("CSSPropertyRule.initialValue")}} {{ReadOnlyInline}}
   - : Returns the initial value of the custom property.
 - {{domxref("CSSPropertyRule.name")}} {{ReadOnlyInline}}
   - : Returns the name of the custom property.
@@ -41,8 +41,8 @@ This stylesheet contains a single {{cssxref("@property")}} rule. The first {{dom
 ```
 
 ```js
-let myRules = document.styleSheets[0].cssRules;
-console.log(myRules[0]); //a CSSPropertyRule
+const myRules = document.styleSheets[0].cssRules;
+console.log(myRules[0]); // A CSSPropertyRule
 ```
 
 ## Specifications

@@ -6,7 +6,7 @@ page-type: web-api-instance-method
 browser-compat: api.Worklet.addModule
 ---
 
-{{APIRef("Worklets")}}
+{{APIRef("Worklets")}}{{SecureContext_Header}}
 
 The **`addModule()`** method of the
 {{domxref("Worklet")}} interface loads the module in the given JavaScript file and
@@ -25,12 +25,10 @@ addModule(moduleURL, options)
   - : A {{jsxref("String")}} containing the URL of a JavaScript file with the module to
     add.
 - `options` {{optional_inline}}
-
   - : An object with any of the following options:
-
     - `credentials`
       - : A {{domxref("Request.credentials")}} value that
-        indicates whether to send credentials (e.g. cookies and HTTP authentication)
+        indicates whether to send credentials (e.g., cookies and HTTP authentication)
         when loading the module. Can be one of `"omit"`,
         `"same-origin"`, or `"include"`. Defaults to
         `"same-origin"`. See also {{domxref("Request.credentials")}}.
@@ -66,11 +64,11 @@ audioWorklet.addModule("modules/bypassFilter.js", {
 
 ```js
 CSS.paintWorklet.addModule(
-  "https://mdn.github.io/houdini-examples/cssPaint/intro/worklets/hilite.js"
+  "https://mdn.github.io/houdini-examples/cssPaint/intro/worklets/hilite.js",
 );
 ```
 
-Once the script has been added to the [paint worklet](/en-US/docs/Web/API/CSS/paintWorklet), the CSS {{cssxref("image/paint", "paint()")}} function
+Once the script has been added to the [paint worklet](/en-US/docs/Web/API/CSS/paintWorklet_static), the CSS {{cssxref("image/paint", "paint()")}} function
 can be used to include the image created by the worklet:
 
 ```css

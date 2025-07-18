@@ -1,21 +1,40 @@
 ---
 title: Map.prototype.keys()
+short-title: keys()
 slug: Web/JavaScript/Reference/Global_Objects/Map/keys
 page-type: javascript-instance-method
 browser-compat: javascript.builtins.Map.keys
+sidebar: jsref
 ---
 
-{{JSRef}}
+The **`keys()`** method of {{jsxref("Map")}} instances returns a new _[map iterator](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_ object that contains the keys for each element in this map in insertion order.
 
-The **`keys()`** method returns a new _[map iterator](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_ object that contains the keys for each element in the `Map` object in insertion order.
+{{InteractiveExample("JavaScript Demo: Map.prototype.keys()")}}
 
-{{EmbedInteractiveExample("pages/js/map-prototype-keys.html")}}
+```js interactive-example
+const map1 = new Map();
+
+map1.set("0", "foo");
+map1.set(1, "bar");
+
+const iterator1 = map1.keys();
+
+console.log(iterator1.next().value);
+// Expected output: "0"
+
+console.log(iterator1.next().value);
+// Expected output: 1
+```
 
 ## Syntax
 
 ```js-nolint
 keys()
 ```
+
+### Parameters
+
+None.
 
 ### Return value
 

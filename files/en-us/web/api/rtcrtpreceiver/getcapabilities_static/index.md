@@ -3,14 +3,14 @@ title: "RTCRtpReceiver: getCapabilities() static method"
 short-title: getCapabilities()
 slug: Web/API/RTCRtpReceiver/getCapabilities_static
 page-type: web-api-static-method
-browser-compat: api.RTCRtpReceiver.getCapabilities
+browser-compat: api.RTCRtpReceiver.getCapabilities_static
 ---
 
-{{DefaultAPISidebar("WebRTC")}}
+{{APIRef("WebRTC")}}
 
 The _static method_ **`RTCRtpReceiver.getCapabilities()`** returns an object describing the codec and header extension capabilities supported by {{domxref("RTCRtpReceiver")}} objects on the current device.
 
-You can, similarly, obtain the capabilities of {{domxref("RTCRtpSender")}} objects by calling the static function {{domxref("RTCRtpSender.getCapabilities()")}}.
+You can, similarly, obtain the capabilities of {{domxref("RTCRtpSender")}} objects by calling the static function {{domxref("RTCRtpSender.getCapabilities_static", "RTCRtpSender.getCapabilities()")}}.
 
 ## Syntax
 
@@ -32,14 +32,13 @@ If the browser doesn't have any support for the given media `kind`, the returned
 The returned object has the following properties:
 
 - `codecs`
+  - : An array of objects, each describing the basic capabilities of a single [media codec](/en-US/docs/Web/Media/Guides/Formats/WebRTC_codecs) supported by the {{domxref("RTCRtpReceiver")}}.
 
-  - : An array of objects, each describing the basic capabilities of a single [media codec](/en-US/docs/Web/Media/Formats/WebRTC_codecs) supported by the {{domxref("RTCRtpReceiver")}}.
-
-    > **Note:** The array contains special entries that represent the underlying components of the transport — these may be ignored if you're only interested in the actual codecs used for the media itself.
+    > [!NOTE]
+    > The array contains special entries that represent the underlying components of the transport — these may be ignored if you're only interested in the actual codecs used for the media itself.
     > These are described below in the section [The codecs array](#the_codecs_array).
 
     Each codec object has the following properties:
-
     - `channels` {{optional_inline}}
       - : A positive integer value indicating the maximum number of channels supported by the codec; for example, a codec that supports only mono sound would have a value of 1; stereo codecs would have a 2, etc.
     - `clockRate`
@@ -49,16 +48,14 @@ The returned object has the following properties:
       - : A string indicating the codec's MIME media type and subtype.
         The MIME type strings used by RTP differ from those used elsewhere.
         See {{RFC(3555, "", 4)}} for the complete IANA registry of these types.
-        Also see [Codecs used by WebRTC](/en-US/docs/Web/Media/Formats/WebRTC_codecs) for details about potential codecs that might be referenced here.
+        Also see [Codecs used by WebRTC](/en-US/docs/Web/Media/Guides/Formats/WebRTC_codecs) for details about potential codecs that might be referenced here.
     - `sdpFmtpLine` {{optional_inline}}
       - : A string giving the format specific parameters field from the `a=fmtp` line in the SDP which corresponds to the codec, if such a line exists.
         If there is no parameters field, this property is left out.
 
 - `headerExtensions`
-
   - : An array of objects, each providing the URI of a [header extension](https://datatracker.ietf.org/doc/html/rfc3550#section-5.3.1) supported for the current `kind` of media.
     Each object has the following property:
-
     - `uri`
       - : A string, specifying the URI of a header extension.
         The URI is formatted as described in {{RFC(5285)}}.
@@ -119,7 +116,7 @@ const log = document.querySelector("#log");
 ```js
 log.textContent = `RTCRtpReceiver.getCapabilities() supported: ${Object.hasOwn(
   RTCRtpReceiver,
-  "getCapabilities"
+  "getCapabilities",
 )}`;
 ```
 
@@ -129,7 +126,8 @@ log.textContent = `RTCRtpReceiver.getCapabilities() supported: ${Object.hasOwn(
 
 The function below returns a Boolean indicating whether or not the device supports receiving H.264 video on a WebRTC connection.
 
-> **Note:** Since `RTCRtpReceiver.getCapabilities()` actually only indicates > _probable_ support, attempting to receive H.264 video might still fail even after getting a positive response from this function.
+> [!NOTE]
+> Since `RTCRtpReceiver.getCapabilities()` actually only indicates > _probable_ support, attempting to receive H.264 video might still fail even after getting a positive response from this function.
 
 ```js
 function canReceiveH264() {
@@ -186,7 +184,7 @@ function logMediaCapabilities(kind) {
   log.textContent += "\nCodecs\n";
   capabilities.codecs.forEach((codec) => {
     log.textContent += ` mime type: ${codec.mimeType}\n`;
-    log.textContent += `   channels: ${codec.channels}\n`; //max channels - e.g. 2 is stereo
+    log.textContent += `   channels: ${codec.channels}\n`; // max channels - e.g. 2 is stereo
     log.textContent += `   clockRate: ${codec.clockRate}\n`; // clock rate in Hz
     log.textContent += `   sdpFmtpLine: ${codec.sdpFmtpLine}\n`; // mime media type and subtype
   });

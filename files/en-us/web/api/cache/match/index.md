@@ -6,7 +6,7 @@ page-type: web-api-instance-method
 browser-compat: api.Cache.match
 ---
 
-{{APIRef("Service Workers API")}}
+{{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
 The **`match()`** method of the {{domxref("Cache")}} interface returns a {{jsxref("Promise")}} that resolves to the {{domxref("Response")}} associated with the first matching request in the {{domxref("Cache")}} object.
 If no match is found, the {{jsxref("Promise")}} resolves to {{jsxref("undefined")}}.
@@ -22,12 +22,10 @@ match(request, options)
 
 - `request`
   - : The {{domxref("Request")}} for which you are attempting to find responses in the
-    {{domxref("Cache")}}. This can be a {{domxref("Request")}} object or a URL.
+    {{domxref("Cache")}}. This can be a {{domxref("Request")}} object or a URL string.
 - `options` {{optional_inline}}
-
   - : An object that sets options for the `match` operation.
     The available options are:
-
     - `ignoreSearch`
       - : A boolean value that specifies whether to
         ignore the query string in the URL. For example, if set to
@@ -42,7 +40,7 @@ match(request, options)
     - `ignoreVary`
       - : A boolean value that when set to
         `true` tells the matching operation not to perform `VARY`
-        header matching — i.e. if the URL matches you will get a match regardless of
+        header matching — i.e., if the URL matches you will get a match regardless of
         whether the {{domxref("Response")}} object has a `VARY` header. It
         defaults to `false`.
 
@@ -51,7 +49,8 @@ match(request, options)
 A {{jsxref("Promise")}} that resolves to the first {{domxref("Response")}} that matches
 the request or to {{jsxref("undefined")}} if no match is found.
 
-> **Note:** `Cache.match()` is basically identical to
+> [!NOTE]
+> `Cache.match()` is basically identical to
 > {{domxref("Cache.matchAll()")}}, except that rather than resolving with an array of
 > all matching responses, it resolves with the first matching response only (that is,
 > `response[0]`).
@@ -86,7 +85,7 @@ self.addEventListener("fetch", (event) => {
         return caches
           .open(OFFLINE_CACHE)
           .then((cache) => cache.match(OFFLINE_URL));
-      })
+      }),
     );
   }
 });
@@ -104,4 +103,4 @@ self.addEventListener("fetch", (event) => {
 
 - [Using Service Workers](/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers)
 - {{domxref("Cache")}}
-- {{domxref("caches")}}
+- {{domxref("Window.caches")}} and {{domxref("WorkerGlobalScope.caches")}}

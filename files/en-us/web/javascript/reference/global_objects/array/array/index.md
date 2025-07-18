@@ -1,11 +1,11 @@
 ---
 title: Array() constructor
+short-title: Array()
 slug: Web/JavaScript/Reference/Global_Objects/Array/Array
 page-type: javascript-constructor
 browser-compat: javascript.builtins.Array.Array
+sidebar: jsref
 ---
-
-{{JSRef}}
 
 The **`Array()`** constructor creates {{jsxref("Array")}} objects.
 
@@ -13,34 +13,36 @@ The **`Array()`** constructor creates {{jsxref("Array")}} objects.
 
 ```js-nolint
 new Array()
-new Array(element0)
-new Array(element0, element1)
-new Array(element0, element1, /* … ,*/ elementN)
+new Array(element1)
+new Array(element1, element2)
+new Array(element1, element2, /* …, */ elementN)
 new Array(arrayLength)
 
 Array()
-Array(element0)
-Array(element0, element1)
-Array(element0, element1, /* … ,*/ elementN)
+Array(element1)
+Array(element1, element2)
+Array(element1, element2, /* …, */ elementN)
 Array(arrayLength)
 ```
 
-> **Note:** `Array()` can be called with or without [`new`](/en-US/docs/Web/JavaScript/Reference/Operators/new). Both create a new `Array` instance.
+> [!NOTE]
+> `Array()` can be called with or without [`new`](/en-US/docs/Web/JavaScript/Reference/Operators/new). Both create a new `Array` instance.
 
 ### Parameters
 
-- `elementN`
+- `element1`, …, `elementN`
   - : A JavaScript array is initialized with the given elements, except in the case where
     a single argument is passed to the `Array` constructor and that argument is
     a number (see the `arrayLength` parameter below). Note that this special case only
     applies to JavaScript arrays created with the `Array` constructor, not
-    array literals created with the bracket syntax.
+    array literals created with the square bracket syntax.
 - `arrayLength`
   - : If the only argument passed to the `Array` constructor is an integer
     between 0 and 2<sup>32</sup> - 1 (inclusive), this returns a new JavaScript array with
-    its `length` property set to that number (**Note:** this
-    implies an array of `arrayLength` empty slots, not slots with actual
-    `undefined` values — see [sparse arrays](/en-US/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays)).
+    its `length` property set to that number.
+
+    > [!NOTE]
+    > This implies an array of `arrayLength` empty slots, not slots with actual `undefined` values — see [sparse arrays](/en-US/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays)).
 
 ### Exceptions
 
@@ -105,5 +107,5 @@ console.log(fruits[0]); // "Apple"
 
 ## See also
 
-- [Indexed collections](/en-US/docs/Web/JavaScript/Guide/Indexed_collections)
+- [Indexed collections](/en-US/docs/Web/JavaScript/Guide/Indexed_collections) guide
 - {{jsxref("Array")}}

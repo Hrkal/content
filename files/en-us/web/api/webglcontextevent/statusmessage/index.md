@@ -6,7 +6,7 @@ page-type: web-api-instance-property
 browser-compat: api.WebGLContextEvent.statusMessage
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
 The read-only **`WebGLContextEvent.statusMessage`** property contains additional event status information, or is an empty string if no additional information is available.
 
@@ -22,10 +22,10 @@ canvas.addEventListener(
   "webglcontextcreationerror",
   (e) => {
     console.log(
-      `WebGL context creation failed: ${e.statusMessage || "Unknown error"}`
+      `WebGL context creation failed: ${e.statusMessage || "Unknown error"}`,
     );
   },
-  false
+  false,
 );
 ```
 

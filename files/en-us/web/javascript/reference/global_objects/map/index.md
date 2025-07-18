@@ -3,16 +3,37 @@ title: Map
 slug: Web/JavaScript/Reference/Global_Objects/Map
 page-type: javascript-class
 browser-compat: javascript.builtins.Map
+sidebar: jsref
 ---
 
-{{JSRef}}
+The **`Map`** object holds key-value pairs and remembers the original insertion order of the keys.
+Any value (both objects and {{Glossary("Primitive", "primitive values")}}) may be used as either a key or a value.
 
-The **`Map`** object holds key-value pairs and remembers the original insertion
-order of the keys. Any value (both objects and
-{{glossary("Primitive", "primitive values")}}) may be used as
-either a key or a value.
+{{InteractiveExample("JavaScript Demo: Map", "taller")}}
 
-{{EmbedInteractiveExample("pages/js/map.html", "taller")}}
+```js interactive-example
+const map1 = new Map();
+
+map1.set("a", 1);
+map1.set("b", 2);
+map1.set("c", 3);
+
+console.log(map1.get("a"));
+// Expected output: 1
+
+map1.set("a", 97);
+
+console.log(map1.get("a"));
+// Expected output: 97
+
+console.log(map1.size);
+// Expected output: 3
+
+map1.delete("b");
+
+console.log(map1.size);
+// Expected output: 2
+```
 
 ## Description
 
@@ -22,7 +43,7 @@ The specification requires maps to be implemented "that, on average, provide acc
 
 ### Key equality
 
-Value equality is based on the [SameValueZero](/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness#same-value-zero_equality) algorithm. (It used to use [SameValue](/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness#same-value_equality_using_object.is), which treated `0` and `-0` as different. Check [browser compatibility](#browser_compatibility).) This means {{jsxref("NaN")}} is considered the same as `NaN` (even though `NaN !== NaN`) and all other values are considered equal according to the semantics of the `===` operator.
+Value equality is based on the [SameValueZero](/en-US/docs/Web/JavaScript/Guide/Equality_comparisons_and_sameness#same-value-zero_equality) algorithm. (It used to use [SameValue](/en-US/docs/Web/JavaScript/Guide/Equality_comparisons_and_sameness#same-value_equality_using_object.is), which treated `0` and `-0` as different. Check [browser compatibility](#browser_compatibility).) This means {{jsxref("NaN")}} is considered the same as `NaN` (even though `NaN !== NaN`) and all other values are considered equal according to the semantics of the `===` operator.
 
 ### Objects vs. Maps
 
@@ -94,7 +115,7 @@ cases:
       <th scope="row">Key Order</th>
       <td>
         <p>
-          The keys in <code>Map</code> are ordered in a simple, straightforward
+          The keys in <code>Map</code> are ordered in a straightforward
           way: A <code>Map</code> object iterates entries, keys, and values in
           the order of entry insertion.
         </p>
@@ -108,20 +129,11 @@ cases:
         <p>
           The order was first defined for own properties only in ECMAScript
           2015; ECMAScript 2020 defines order for inherited properties as well.
-          See the
-          <a href="https://tc39.es/ecma262/#sec-ordinaryownpropertykeys"
-            >OrdinaryOwnPropertyKeys</a
-          >
-          and
-          <a href="https://tc39.es/ecma262/#sec-enumerate-object-properties"
-            >EnumerateObjectProperties</a
-          >
-          abstract specification operations. But note that no single mechanism
+          But note that no single mechanism
           iterates
           <strong>all</strong> of an object's properties; the various mechanisms
           each include different subsets of properties.
-          ({{jsxref("Statements/for...in",
-          "for-in")}}
+          ({{jsxref("Statements/for...in", "for-in")}}
           includes only enumerable string-keyed properties;
           {{jsxref("Object.keys")}} includes only own, enumerable,
           string-keyed properties;
@@ -269,6 +281,40 @@ contacts.delete("Jessie"); // true
 console.log(contacts.size); // 1
 ```
 
+### Map-like browser APIs
+
+**Browser `Map`-like objects** (or "maplike objects") are [Web API](/en-US/docs/Web/API) interfaces that behave in many ways like a `Map`.
+
+Just like `Map`, entries can be iterated in the same order that they were added to the object.
+`Map`-like objects and `Map` also have properties and methods that share the same name and behavior.
+However unlike `Map` they only allow specific predefined types for the keys and values of each entry.
+
+The allowed types are set in the specification IDL definition.
+For example, {{domxref("RTCStatsReport")}} is a `Map`-like object that must use strings for keys and objects for values.
+This is defined in the specification IDL below:
+
+```webidl
+interface RTCStatsReport {
+  readonly maplike<DOMString, object>;
+};
+```
+
+`Map`-like objects are either read-only or read-writable (see the `readonly` keyword in the IDL above).
+
+- Read-only `Map`-like objects have the property {{jsxref("Map/size", "size")}}, and the methods: {{jsxref("Map/entries", "entries()")}}, {{jsxref("Map/forEach", "forEach()")}}, {{jsxref("Map/get", "get()")}}, {{jsxref("Map/has", "has()")}}, {{jsxref("Map/keys", "keys()")}}, {{jsxref("Map/values", "values()")}}, and [`Symbol.iterator()`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/Symbol.iterator).
+- Writeable `Map`-like objects additionally have the methods: {{jsxref("Map/clear", "clear()")}}, {{jsxref("Map/delete", "delete()")}}, and {{jsxref("Map/set", "set()")}}.
+
+The methods and properties have the same behavior as the equivalent entities in `Map`, except for the restriction on the types of the keys and values.
+
+The following are examples of read-only `Map`-like browser objects:
+
+- {{domxref("AudioParamMap")}}
+- {{domxref("RTCStatsReport")}}
+- {{domxref("EventCounts")}}
+- {{domxref("KeyboardLayoutMap")}}
+- {{domxref("MIDIInputMap")}}
+- {{domxref("MIDIOutputMap")}}
+
 ## Constructor
 
 - {{jsxref("Map/Map", "Map()")}}
@@ -276,8 +322,13 @@ console.log(contacts.size); // 1
 
 ## Static properties
 
-- {{jsxref("Map/@@species", "Map[@@species]")}}
+- [`Map[Symbol.species]`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/Symbol.species)
   - : The constructor function that is used to create derived objects.
+
+## Static methods
+
+- {{jsxref("Map.groupBy()")}}
+  - : Groups the elements of a given iterable using the values returned by a provided callback function. The final returned `Map` uses the unique values from the test function as keys, which can be used to get the array of elements in each group.
 
 ## Instance properties
 
@@ -287,8 +338,8 @@ These properties are defined on `Map.prototype` and shared by all `Map` instance
   - : The constructor function that created the instance object. For `Map` instances, the initial value is the {{jsxref("Map/Map", "Map")}} constructor.
 - {{jsxref("Map.prototype.size")}}
   - : Returns the number of key/value pairs in the `Map` object.
-- `Map.prototype[@@toStringTag]`
-  - : The initial value of the [`@@toStringTag`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag) property is the string `"Map"`. This property is used in {{jsxref("Object.prototype.toString()")}}.
+- `Map.prototype[Symbol.toStringTag]`
+  - : The initial value of the [`[Symbol.toStringTag]`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag) property is the string `"Map"`. This property is used in {{jsxref("Object.prototype.toString()")}}.
 
 ## Instance methods
 
@@ -312,7 +363,7 @@ These properties are defined on `Map.prototype` and shared by all `Map` instance
   - : Sets the value for the passed key in the `Map` object. Returns the `Map` object.
 - {{jsxref("Map.prototype.values()")}}
   - : Returns a new Iterator object that contains the values for each element in the `Map` object in insertion order.
-- [`Map.prototype[@@iterator]()`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/@@iterator)
+- [`Map.prototype[Symbol.iterator]()`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/Symbol.iterator)
   - : Returns a new Iterator object that contains a two-member array of `[key, value]` for each element in the `Map` object in insertion order.
 
 ## Examples
@@ -324,7 +375,7 @@ const myMap = new Map();
 
 const keyString = "a string";
 const keyObj = {};
-const keyFunc = function () {};
+const keyFunc = () => {};
 
 // setting the values
 myMap.set(keyString, "value associated with 'a string'");
@@ -340,7 +391,7 @@ console.log(myMap.get(keyFunc)); // "value associated with keyFunc"
 
 console.log(myMap.get("a string")); // "value associated with 'a string'", because keyString === 'a string'
 console.log(myMap.get({})); // undefined, because keyObj !== {}
-console.log(myMap.get(function () {})); // undefined, because keyFunc !== function () {}
+console.log(myMap.get(() => {})); // undefined, because keyFunc !== () => {}
 ```
 
 ### Using NaN as Map keys
@@ -398,7 +449,7 @@ for (const [key, value] of myMap.entries()) {
 ### Iterating Map with forEach()
 
 Maps can be iterated using the
-{{jsxref("Map.prototype.forEach", "forEach()")}} method:
+{{jsxref("Map/forEach", "forEach()")}} method:
 
 ```js
 myMap.forEach((value, key) => {
@@ -444,7 +495,8 @@ console.log(clone.get(1)); // one
 console.log(original === clone); // false (useful for shallow comparison)
 ```
 
-> **Note:** Keep in mind that _the data itself_ is not cloned.
+> [!NOTE]
+> Keep in mind that _the data itself_ is not cloned. In other words, it is only a [shallow copy](/en-US/docs/Glossary/Shallow_copy) of the `Map`.
 
 Maps can be merged, maintaining key uniqueness:
 
@@ -484,9 +536,9 @@ const second = new Map([
 ]);
 
 // Merge maps with an array. The last repeated key wins.
-const merged = new Map([...first, ...second, [1, "eins"]]);
+const merged = new Map([...first, ...second, [1, "un"]]);
 
-console.log(merged.get(1)); // eins
+console.log(merged.get(1)); // un
 console.log(merged.get(2)); // dos
 console.log(merged.get(3)); // three
 ```
@@ -501,8 +553,8 @@ console.log(merged.get(3)); // three
 
 ## See also
 
-- A polyfill of `Map` is available in
-  [`core-js`](https://github.com/zloirock/core-js#map)
+- [Polyfill for `Map` in `core-js`](https://github.com/zloirock/core-js#map)
+- [es-shims polyfill of `Map`](https://www.npmjs.com/package/es-map)
 - {{jsxref("Set")}}
 - {{jsxref("WeakMap")}}
 - {{jsxref("WeakSet")}}

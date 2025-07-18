@@ -8,7 +8,7 @@ status:
 browser-compat: api.USB.getDevices
 ---
 
-{{APIRef("WebUSB API")}}{{SeeCompatTable}}{{securecontext_header}}
+{{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
 The **`getDevices`** method of the {{DOMxRef("USB")}} interface
 returns a {{JSxRef("Promise")}} that resolves with an array of {{DOMxRef("USBDevice")}}
@@ -41,7 +41,7 @@ navigator.usb.getDevices().then((devices) => {
   console.log(`Total devices: ${devices.length}`);
   devices.forEach((device) => {
     console.log(
-      `Product name: ${device.productName}, serial number ${device.serialNumber}`
+      `Product name: ${device.productName}, serial number ${device.serialNumber}`,
     );
   });
 });

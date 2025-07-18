@@ -10,7 +10,8 @@ browser-compat: api.DataTransferItem.webkitGetAsEntry
 
 If the item described by the {{domxref("DataTransferItem")}} is a file, `webkitGetAsEntry()` returns a {{domxref("FileSystemFileEntry")}} or {{domxref("FileSystemDirectoryEntry")}} representing it. If the item isn't a file, `null` is returned.
 
-> **Note:** This function is implemented as `webkitGetAsEntry()` in non-WebKit browsers including Firefox at this time; it may be renamed to
+> [!NOTE]
+> This function is implemented as `webkitGetAsEntry()` in non-WebKit browsers including Firefox at this time; it may be renamed to
 > `getAsEntry()` in the future, so you should code defensively, looking for both.
 
 ## Syntax
@@ -71,13 +72,17 @@ The styles used by the example are shown here.
   vertical-align: middle;
   text-align: center;
   color: black;
-  font: bold 2em "Arial", sans-serif;
+  font:
+    bold 2em "Arial",
+    sans-serif;
   width: 300px;
   height: 100px;
 }
 
 body {
-  font: 14px "Arial", sans-serif;
+  font:
+    14px "Arial",
+    sans-serif;
 }
 ```
 
@@ -86,7 +91,8 @@ body {
 First, let's look at the recursive `scanFiles()` function.
 This function takes as input a {{domxref("FileSystemEntry")}} representing an entry in the file system to be scanned and processed (the `item` parameter), and an element into which to insert the list of contents (the `container` parameter).
 
-> **Note:** To read all files in a directory, `readEntries` needs to be called repeatedly until it returns an empty array.
+> [!NOTE]
+> To read all files in a directory, `readEntries` needs to be called repeatedly until it returns an empty array.
 > In Chromium-based browsers, the following example will only return a max of 100 entries.
 
 ```js
@@ -132,7 +138,7 @@ dropzone.addEventListener(
   (event) => {
     event.preventDefault();
   },
-  false
+  false,
 );
 ```
 
@@ -147,15 +153,15 @@ dropzone.addEventListener(
     event.preventDefault();
     listing.textContent = "";
 
-    for (let i = 0; i < items.length; i++) {
-      let item = items[i].webkitGetAsEntry();
+    for (const item of items) {
+      const entry = item.webkitGetAsEntry();
 
-      if (item) {
-        scanFiles(item, listing);
+      if (entry) {
+        scanFiles(entry, listing);
       }
     }
   },
-  false
+  false,
 );
 ```
 
@@ -166,7 +172,7 @@ Now it's time to start building the list. First, the list is emptied by setting 
 That leaves us with an empty {{HTMLElement("ul")}} to begin inserting directory entries into.
 
 Then we iterate over the items in the list of dropped items.
-For each one, we call its {{domxref("DataTransferItem.webkitGetAsEntry", "webkitGetAsEntry()")}} method to obtain a {{domxref("FileSystemEntry")}} representing the file.
+For each one, we call its `webkitGetAsEntry()` method to obtain a {{domxref("FileSystemEntry")}} representing the file.
 If that's successful, we call `scanFiles()` to process the item—either by adding it to the list if it's just a file or by adding it and walking down into it if it's a directory.
 
 ### Result
@@ -177,7 +183,7 @@ You can see how this works by trying it out below. Find some files and directori
 
 ## Specifications
 
-This API has no official W3C or WHATWG specification.
+{{Specifications}}
 
 ## Browser compatibility
 
@@ -186,7 +192,6 @@ This API has no official W3C or WHATWG specification.
 ## See also
 
 - [File and Directory Entries API](/en-US/docs/Web/API/File_and_Directory_Entries_API)
-- [Introduction to the File and Directory Entries API](/en-US/docs/Web/API/File_and_Directory_Entries_API/Introduction)
 - {{domxref("DataTransferItem")}}
 - {{domxref("FileSystemEntry")}}, {{domxref("FileSystemFileEntry")}}, and {{domxref("FileSystemDirectoryEntry")}}
 - Events: {{domxref("HTMLElement/dragover_event", "dragover")}} and {{domxref("HTMLElement/drop_event", "drop")}}

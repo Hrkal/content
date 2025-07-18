@@ -3,9 +3,8 @@ title: mask-border-source
 slug: Web/CSS/mask-border-source
 page-type: css-property
 browser-compat: css.properties.mask-border-source
+sidebar: cssref
 ---
-
-{{CSSRef}}
 
 The **`mask-border-source`** [CSS](/en-US/docs/Web/CSS) property sets the source image used to create an element's [mask border](/en-US/docs/Web/CSS/mask-border).
 
@@ -60,7 +59,8 @@ Chromium-based browsers support an outdated version of this property — `mask-b
 -webkit-mask-box-image-source: url(image.jpg);
 ```
 
-> **Note:** The [`mask-border`](/en-US/docs/Web/CSS/mask-border) page features a working example (using the out-of-date prefixed border mask properties supported in Chromium), so you can get an idea of the effect.
+> [!NOTE]
+> The [`mask-border`](/en-US/docs/Web/CSS/mask-border) page features a working example (using the out-of-date prefixed border mask properties supported in Chromium), so you can get an idea of the effect.
 
 ## Specifications
 

@@ -1,10 +1,9 @@
 ---
-title: "TypeError: invalid assignment to const \"x\""
+title: 'TypeError: invalid assignment to const "x"'
 slug: Web/JavaScript/Reference/Errors/Invalid_const_assignment
 page-type: javascript-error
+sidebar: jssidebar
 ---
-
-{{jsSidebar("Errors")}}
 
 The JavaScript exception "invalid assignment to const" occurs when it was attempted to
 alter a constant value. JavaScript
@@ -13,7 +12,7 @@ declarations can't be re-assigned or redeclared.
 
 ## Message
 
-```
+```plain
 TypeError: Assignment to constant variable. (V8-based)
 TypeError: invalid assignment to const 'x' (Firefox)
 TypeError: Attempted to assign to readonly property. (Safari)

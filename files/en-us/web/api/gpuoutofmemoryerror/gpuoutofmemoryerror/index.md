@@ -3,12 +3,10 @@ title: "GPUOutOfMemoryError: GPUOutOfMemoryError() constructor"
 short-title: GPUOutOfMemoryError()
 slug: Web/API/GPUOutOfMemoryError/GPUOutOfMemoryError
 page-type: web-api-constructor
-status:
-  - experimental
 browser-compat: api.GPUOutOfMemoryError.GPUOutOfMemoryError
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
 The **`GPUOutOfMemoryError()`** constructor creates a new
 {{domxref("GPUOutOfMemoryError")}} object instance.
@@ -22,7 +20,7 @@ new GPUOutOfMemoryError(message)
 ### Parameters
 
 - `message`
-  - : A string providing a human-readable message that explains why the error ocurred.
+  - : A string providing a human-readable message that explains why the error occurred.
 
 ## Examples
 

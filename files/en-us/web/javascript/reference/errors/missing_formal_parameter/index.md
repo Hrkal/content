@@ -2,9 +2,8 @@
 title: "SyntaxError: missing formal parameter"
 slug: Web/JavaScript/Reference/Errors/Missing_formal_parameter
 page-type: javascript-error
+sidebar: jssidebar
 ---
-
-{{jsSidebar("Errors")}}
 
 The JavaScript exception "missing formal parameter" occurs when your function
 declaration is missing valid parameters.
@@ -42,7 +41,7 @@ identifier is part of the code.
 Function parameters must be identifiers when setting up a function. All these function
 declarations fail, as they are providing values for their parameters:
 
-```js example-bad
+```js-nolint example-bad
 function square(3) {
   return number * number;
 }

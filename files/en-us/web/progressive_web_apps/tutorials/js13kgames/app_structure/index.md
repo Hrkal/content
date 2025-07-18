@@ -1,15 +1,16 @@
 ---
-title: Progressive web app structure
+title: "js13kGames: Progressive web app structure"
+short-title: PWA structure
 slug: Web/Progressive_web_apps/Tutorials/js13kGames/App_structure
+page-type: guide
+sidebar: pwasidebar
 ---
 
-{{PreviousMenuNext("Web/Progressive_web_apps/Tutorials/js13kGames/Introduction", "Web/Progressive_web_apps/Tutorials/js13kGames/Offline_Service_workers", "Web/Progressive_web_apps/Tutorials/js13kGames")}}
+{{PreviousMenuNext("Web/Progressive_web_apps/Tutorials/js13kGames", "Web/Progressive_web_apps/Tutorials/js13kGames/Offline_Service_workers", "Web/Progressive_web_apps/Tutorials/js13kGames")}}
 
-{{PWASidebar}}
+In this article, we will analyze the [js13kPWA](https://mdn.github.io/pwa-examples/js13kpwa/) application, why it is built that way, and what benefits it brings.
 
-Now that we know the theory behind PWAs, let's look at the recommended structure of an actual app. We will start with analyzing the [js13kPWA](https://mdn.github.io/pwa-examples/js13kpwa/) application, why it is built that way, and what benefits it brings.
-
-The [js13kPWA](https://mdn.github.io/pwa-examples/js13kpwa/) website structure is quite simple: it consists of a single HTML file ([index.html](https://github.com/mdn/pwa-examples/blob/master/js13kpwa/index.html)) with basic CSS styling ([style.css](https://github.com/mdn/pwa-examples/blob/master/js13kpwa/style.css)), and a few images, scripts, and fonts. The folder structure looks like this:
+The [js13kPWA](https://mdn.github.io/pwa-examples/js13kpwa/) website structure is quite simple: it consists of a single HTML file ([index.html](https://github.com/mdn/pwa-examples/blob/main/js13kpwa/index.html)) with basic CSS styling ([style.css](https://github.com/mdn/pwa-examples/blob/main/js13kpwa/style.css)), and a few images, scripts, and fonts. The folder structure looks like this:
 
 ![Folder structure of js13kPWA.](js13kpwa-directory.png)
 
@@ -18,7 +19,7 @@ The [js13kPWA](https://mdn.github.io/pwa-examples/js13kpwa/) website structure i
 From the HTML point of view, the app shell is everything outside the content section:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -53,7 +54,7 @@ From the HTML point of view, the app shell is everything outside the content sec
         <a href="https://js13kgames.com/aframe">A-Frame category</a> in the
         <a href="https://2017.js13kgames.com">js13kGames 2017</a> competition.
         You can
-        <a href="https://github.com/mdn/pwa-examples/blob/master/js13kpwa"
+        <a href="https://github.com/mdn/pwa-examples/blob/main/js13kpwa"
           >fork js13kPWA on GitHub</a
         >
         to check its source code.
@@ -90,23 +91,21 @@ const template = `<article>
   <h3>#POS. NAME</h3>
   <ul>
   <li><span>Author:</span> <strong>AUTHOR</strong></li>
-  <li><span>Twitter:</span> <a href='https://twitter.com/TWITTER'>@TWITTER</a></li>
   <li><span>Website:</span> <a href='http://WEBSITE/'>WEBSITE</a></li>
   <li><span>GitHub:</span> <a href='https://GITHUB'>GITHUB</a></li>
   <li><span>More:</span> <a href='http://js13kgames.com/entries/SLUG'>js13kgames.com/entries/SLUG</a></li>
   </ul>
 </article>`;
 let content = "";
-for (let i = 0; i < games.length; i++) {
-  let entry = template
+for (const game of games) {
+  const entry = template
     .replace(/POS/g, i + 1)
-    .replace(/SLUG/g, games[i].slug)
-    .replace(/NAME/g, games[i].name)
-    .replace(/AUTHOR/g, games[i].author)
-    .replace(/TWITTER/g, games[i].twitter)
-    .replace(/WEBSITE/g, games[i].website)
-    .replace(/GITHUB/g, games[i].github);
-  entry = entry.replace("<a href='http:///'></a>", "-");
+    .replace(/SLUG/g, game.slug)
+    .replace(/NAME/g, game.name)
+    .replace(/AUTHOR/g, game.author)
+    .replace(/WEBSITE/g, game.website)
+    .replace(/GITHUB/g, game.github)
+    .replace("<a href='http:///'></a>", "-");
   content += entry;
 }
 document.getElementById("content").innerHTML = content;
@@ -183,8 +182,8 @@ const appShellFiles = [
   "/pwa-examples/js13kpwa/icons/icon-512.png",
 ];
 const gamesImages = [];
-for (let i = 0; i < games.length; i++) {
-  gamesImages.push(`data/img/${games[i].slug}.jpg`);
+for (const game of games) {
+  gamesImages.push(`data/img/${game.slug}.jpg`);
 }
 const contentToCache = appShellFiles.concat(gamesImages);
 ```
@@ -199,7 +198,7 @@ self.addEventListener("install", (e) => {
       const cache = await caches.open(cacheName);
       console.log("[Service Worker] Caching all: app shell and content");
       await cache.addAll(contentToCache);
-    })()
+    })(),
   );
 });
 ```
@@ -220,14 +219,14 @@ self.addEventListener("fetch", (e) => {
       console.log(`[Service Worker] Caching new resource: ${e.request.url}`);
       cache.put(e.request, response.clone());
       return response;
-    })()
+    })(),
   );
 });
 ```
 
 ### The JavaScript data
 
-The games data is present in the data folder in a form of a JavaScript object ([games.js](https://github.com/mdn/pwa-examples/blob/master/js13kpwa/data/games.js)):
+The games data is present in the data folder in a form of a JavaScript object ([games.js](https://github.com/mdn/pwa-examples/blob/main/js13kpwa/data/games.js)):
 
 ```js
 const games = [
@@ -235,7 +234,6 @@ const games = [
     slug: "lost-in-cyberspace",
     name: "Lost in Cyberspace",
     author: "Zosia and Bartek",
-    twitter: "bartaz",
     website: "",
     github: "github.com/bartaz/lost-in-cyberspace",
   },
@@ -243,16 +241,14 @@ const games = [
     slug: "vernissage",
     name: "Vernissage",
     author: "Platane",
-    twitter: "platane_",
     website: "github.com/Platane",
     github: "github.com/Platane/js13k-2017",
   },
-  // ...
+  // …
   {
     slug: "emma-3d",
     name: "Emma-3D",
     author: "Prateek Roushan",
-    twitter: "",
     website: "",
     github: "github.com/coderprateek/Emma-3D",
   },
@@ -265,4 +261,4 @@ Every entry has its own image in the data/img folder. This is our content, loade
 
 In the next article we will look in more detail at how the app shell and the content are cached for offline use with the help from the service worker.
 
-{{PreviousMenuNext("Web/Progressive_web_apps/Tutorials/js13kGames/Introduction", "Web/Progressive_web_apps/Tutorials/js13kGames/Offline_Service_workers", "Web/Progressive_web_apps/Tutorials/js13kGames")}}
+{{PreviousMenuNext("Web/Progressive_web_apps/Tutorials/js13kGames", "Web/Progressive_web_apps/Tutorials/js13kGames/Offline_Service_workers", "Web/Progressive_web_apps/Tutorials/js13kGames")}}

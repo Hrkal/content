@@ -2,6 +2,7 @@
 title: WebKit
 slug: Glossary/WebKit
 page-type: glossary-definition
+sidebar: glossarysidebar
 ---
 
 _WebKit_ is a framework that displays properly-formatted webpages based on their markup. {{Glossary("Apple Safari")}} depends on WebKit, and so do many mobile browsers (since WebKit is highly portable and customizable).

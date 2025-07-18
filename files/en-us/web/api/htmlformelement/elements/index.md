@@ -23,7 +23,8 @@ index or the element's `name` or `id` attributes.
 Prior to HTML 5, the returned object was an {{domxref("HTMLCollection")}}, on which
 `HTMLFormControlsCollection` is based.
 
-> **Note:** Similarly, you can get a list of all of the forms contained within a given document using the document's {{domxref("Document.forms", "forms")}} property.
+> [!NOTE]
+> Similarly, you can get a list of all of the forms contained within a given document using the document's {{domxref("Document.forms", "forms")}} property.
 
 ## Value
 
@@ -37,11 +38,12 @@ Only the following elements are returned:
 
 - {{HTMLElement("button")}}
 - {{HTMLElement("fieldset")}}
-- {{HTMLElement("input")}} (with the exception that any whose [`type`](/en-US/docs/Web/HTML/Element/input#type) is `"image"` are omitted for historical reasons)
+- {{HTMLElement("input")}} (with the exception that any whose [`type`](/en-US/docs/Web/HTML/Reference/Elements/input#type) is `"image"` are omitted for historical reasons)
 - {{HTMLElement("object")}}
 - {{HTMLElement("output")}}
 - {{HTMLElement("select")}}
 - {{HTMLElement("textarea")}}
+- [form-associated custom elements](https://html.spec.whatwg.org/multipage/custom-elements.html#form-associated-custom-element)
 
 ## Examples
 
@@ -76,17 +78,17 @@ const inputByName = inputs["username"];
 
 This example gets the form's element list, then iterates over the list, looking for
 {{HTMLElement("input")}} elements of type
-[`"text"`](/en-US/docs/Web/HTML/Element/input/text) so that some
+[`"text"`](/en-US/docs/Web/HTML/Reference/Elements/input/text) so that some
 form of processing can be performed on them.
 
 ```js
 const inputs = document.getElementById("my-form").elements;
 
 // Iterate over the form controls
-for (let i = 0; i < inputs.length; i++) {
-  if (inputs[i].nodeName === "INPUT" && inputs[i].type === "text") {
+for (const input of inputs) {
+  if (input.nodeName === "INPUT" && input.type === "text") {
     // Update text input
-    inputs[i].value.toLocaleUpperCase();
+    input.value = input.value.toLocaleUpperCase();
   }
 }
 ```
@@ -97,9 +99,9 @@ for (let i = 0; i < inputs.length; i++) {
 const inputs = document.getElementById("my-form").elements;
 
 // Iterate over the form controls
-for (let i = 0; i < inputs.length; i++) {
+for (const input of inputs) {
   // Disable all form controls
-  inputs[i].setAttribute("disabled", "");
+  input.setAttribute("disabled", "");
 }
 ```
 

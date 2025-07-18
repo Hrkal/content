@@ -6,7 +6,7 @@ page-type: web-api-instance-method
 browser-compat: api.Event.stopImmediatePropagation
 ---
 
-{{APIRef("DOM")}}
+{{APIRef("DOM")}}{{AvailableInWorkers}}
 
 The **`stopImmediatePropagation()`** method of the
 {{domxref("Event")}} interface prevents other listeners of the same event from being called.
@@ -16,8 +16,16 @@ If several listeners are attached to the same element for the same event type, t
 ## Syntax
 
 ```js-nolint
-event.stopImmediatePropagation()
+stopImmediatePropagation()
 ```
+
+### Parameters
+
+None.
+
+### Return value
+
+None ({{jsxref("undefined")}}).
 
 ## Examples
 
@@ -81,7 +89,7 @@ document.addEventListener(
   () => {
     outElem.textContent = "";
   },
-  true
+  true,
 );
 
 /* Set event listeners for the buttons */
@@ -106,8 +114,8 @@ document
     elem.addEventListener(
       "click",
       (evt) =>
-        (outElem.textContent += `Click event processed on "${elem.firstChild.data.trim()}"\n`)
-    )
+        (outElem.textContent += `Click event processed on "${elem.firstChild.data.trim()}"\n`),
+    ),
   );
 ```
 

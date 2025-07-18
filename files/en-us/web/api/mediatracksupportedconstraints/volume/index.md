@@ -6,7 +6,7 @@ page-type: web-api-instance-property
 status:
   - deprecated
   - non-standard
-browser-compat: api.MediaTrackSupportedConstraints.volume
+browser-compat: api.MediaStreamTrack.applyConstraints.volume_constraint
 ---
 
 {{APIRef("Media Capture and Streams")}}{{Deprecated_Header}}{{Non-standard_Header}}
@@ -37,7 +37,9 @@ get {{jsxref("undefined")}} if you try to look at its value.
 
 ```css hidden
 #result {
-  font: 14px "Arial", sans-serif;
+  font:
+    14px "Arial",
+    sans-serif;
 }
 ```
 

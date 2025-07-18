@@ -1,9 +1,12 @@
 ---
 title: Firefox 24 for developers
+short-title: Firefox 24
 slug: Mozilla/Firefox/Releases/24
+page-type: firefox-release-notes
+sidebar: firefox
 ---
 
-{{FirefoxSidebar}}
+Firefox 24 was released on September 17, 2013. This article lists key changes that are useful not only for web developers, but also Firefox and Gecko developers as well as add-on developers.
 
 ## Changes for Web developers
 
@@ -29,7 +32,7 @@ slug: Mozilla/Firefox/Releases/24
 - Support for the {{domxref("Comment.Comment", "Comment()")}} constructor has been added ([Firefox bug 869006](https://bugzil.la/869006)).
 - Support for the {{domxref("DocumentFragment.DocumentFragment", "DocumentFragment()")}} constructor has been added ([Firefox bug 869002](https://bugzil.la/869002)).
 - The {{domxref("FocusEvent")}} interface has been implemented ([Firefox bug 855741](https://bugzil.la/855741)).
-- Support for the {{domxref("ChildNode.remove()")}} method has been added ([Firefox bug 856629](https://bugzil.la/856629)).
+- Support for the {{domxref("Element.remove", "ChildNode.remove()")}} method has been added ([Firefox bug 856629](https://bugzil.la/856629)).
 - The WebVTT interfaces related to the {{HTMLElement("track")}} element, {{domxref("HTMLTrackElement")}}, {{domxref("TextTrack")}}, {{domxref("TextTrackCue")}}, {{domxref("TextTrackList")}}, and {{domxref("TextTrackCueList")}} have been implemented behind the `media.webvtt.enabled` property, defaulting to `false` ([Firefox bug 833385](https://bugzil.la/833385)).
 - The {{domxref("Gamepad")}} interface, and {{domxref("Navigator.getGamepads")}} have been implemented behind the `dom.gamepad.enabled` property, defaulting to `false` ([Firefox bug 690935](https://bugzil.la/690935)).
 - On desktop Firefox only, `HTMLCanvasElement.getContext()` can now take the `webgl` value, in addition to `experimental-webgl` ([Firefox bug 870232](https://bugzil.la/870232)).
@@ -38,15 +41,15 @@ slug: Mozilla/Firefox/Releases/24
 ### Developer Tools
 
 - The Network inspector now lets you filter by content type (CSS/image/font etc.) and see the relevant size and load times.
-- The Devtools options panel to the left lets you disable/enable JavaScript temporarily.
-- Extension developers may use the new [Browser Console](https://mihai.sucan.ro/mihai/blog/the-browser-console-is-replacing-the-error-console) for Chrome-level scripts (Replaces Error Console).
+- The DevTools options panel to the left lets you disable/enable JavaScript temporarily.
+- Extension developers may use the new [Browser Console](https://mihai.sucan.ro/mihai/blog/the-browser-console-is-replacing-the-error-console/) for Chrome-level scripts (Replaces Error Console).
 - The source map syntax has been changed to use `//#` instead of `//@` ([Firefox bug 870361](https://bugzil.la/870361)).
 
 ### MathML
 
-- The `dir` attribute for controlling directionality of formulas on e.g. {{MathMLElement("math")}} or {{MathMLElement("mrow")}} elements is now equivalent to using the {{cssxref("direction")}} CSS property.
-- The equal sign ("=") is now [stretchable](/en-US/docs/Web/MathML/Element/mo#stretchy).
-- The "`updiagonalarrow`" value for the `notation` attribute on {{MathMLElement("menclose")}} elements has been added.
+- The `dir` attribute for controlling directionality of formulas on e.g., {{MathMLElement("math")}} or {{MathMLElement("mrow")}} elements is now equivalent to using the {{cssxref("direction")}} CSS property.
+- The equal sign ("=") is now [stretchable](/en-US/docs/Web/MathML/Reference/Element/mo#stretchy).
+- The `"updiagonalarrow"` value for the `notation` attribute on {{MathMLElement("menclose")}} elements has been added.
 
 ## Changes for add-on and Mozilla developers
 
@@ -56,7 +59,3 @@ slug: Mozilla/Firefox/Releases/24
 ## See also
 
 - [Firefox 24 Aurora Notes](https://website-archive.mozilla.org/www.mozilla.org/firefox_releasenotes/en-us/firefox/24.0a2/auroranotes/)
-
-## Older versions
-
-{{Firefox_for_developers('23')}}

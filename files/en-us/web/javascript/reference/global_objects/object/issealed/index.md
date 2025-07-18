@@ -1,16 +1,29 @@
 ---
 title: Object.isSealed()
+short-title: isSealed()
 slug: Web/JavaScript/Reference/Global_Objects/Object/isSealed
 page-type: javascript-static-method
 browser-compat: javascript.builtins.Object.isSealed
+sidebar: jsref
 ---
 
-{{JSRef}}
+The **`Object.isSealed()`** static method determines if an object is [sealed](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/seal).
 
-The **`Object.isSealed()`** static method determines if an object is
-sealed.
+{{InteractiveExample("JavaScript Demo: Object.isSealed()")}}
 
-{{EmbedInteractiveExample("pages/js/object-issealed.html")}}
+```js interactive-example
+const object1 = {
+  property1: 42,
+};
+
+console.log(Object.isSealed(object1));
+// Expected output: false
+
+Object.seal(object1);
+
+console.log(Object.isSealed(object1));
+// Expected output: true
+```
 
 ## Syntax
 
@@ -30,7 +43,7 @@ A {{jsxref("Boolean")}} indicating whether or not the given object is sealed.
 ## Description
 
 Returns `true` if the object is sealed, otherwise `false`. An
-object is sealed if it is not {{jsxref("Object.isExtensible", "extensible", "", 1)}} and
+object is sealed if it is not {{jsxref("Object/isExtensible", "extensible", "", 1)}} and
 if all its properties are non-configurable and therefore not removable (but not
 necessarily non-writable).
 

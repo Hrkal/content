@@ -3,13 +3,24 @@ title: Unsigned right shift (>>>)
 slug: Web/JavaScript/Reference/Operators/Unsigned_right_shift
 page-type: javascript-operator
 browser-compat: javascript.operators.unsigned_right_shift
+sidebar: jssidebar
 ---
-
-{{jsSidebar("Operators")}}
 
 The **unsigned right shift (`>>>`)** operator returns a number whose binary representation is the first operand shifted by the specified number of bits to the right. Excess bits shifted off to the right are discarded, and zero bits are shifted in from the left. This operation is also called "zero-filling right shift", because the sign bit becomes `0`, so the resulting number is always positive. Unsigned right shift does not accept [BigInt](/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt) values.
 
-{{EmbedInteractiveExample("pages/js/expressions-unsigned-right-shift.html")}}
+{{InteractiveExample("JavaScript Demo: Unsigned right shift (>>>) operator")}}
+
+```js interactive-example
+const a = 5; //  00000000000000000000000000000101
+const b = 2; //  00000000000000000000000000000010
+const c = -5; //  11111111111111111111111111111011
+
+console.log(a >>> b); //  00000000000000000000000000000001
+// Expected output: 1
+
+console.log(c >>> b); //  00111111111111111111111111111110
+// Expected output: 1073741822
+```
 
 ## Syntax
 
@@ -23,7 +34,7 @@ Unlike other arithmetic and bitwise operators, the unsigned right shift operator
 
 The operator operates on the left operand's bit representation in [two's complement](https://en.wikipedia.org/wiki/Two's_complement). Consider the 32-bit binary representations of the decimal (base 10) numbers `9` and `-9`:
 
-```
+```plain
      9 (base 10): 00000000000000000000000000001001 (base 2)
     -9 (base 10): 11111111111111111111111111110111 (base 2)
 ```
@@ -36,7 +47,7 @@ Given those binary representations of the decimal (base 10) numbers `9`, and `-9
 
 For the positive number `9`, zero-fill right shift and [sign-propagating right shift](/en-US/docs/Web/JavaScript/Reference/Operators/Right_shift) yield the same result: `9 >>> 2` yields `2`, the same as `9 >> 2`:
 
-```
+```plain
       9 (base 10): 00000000000000000000000000001001 (base 2)
                    --------------------------------
 9 >>  2 (base 10): 00000000000000000000000000000010 (base 2) = 2 (base 10)
@@ -47,7 +58,7 @@ Notice how two rightmost bits, `01`, have been shifted off, and two zeroes have 
 
 However, notice what happens for `-9`: `-9 >> 2` ([sign-propagating right shift](/en-US/docs/Web/JavaScript/Reference/Operators/Right_shift)) yields `-3`, but `-9 >>> 2` (zero-fill right shift) yields 1073741821:
 
-```
+```plain
       -9 (base 10): 11111111111111111111111111110111 (base 2)
                     --------------------------------
 -9 >>  2 (base 10): 11111111111111111111111111111101 (base 2) = -3 (base 10)
@@ -91,4 +102,4 @@ Unsigned right shift doesn't work with BigInts.
 ## See also
 
 - [Bitwise operators in the JS guide](/en-US/docs/Web/JavaScript/Guide/Expressions_and_operators#bitwise_operators)
-- [Unsigned right shift assignment operator](/en-US/docs/Web/JavaScript/Reference/Operators/Unsigned_right_shift_assignment)
+- [Unsigned right shift assignment (`>>>=`)](/en-US/docs/Web/JavaScript/Reference/Operators/Unsigned_right_shift_assignment)

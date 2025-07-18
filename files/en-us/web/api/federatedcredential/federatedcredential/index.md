@@ -8,12 +8,12 @@ status:
 browser-compat: api.FederatedCredential.FederatedCredential
 ---
 
-{{APIRef("Credential Management API")}}{{SeeCompatTable}}
+{{APIRef("Credential Management API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
 The **`FederatedCredential()`**
 constructor creates a new {{domxref("FederatedCredential")}} object. In
 supporting browsers, an instance of this class may be passed the `credential`
-received from the `init` object for global {{domxref('fetch()')}}.
+received from the `init` object for global {{domxref("Window/fetch", "fetch()")}}.
 
 ## Syntax
 
@@ -24,9 +24,7 @@ new FederatedCredential(init)
 ### Parameters
 
 - `init`
-
   - : Options are:
-
     - `provider`
       - : A string; identifying the credential
         provider.

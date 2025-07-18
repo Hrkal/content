@@ -3,9 +3,8 @@ title: tabs.move()
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/move
 page-type: webextension-api-function
 browser-compat: webextensions.api.tabs.move
+sidebar: addonsidebar
 ---
-
-{{AddonSidebar()}}
 
 Moves one or more tabs to a new position in the same window or to a different window.
 
@@ -27,13 +26,10 @@ let moving = browser.tabs.move(
 - `tabIds`
   - : `integer` or `array` of `integer`. ID of the {{WebExtAPIRef('tabs.Tab', 'tab')}} to move, or an array of tab IDs.
 - `moveProperties`
-
   - : `object`. An object that specifies where to move the tab(s).
-
     - `windowId` {{optional_inline}}
       - : `integer`. The ID of the window to which you want to move the tab(s). If you omit this, then each tab in `tabIds` will be moved to `index` in its current window. If you include this, and `tabIds` contains more than one tab, then the first tab in `tabIds` will be moved to `index`, and the other tabs will follow it in the order given in `tabIds`.
     - `index`
-
       - : `integer`. The index position to move the tab to, starting at 0. A value of -1 will place the tab at the end of the window.
 
         If you pass a value less than -1, the function will throw an error.
@@ -42,7 +38,7 @@ let moving = browser.tabs.move(
 
 ### Return value
 
-A [`Promise`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) that will be fulfilled with a `{{WebExtAPIRef('tabs.Tab')}}` object or an `array` of `{{WebExtAPIRef('tabs.Tab')}}` objects, containing details about the moved tabs. If no tabs were moved (for example, because you tried to move an unpinned tab before a pinned tab) this will be an empty array. If any error occurs, the promise will be rejected with an error message.
+A [`Promise`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) that will be fulfilled with a {{WebExtAPIRef('tabs.Tab')}} object or an `array` of {{WebExtAPIRef('tabs.Tab')}} objects, containing details about the moved tabs. If no tabs were moved (for example, because you tried to move an unpinned tab before a pinned tab) this will be an empty array. If any error occurs, the promise will be rejected with an error message.
 
 ## Examples
 
@@ -61,12 +57,12 @@ function firstToLast(windowInfo) {
   if (windowInfo.tabs.length === 0) {
     return;
   }
-  let moving = browser.tabs.move(windowInfo.tabs[0].id, {index: -1});
+  let moving = browser.tabs.move(windowInfo.tabs[0].id, { index: -1 });
   moving.then(onMoved, onError);
 }
 
 browser.browserAction.onClicked.addListener(() => {
-  let gettingCurrent = browser.windows.getCurrent({populate: true});
+  let gettingCurrent = browser.windows.getCurrent({ populate: true });
   gettingCurrent.then(firstToLast, onError);
 });
 ```
@@ -84,12 +80,12 @@ function onError(error) {
 
 function moveMoz(tabs) {
   let mozTabIds = tabs.map((tabInfo) => tabInfo.id);
-  let moving = browser.tabs.move(mozTabIds, {index: -1});
+  let moving = browser.tabs.move(mozTabIds, { index: -1 });
   moving.then(onMoved, onError);
 }
 
 browser.browserAction.onClicked.addListener(() => {
-  let gettingMozTabs = browser.tabs.query({url:"*://*.mozilla.org/*"});
+  let gettingMozTabs = browser.tabs.query({ url: "*://*.mozilla.org/*" });
   gettingMozTabs.then(moveMoz, onError);
 });
 ```
@@ -108,12 +104,15 @@ function onError(error) {
 function moveMoz(tabs) {
   let mozTabIds = tabs.map((tabInfo) => tabInfo.id);
   let targetWindow = tabs[0].windowId;
-  let moving = browser.tabs.move(mozTabIds, {windowId: targetWindow, index: 0});
+  let moving = browser.tabs.move(mozTabIds, {
+    windowId: targetWindow,
+    index: 0,
+  });
   moving.then(onMoved, onError);
 }
 
 browser.browserAction.onClicked.addListener(() => {
-  let gettingMozTabs = browser.tabs.query({url:"*://*.mozilla.org/*"});
+  let gettingMozTabs = browser.tabs.query({ url: "*://*.mozilla.org/*" });
   gettingMozTabs.then(moveMoz, onError);
 });
 ```
@@ -124,7 +123,8 @@ browser.browserAction.onClicked.addListener(() => {
 
 {{Compat}}
 
-> **Note:** This API is based on Chromium's [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/tabs/#method-move) API. This documentation is derived from [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) in the Chromium code.getZoom
+> [!NOTE]
+> This API is based on Chromium's [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-move) API. This documentation is derived from [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) in the Chromium code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

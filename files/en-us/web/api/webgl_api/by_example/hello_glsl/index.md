@@ -4,11 +4,12 @@ slug: Web/API/WebGL_API/By_example/Hello_GLSL
 page-type: guide
 ---
 
-{{PreviousNext("Learn/WebGL/By_example/Raining_rectangles","Learn/WebGL/By_example/Hello_vertex_attributes")}}
+{{DefaultAPISidebar("WebGL")}}{{PreviousNext("Web/API/WebGL_API/By_example/Raining_rectangles","Web/API/WebGL_API/By_example/Hello_vertex_attributes")}}
 
 This WebGL example demonstrates a very basic GLSL shader program that draws a solid color square.
 
-> **Note:** This example will most likely work in all modern desktop browsers. But it may not work in some mobile or older browsers. If the canvas remains blank, you can check the output of the next example, which draws exactly the same thing. But remember to read through the explanations and code on this page, before moving on to the next.
+> [!NOTE]
+> This example will most likely work in all modern desktop browsers. But it may not work in some mobile or older browsers. If the canvas remains blank, you can check the output of the next example, which draws exactly the same thing. But remember to read through the explanations and code on this page, before moving on to the next.
 
 ## Hello World program in GLSL
 
@@ -63,11 +64,6 @@ button {
 </script>
 ```
 
-```js hidden
-;(() => {
-  "use strict";
-```
-
 ```js
 window.addEventListener("load", setupWebGL, false);
 let gl;
@@ -97,9 +93,8 @@ function setupWebGL(evt) {
   if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
     const linkErrLog = gl.getProgramInfoLog(program);
     cleanup();
-    document.querySelector(
-      "p"
-    ).textContent = `Shader program did not link successfully. Error log: ${linkErrLog}`;
+    document.querySelector("p").textContent =
+      `Shader program did not link successfully. Error log: ${linkErrLog}`;
     return;
   }
 
@@ -150,10 +145,6 @@ function getRenderingContext() {
 }
 ```
 
-```js hidden
-})();
-```
-
 The source code of this example is also available on [GitHub](https://github.com/idofilin/webgl-by-example/tree/master/hello-glsl).
 
-{{PreviousNext("Learn/WebGL/By_example/Raining_rectangles","Learn/WebGL/By_example/Hello_vertex_attributes")}}
+{{PreviousNext("Web/API/WebGL_API/By_example/Raining_rectangles","Web/API/WebGL_API/By_example/Hello_vertex_attributes")}}

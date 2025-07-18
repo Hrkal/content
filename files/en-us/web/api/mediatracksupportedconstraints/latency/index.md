@@ -3,7 +3,7 @@ title: "MediaTrackSupportedConstraints: latency property"
 short-title: latency
 slug: Web/API/MediaTrackSupportedConstraints/latency
 page-type: web-api-instance-property
-browser-compat: api.MediaTrackSupportedConstraints.latency
+browser-compat: api.MediaStreamTrack.applyConstraints.latency_constraint
 ---
 
 {{APIRef("Media Capture and Streams")}}
@@ -26,7 +26,9 @@ If the property isn't present, this property is missing from the supported const
 
 ```css hidden
 #result {
-  font: 14px "Arial", sans-serif;
+  font:
+    14px "Arial",
+    sans-serif;
 }
 ```
 

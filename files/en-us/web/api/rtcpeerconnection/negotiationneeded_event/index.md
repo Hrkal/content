@@ -19,10 +19,10 @@ This event is not cancelable and does not bubble.
 
 Use the event name in methods like {{domxref("EventTarget.addEventListener", "addEventListener()")}}, or set an event handler property.
 
-```js
-addEventListener("negotiationneeded", (event) => {});
+```js-nolint
+addEventListener("negotiationneeded", (event) => { })
 
-onnegotiationneeded = (event) => {};
+onnegotiationneeded = (event) => { }
 ```
 
 ## Event type
@@ -43,13 +43,13 @@ pc.addEventListener(
         sendSignalingMessage({
           type: "video-offer",
           sdp: pc.localDescription,
-        })
+        }),
       )
       .catch((err) => {
         // handle error
       });
   },
-  false
+  false,
 );
 ```
 
@@ -65,7 +65,7 @@ pc.onnegotiationneeded = (ev) => {
       sendSignalingMessage({
         type: "video-offer",
         sdp: pc.localDescription,
-      })
+      }),
     )
     .catch((err) => {
       // handle error

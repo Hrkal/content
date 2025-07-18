@@ -2,6 +2,7 @@
 title: Certified
 slug: Glossary/Certified
 page-type: glossary-definition
+sidebar: glossarysidebar
 ---
 
 **Certified** means that an application, content or data transmission has successfully undergone evaluation by professionals with expertise in the relevant field, thereby indicating completeness, security and trustworthiness.

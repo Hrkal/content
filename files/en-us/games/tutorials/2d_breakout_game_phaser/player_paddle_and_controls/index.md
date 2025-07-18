@@ -1,9 +1,9 @@
 ---
 title: Player paddle and controls
 slug: Games/Tutorials/2D_breakout_game_Phaser/Player_paddle_and_controls
+page-type: guide
+sidebar: games
 ---
-
-{{GamesSidebar}}
 
 {{PreviousNext("Games/Workflows/2D_Breakout_game_Phaser/Bounce_off_the_walls", "Games/Workflows/2D_Breakout_game_Phaser/Game_over")}}
 
@@ -45,7 +45,7 @@ Next up, we will initialize our paddle by adding the following `add.sprite()` ca
 paddle = game.add.sprite(
   game.world.width * 0.5,
   game.world.height - 5,
-  "paddle"
+  "paddle",
 );
 ```
 

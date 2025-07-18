@@ -17,7 +17,8 @@ This property is useful for games and other apps that use pixel art. When enlarg
 images, the default resizing algorithm will blur the pixels. Set this property to
 `false` to retain the pixels' sharpness.
 
-> **Note:** You can adjust the smoothing quality with the
+> [!NOTE]
+> You can adjust the smoothing quality with the
 > {{domxref("CanvasRenderingContext2D.imageSmoothingQuality", "imageSmoothingQuality")}}
 > property.
 
@@ -49,8 +50,7 @@ ctx.font = "16px sans-serif";
 ctx.textAlign = "center";
 
 const img = new Image();
-img.src =
-  "https://interactive-examples.mdn.mozilla.net/media/examples/star.png";
+img.src = "/shared-assets/images/examples/big-star.png";
 img.onload = () => {
   const w = img.width,
     h = img.height;

@@ -1,16 +1,30 @@
 ---
 title: WeakSet.prototype.has()
+short-title: has()
 slug: Web/JavaScript/Reference/Global_Objects/WeakSet/has
 page-type: javascript-instance-method
 browser-compat: javascript.builtins.WeakSet.has
+sidebar: jsref
 ---
 
-{{JSRef}}
+The **`has()`** method of {{jsxref("WeakSet")}} instances returns a boolean indicating whether an
+object exists in this `WeakSet` or not.
 
-The **`has()`** method returns a boolean indicating whether an
-object exists in a `WeakSet` or not.
+{{InteractiveExample("JavaScript Demo: WeakSet.Prototype.has()")}}
 
-{{EmbedInteractiveExample("pages/js/weakset-prototype-has.html")}}
+```js interactive-example
+const weakset1 = new WeakSet();
+const object1 = {};
+const object2 = {};
+
+weakset1.add(object1);
+
+console.log(weakset1.has(object1));
+// Expected output: true
+
+console.log(weakset1.has(object2));
+// Expected output: false
+```
 
 ## Syntax
 

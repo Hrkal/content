@@ -2,9 +2,8 @@
 title: Anatomy of an extension
 slug: Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension
 page-type: guide
+sidebar: addonsidebar
 ---
-
-{{AddonSidebar}}
 
 An extension consists of a collection of files, packaged for distribution and installation. In this article, we will quickly go through the files that might be present in an extension.
 
@@ -48,7 +47,7 @@ Your extension can include various user interface components whose content is de
 - [Sidebar](/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Sidebars)
   - : A pane that is displayed at the left-hand side of the browser window, next to the web page.
 - [Popup](/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups)
-  - : A dialog that you can display when the user clicks on a [toolbar button](/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_action) or [address bar button](/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Page_actions)
+  - : A dialog that you can display when the user clicks on a [toolbar button](/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Toolbar_button) or [address bar button](/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Page_actions)
 - [Options](/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Options_pages)
   - : A page that's shown when the user accesses your add-on's preferences in the browser's native add-ons manager.
 
@@ -74,7 +73,6 @@ Content scripts can see and manipulate the page's DOM, just like normal scripts 
 
 Unlike normal page scripts, content scripts can:
 
-- Make cross-domain XHR requests.
 - Use a small subset of the [WebExtension APIs](/en-US/docs/Mozilla/Add-ons/WebExtensions/API).
 - [Exchange messages with their background scripts](/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#communicating_with_background_scripts) and can in this way indirectly access all the WebExtension APIs.
 
@@ -88,6 +86,6 @@ See the [content scripts](/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scri
 
 Web accessible resources are resources—such as images, HTML, CSS, and JavaScript—that you include in the extension and want to make accessible to content scripts and page scripts. Resources which are made web-accessible can be referenced by page scripts and content scripts using a special URI scheme.
 
-For example, if a content script wants to insert some images into web pages, you could include them in the extension and make them web accessible. Then the content script could create and append [`img`](/en-US/docs/Web/HTML/Element/img) tags which reference the images via the `src` attribute.
+For example, if a content script wants to insert some images into web pages, you could include them in the extension and make them web accessible. Then the content script could create and append [`img`](/en-US/docs/Web/HTML/Reference/Elements/img) tags which reference the images via the `src` attribute.
 
 To learn more, see the documentation for the [`"web_accessible_resources"`](/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/web_accessible_resources) `manifest.json` key.

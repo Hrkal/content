@@ -2,9 +2,10 @@
 title: Introduction
 slug: Web/JavaScript/Guide/Introduction
 page-type: guide
+sidebar: jssidebar
 ---
 
-{{jsSidebar("JavaScript Guide")}} {{PreviousNext("Web/JavaScript/Guide", "Web/JavaScript/Guide/Grammar_and_types")}}
+{{PreviousNext("Web/JavaScript/Guide", "Web/JavaScript/Guide/Grammar_and_types")}}
 
 This chapter introduces JavaScript and discusses some of its fundamental concepts.
 
@@ -20,17 +21,15 @@ This guide assumes you have the following basic background:
 
 The JavaScript documentation on MDN includes the following:
 
-- [Learn Web Development](/en-US/docs/Learn) provides information for beginners and introduces basic concepts of programming and the Internet.
+- [Dynamic scripting with JavaScript](/en-US/docs/Learn_web_development/Core/Scripting) provides structured JavaScript guides for beginners and introduces basic concepts of programming and the Internet.
 - [JavaScript Guide](/en-US/docs/Web/JavaScript/Guide) (this guide) provides an overview about the JavaScript language and its objects.
 - [JavaScript Reference](/en-US/docs/Web/JavaScript/Reference) provides detailed reference material for JavaScript.
-
-If you are new to JavaScript, start with the articles in the [learning area](/en-US/docs/Learn) and the [JavaScript Guide](/en-US/docs/Web/JavaScript/Guide). Once you have a firm grasp of the fundamentals, you can use the [JavaScript Reference](/en-US/docs/Web/JavaScript/Reference) to get more details on individual objects and statements.
 
 ## What is JavaScript?
 
 JavaScript is a cross-platform, object-oriented scripting language used to make webpages interactive (e.g., having complex animations, clickable buttons, popup menus, etc.). There are also more advanced server side versions of JavaScript such as Node.js, which allow you to add more functionality to a website than downloading files (such as realtime collaboration between multiple computers). Inside a host environment (for example, a web browser), JavaScript can be connected to the objects of its environment to provide programmatic control over them.
 
-JavaScript contains a standard library of objects, such as `Array`, `Date`, and `Math`, and a core set of language elements such as operators, control structures, and statements. Core JavaScript can be extended for a variety of purposes by supplementing it with additional objects; for example:
+JavaScript contains a standard library of objects, such as `Array`, `Map`, and `Math`, and a core set of language elements such as operators, control structures, and statements. Core JavaScript can be extended for a variety of purposes by supplementing it with additional objects; for example:
 
 - _Client-side JavaScript_ extends the core language by supplying objects to control a browser and its _Document Object Model_ (DOM). For example, client-side extensions allow an application to place elements on an HTML form and respond to user events such as mouse clicks, form input, and page navigation.
 - _Server-side JavaScript_ extends the core language by supplying objects relevant to running JavaScript on a server. For example, server-side extensions allow an application to communicate with a database, provide continuity of information from one invocation to another of the application, or perform file manipulations on a server.
@@ -47,7 +46,7 @@ JavaScript is a very free-form language compared to Java. You do not have to dec
 
 Java is a class-based programming language designed for fast execution and type safety. Type safety means, for instance, that you can't cast a Java integer into an object reference or access private memory by corrupting the Java bytecode. Java's class-based model means that programs consist exclusively of classes and their methods. Java's class inheritance and strong typing generally require tightly coupled object hierarchies. These requirements make Java programming more complex than JavaScript programming.
 
-In contrast, JavaScript descends in spirit from a line of smaller, dynamically typed languages such as HyperTalk and dBASE. These scripting languages offer programming tools to a much wider audience because of their easier syntax, specialized built-in functionality, and minimal requirements for object creation.
+In contrast, JavaScript descends in spirit from a line of smaller, dynamically typed languages such as HyperTalk and dBase. These scripting languages offer programming tools to a much wider audience because of their easier syntax, specialized built-in functionality, and minimal requirements for object creation.
 
 | JavaScript                                                                                                                                                                   | Java                                                                                                                                                                                     |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -57,9 +56,9 @@ In contrast, JavaScript descends in spirit from a line of smaller, dynamically t
 
 ## JavaScript and the ECMAScript specification
 
-JavaScript is standardized at [Ecma International](https://www.ecma-international.org/) — the European association for standardizing information and communication systems (ECMA was formerly an acronym for the European Computer Manufacturers Association) to deliver a standardized, international programming language based on JavaScript. This standardized version of JavaScript, called ECMAScript, behaves the same way in all applications that support the standard. Companies can use the open standard language to develop their implementation of JavaScript. The ECMAScript standard is documented in the ECMA-262 specification.
+JavaScript is standardized at [Ecma International](https://ecma-international.org/) — the European association for standardizing information and communication systems (ECMA was formerly an acronym for the European Computer Manufacturers Association) to deliver a standardized, international programming language based on JavaScript. This standardized version of JavaScript, called ECMAScript, behaves the same way in all applications that support the standard. Companies can use the open standard language to develop their implementation of JavaScript. The ECMAScript standard is documented in the ECMA-262 specification.
 
-The ECMA-262 standard is also approved by the [ISO](https://www.iso.org/home.html) (International Organization for Standardization) as ISO-16262. You can also find the specification on [the Ecma International website](https://www.ecma-international.org/publications-and-standards/standards/ecma-262/). The ECMAScript specification does not describe the Document Object Model (DOM), which is standardized by the [World Wide Web Consortium (W3C)](https://www.w3.org/) and/or [WHATWG (Web Hypertext Application Technology Working Group)](https://whatwg.org). The DOM defines the way in which HTML document objects are exposed to your script. To get a better idea about the different technologies that are used when programming with JavaScript, consult the article [JavaScript technologies overview](/en-US/docs/Web/JavaScript/JavaScript_technologies_overview).
+The ECMA-262 standard is also approved by the [ISO](https://www.iso.org/home.html) (International Organization for Standardization) as ISO-16262. You can also find the specification on [the Ecma International website](https://ecma-international.org/publications-and-standards/standards/ecma-262/). The ECMAScript specification does not describe the Document Object Model (DOM), which is standardized by the [World Wide Web Consortium (W3C)](https://www.w3.org/) and/or [WHATWG (Web Hypertext Application Technology Working Group)](https://whatwg.org/). The DOM defines the way in which HTML document objects are exposed to your script. To get a better idea about the different technologies that are used when programming with JavaScript, consult the article [JavaScript technologies overview](/en-US/docs/Web/JavaScript/Reference/JavaScript_technologies_overview).
 
 ### JavaScript documentation versus the ECMAScript specification
 
@@ -85,7 +84,7 @@ The exact instructions for opening the console vary from one browser to another:
 
 - [Opening the console in Firefox](https://firefox-source-docs.mozilla.org/devtools-user/web_console/#opening-the-web-console)
 - [Opening the console in Chrome](https://developer.chrome.com/docs/devtools/open)
-- [Opening the console in Microsoft Edge](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/)
+- [Opening the console in Microsoft Edge](https://learn.microsoft.com/en-us/microsoft-edge/devtools/console/)
 
 ### Entering and running JavaScript
 
@@ -101,10 +100,10 @@ console.log(eval("3 + 5"));
 
 ### Multi-line input in the console
 
-By default, if you press <kbd>Return</kbd> after entering a line of code, then the string you typed is executed. To enter multi-line input:
+By default, if you press <kbd>Enter</kbd> (or <kbd>Return</kbd>, depending on your keyboard) after entering a line of code, then the string you typed is executed. To enter multi-line input:
 
-- If the string you typed was incomplete (for example, you typed `function foo() {`) then the console will treat <kbd>Return</kbd> as a line break, and let you type another line.
-- If you hold down <kbd>Shift</kbd> while pressing <kbd>Return</kbd>, then the console will treat this as a line break, and let you type another line.
+- If the string you typed was incomplete (for example, you typed `function foo() {`) then the console will treat <kbd>Enter</kbd> as a line break, and let you type another line.
+- If you hold down <kbd>Shift</kbd> while pressing <kbd>Enter</kbd>, then the console will treat this as a line break, and let you type another line.
 - In Firefox only, you can activate [multi-line input mode](https://firefox-source-docs.mozilla.org/devtools-user/web_console/the_command_line_interpreter/index.html#multi-line-mode), in which you can enter multiple lines in a mini-editor, then run the whole thing when you are ready.
 
 To get started with writing JavaScript, open the console, copy the following code, and paste it in at the prompt:
@@ -122,7 +121,7 @@ To get started with writing JavaScript, open the console, copy the following cod
 })();
 ```
 
-Press <kbd>Return</kbd> to watch it unfold in your browser!
+Press <kbd>Enter</kbd> to watch it unfold in your browser!
 
 ## What's next
 

@@ -5,7 +5,7 @@ slug: Web/API/CSS/paintWorklet_static
 page-type: web-api-static-property
 status:
   - experimental
-browser-compat: api.CSS.paintWorklet
+browser-compat: api.CSS.paintWorklet_static
 ---
 
 {{APIRef("CSSOM")}}{{SeeCompatTable}}{{SecureContext_Header}}
@@ -40,4 +40,4 @@ if ("paintWorklet" in CSS) {
 ## See also
 
 - [CSS Painting API](/en-US/docs/Web/API/CSS_Painting_API)
-- [Houdini APIs](/en-US/docs/Web/Guide/Houdini)
+- [Houdini APIs](/en-US/docs/Web/API/Houdini_APIs)

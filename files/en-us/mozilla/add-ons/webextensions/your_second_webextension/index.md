@@ -2,9 +2,8 @@
 title: Your second extension
 slug: Mozilla/Add-ons/WebExtensions/Your_second_WebExtension
 page-type: guide
+sidebar: addonsidebar
 ---
-
-{{AddonSidebar}}
 
 If you've been through the [Your first extension](/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension) article, you've already got an idea of how to write an extension. In this article, you'll write a slightly more complex extension that demonstrates a few more of the APIs.
 
@@ -12,9 +11,8 @@ The extension adds a new button to the Firefox toolbar. When the user clicks the
 
 To implement this, we will:
 
-- **define a [browser action](/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_action), which is a button attached to the Firefox toolbar**.
+- **define a [browser action](/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Toolbar_button), which is a button attached to the Firefox toolbar**.
   For the button we'll supply:
-
   - an icon, called "beasts-32.png"
   - a popup to open when the button is pressed. The popup will include HTML, CSS, and JavaScript.
 
@@ -26,7 +24,7 @@ To implement this, we will:
 
 You could visualize the overall structure of the extension like this:
 
-![The manifest.json file includes icons, browser actions, including popups, and web accessible resources. The choose beast javascript popup resource calls in the beastify script.](untitled-1.png)
+![The manifest.json file includes icons, browser actions, including popups, and web accessible resources. The choose beast JavaScript popup resource calls in the beastify script.](untitled-1.png)
 
 It's a simple extension, but shows many of the basic concepts of the WebExtensions API:
 
@@ -36,7 +34,7 @@ It's a simple extension, but shows many of the basic concepts of the WebExtensio
 - communicating between content scripts and the rest of the extension
 - packaging resources with your extension that can be used by web pages
 
-You can find [complete source code for the extension on GitHub](https://github.com/mdn/webextensions-examples/tree/master/beastify).
+You can find [complete source code for the extension on GitHub](https://github.com/mdn/webextensions-examples/tree/main/beastify).
 
 ## Writing the extension
 
@@ -58,14 +56,12 @@ Now create a new file called "manifest.json", and give it the following contents
   "version": "1.0",
 
   "description": "Adds a browser action icon to the toolbar. Click the button to choose a beast. The active tab's body content is then replaced with a picture of the chosen beast. See https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Examples#beastify",
-  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/beastify",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/main/beastify",
   "icons": {
     "48": "icons/beasts-48.png"
   },
 
-  "permissions": [
-    "activeTab"
-  ],
+  "permissions": ["activeTab"],
 
   "browser_action": {
     "default_icon": "icons/beasts-32.png",
@@ -86,7 +82,6 @@ Now create a new file called "manifest.json", and give it the following contents
 - [`icons`](/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/icons) is optional, but recommended: it allows you to specify an icon for the extension, that will be shown in the Add-ons Manager.
 - [`permissions`](/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) lists permissions the extension needs. We're just asking for the [`activeTab` permission](/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#activetab_permission) here.
 - [`browser_action`](/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action) specifies the toolbar button. We're supplying three pieces of information here:
-
   - `default_icon` is mandatory, and points to the icon for the button
   - `default_title` is optional, and will be shown in a tooltip
   - `default_popup` is used if you want a popup to be shown when the user clicks the button. We do, so we've included this key and made it point to an HTML file included with the extension.
@@ -99,7 +94,7 @@ Note that all paths given are relative to manifest.json itself.
 
 The extension should have an icon. This will be shown next to the extension's listing in the Add-ons Manager (you can open this by visiting the URL "about:addons"). Our manifest.json promised that we would have an icon for the toolbar at "icons/beasts-48.png".
 
-Create the "icons" directory and save an icon there named "beasts-48.png". You could use [the one from our example](https://raw.githubusercontent.com/mdn/webextensions-examples/master/beastify/icons/beasts-48.png), which is taken from the [Aha-Soft's Free Retina iconset](http://www.aha-soft.com/free-icons/free-retina-icon-set/), and used under the terms of its license.
+Create the "icons" directory and save an icon there named "beasts-48.png". You could use [the one from our example](https://raw.githubusercontent.com/mdn/webextensions-examples/main/beastify/icons/beasts-48.png), which is taken from the [Aha-Soft's Free Retina iconset](https://www.aha-soft.com/free-icons/free-retina-icon-set/), and used under the terms of its license.
 
 If you choose to supply your own icon, It should be 48x48 pixels. You could also supply a 96x96 pixel icon, for high-resolution displays, and if you do this it will be specified as the `96` property of the `icons` object in manifest.json:
 
@@ -114,7 +109,7 @@ If you choose to supply your own icon, It should be 48x48 pixels. You could also
 
 The toolbar button also needs an icon, and our manifest.json promised that we would have an icon for the toolbar at "icons/beasts-32.png".
 
-Save an icon named "beasts-32.png" in the "icons" directory. You could use [the one from our example](https://raw.githubusercontent.com/mdn/webextensions-examples/master/beastify/icons/beasts-32.png), which is taken from the [IconBeast Lite icon set](http://www.iconbeast.com/free/) and used under the terms of its [license](http://www.iconbeast.com/faq/).
+Save an icon named "beasts-32.png" in the "icons" directory. You could use [the one from our example](https://raw.githubusercontent.com/mdn/webextensions-examples/main/beastify/icons/beasts-32.png), which is taken from the [IconBeast Lite icon set](https://www.iconbeast.com/free/) and used under the terms of its [license](https://www.iconbeast.com/faq/).
 
 If you don't supply a popup, then a click event is dispatched to your extension when the user clicks the button. If you do supply a popup, the click event is not dispatched, but instead, the popup is opened. We want a popup, so let's create that next.
 
@@ -139,8 +134,8 @@ touch choose_beast.html choose_beast.css choose_beast.js
 The HTML file looks like this:
 
 ```html
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en-US">
   <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="choose_beast.css" />
@@ -162,7 +157,7 @@ The HTML file looks like this:
 </html>
 ```
 
-We have a [`<div>`](/en-US/docs/Web/HTML/Element/div) element with an ID of `"popup-content"` that contains a button for each animal choice and a reset button. We have another `<div>` with an ID of `"error-content"` and a class `"hidden"`. We'll use that in case there's a problem initializing the popup.
+We have a [`<div>`](/en-US/docs/Web/HTML/Reference/Elements/div) element with an ID of `"popup-content"` that contains a button for each animal choice and a reset button. We have another `<div>` with an ID of `"error-content"` and a class `"hidden"`. We'll use that in case there's a problem initializing the popup.
 
 Note that we include the CSS and JS files from this file, just like a web page.
 
@@ -171,7 +166,8 @@ Note that we include the CSS and JS files from this file, just like a web page.
 The CSS fixes the size of the popup, ensures that the three choices fill the space, and gives them some basic styling. It also hides elements with `class="hidden"`: this means that our `<div id="error-content"...` element will be hidden by default.
 
 ```css
-html, body {
+html,
+body {
   width: 100px;
 }
 
@@ -187,19 +183,19 @@ button {
   text-align: center;
   font-size: 1.5em;
   cursor: pointer;
-  background-color: #E5F2F2;
+  background-color: #e5f2f2;
 }
 
 button:hover {
-  background-color: #CFF2F2;
+  background-color: #cff2f2;
 }
 
 button[type="reset"] {
-  background-color: #FBFBC9;
+  background-color: #fbfbc9;
 }
 
 button[type="reset"]:hover {
-  background-color: #EAEA9D;
+  background-color: #eaea9d;
 }
 ```
 
@@ -246,7 +242,7 @@ function listenForClicks() {
         const url = beastNameToURL(e.target.textContent);
         browser.tabs.sendMessage(tabs[0].id, {
           command: "beastify",
-          beastURL: url
+          beastURL: url,
         });
       });
     }
@@ -277,13 +273,15 @@ function listenForClicks() {
     if (e.target.tagName !== "BUTTON" || !e.target.closest("#popup-content")) {
       // Ignore when click is not on a button within <div id="popup-content">.
       return;
-    } 
+    }
     if (e.target.type === "reset") {
-      browser.tabs.query({active: true, currentWindow: true})
+      browser.tabs
+        .query({ active: true, currentWindow: true })
         .then(reset)
         .catch(reportError);
     } else {
-      browser.tabs.query({active: true, currentWindow: true})
+      browser.tabs
+        .query({ active: true, currentWindow: true })
         .then(beastify)
         .catch(reportError);
     }
@@ -319,7 +317,7 @@ If executing the content script is successful, we call `listenForClicks()`. This
 
 - If the click was not on a button in the popup, we ignore it and do nothing.
 - If the click was on a button with `type="reset"`, then we call `reset()`.
-- If the click was on any other button (i.e. the beast buttons), then we call `beastify()`.
+- If the click was on any other button (i.e., the beast buttons), then we call `beastify()`.
 
 The `beastify()` function does three things:
 
@@ -390,14 +388,14 @@ The first thing the content script does is to check for a global variable `windo
 
 After that, the place to start is line 40, where the content script listens for messages from the popup, using the [`browser.runtime.onMessage`](/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage) API. We saw above that the popup script can send two different sorts of messages: "beastify" and "reset".
 
-- if the message is "beastify", we expect it to contain a URL pointing to a beast image. We remove any beasts that might have been added by previous "beastify" calls, then construct and append an [`<img>`](/en-US/docs/Web/HTML/Element/img) element whose `src` attribute is set to the beast URL.
+- if the message is "beastify", we expect it to contain a URL pointing to a beast image. We remove any beasts that might have been added by previous "beastify" calls, then construct and append an [`<img>`](/en-US/docs/Web/HTML/Reference/Elements/img) element whose `src` attribute is set to the beast URL.
 - if the message is "reset", we just remove any beasts that might have been added.
 
 ### The beasts
 
 Finally, we need to include the images of the beasts.
 
-Create a new directory called "beasts", and add the three images in that directory, with the appropriate names. You can get the images from [the GitHub repository](https://github.com/mdn/webextensions-examples/tree/master/beastify/beasts), or from here:
+Create a new directory called "beasts", and add the three images in that directory, with the appropriate names. You can get the images from [the GitHub repository](https://github.com/mdn/webextensions-examples/tree/main/beastify/beasts), or from here:
 
 ![A brown frog.](frog.jpg)
 
@@ -409,7 +407,7 @@ Create a new directory called "beasts", and add the three images in that directo
 
 First, double check that you have the right files in the right places:
 
-```
+```plain
 beastify/
 
     beasts/
@@ -455,5 +453,5 @@ Now that you've created a more advanced WebExtension for Firefox:
 
 - [read about the anatomy of an extension](/en-US/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension)
 - [explore the extension examples](/en-US/docs/Mozilla/Add-ons/WebExtensions/Examples)
-- [find out what you need to develop, test, and publish your extension](/en-US/docs/Mozilla/Add-ons/WebExtensions/What_next_)
-- [take your learning further](/en-US/docs/Mozilla/Add-ons/WebExtensions/What_next_#continue_your_learning_experience).
+- [find out what you need to develop, test, and publish your extension](/en-US/docs/Mozilla/Add-ons/WebExtensions/What_next)
+- [take your learning further](/en-US/docs/Mozilla/Add-ons/WebExtensions/What_next#continue_your_learning_experience).

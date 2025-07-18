@@ -5,7 +5,7 @@ page-type: web-api-interface
 browser-compat: api.TransformStreamDefaultController
 ---
 
-{{APIRef("Streams")}}
+{{APIRef("Streams")}}{{AvailableInWorkers}}
 
 The **`TransformStreamDefaultController`** interface of the [Streams API](/en-US/docs/Web/API/Streams_API) provides methods to manipulate the associated {{domxref("ReadableStream")}} and {{domxref("WritableStream")}}.
 
@@ -41,7 +41,7 @@ const transformContent = {
           controller.terminate();
         } else if (ArrayBuffer.isView(chunk)) {
           controller.enqueue(
-            new Uint8Array(chunk.buffer, chunk.byteOffset, chunk.byteLength)
+            new Uint8Array(chunk.buffer, chunk.byteOffset, chunk.byteLength),
           );
         } else if (
           Array.isArray(chunk) &&

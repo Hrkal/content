@@ -6,7 +6,7 @@ page-type: web-api-instance-property
 browser-compat: api.PermissionStatus.name
 ---
 
-{{APIRef("Permissions API")}}
+{{APIRef("Permissions API")}}{{AvailableInWorkers}}
 
 The **`name`** read-only property of the {{domxref("PermissionStatus")}} interface returns the name of a requested permission.
 
@@ -25,7 +25,7 @@ function queryAndTrackPermission(permissionName) {
     .query({ name: permissionName })
     .then((permissionStatus) => {
       console.log(
-        `${permissionName} permission state is ${permissionStatus.state}`
+        `${permissionName} permission state is ${permissionStatus.state}`,
       );
       permissionStatus.onchange = stateChangeListener;
     });

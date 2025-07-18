@@ -1,16 +1,32 @@
 ---
 title: Map.prototype.forEach()
+short-title: forEach()
 slug: Web/JavaScript/Reference/Global_Objects/Map/forEach
 page-type: javascript-instance-method
 browser-compat: javascript.builtins.Map.forEach
+sidebar: jsref
 ---
 
-{{JSRef}}
+The **`forEach()`** method of {{jsxref("Map")}} instances executes a provided function once per each key/value
+pair in this map, in insertion order.
 
-The **`forEach()`** method executes a provided function once per each key/value
-pair in the `Map` object, in insertion order.
+{{InteractiveExample("JavaScript Demo: Map.prototype.forEach()")}}
 
-{{EmbedInteractiveExample("pages/js/map-prototype-foreach.html")}}
+```js interactive-example
+function logMapElements(value, key, map) {
+  console.log(`m[${key}] = ${value}`);
+}
+
+new Map([
+  ["foo", 3],
+  ["bar", {}],
+  ["baz", undefined],
+]).forEach(logMapElements);
+
+// Expected output: "m[foo] = 3"
+// Expected output: "m[bar] = [object Object]"
+// Expected output: "m[baz] = undefined"
+```
 
 ## Syntax
 
@@ -34,7 +50,7 @@ forEach(callbackFn, thisArg)
 
 ### Return value
 
-{{jsxref("undefined")}}.
+None ({{jsxref("undefined")}}).
 
 ## Description
 

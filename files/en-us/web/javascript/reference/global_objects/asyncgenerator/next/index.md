@@ -1,19 +1,19 @@
 ---
 title: AsyncGenerator.prototype.next()
+short-title: next()
 slug: Web/JavaScript/Reference/Global_Objects/AsyncGenerator/next
 page-type: javascript-instance-method
 browser-compat: javascript.builtins.AsyncGenerator.next
+sidebar: jsref
 ---
 
-{{JSRef}}
-
-The **`next()`** method returns the next value in the sequence.
+The **`next()`** method of {{jsxref("AsyncGenerator")}} instances returns the next value in the sequence.
 
 ## Syntax
 
 ```js-nolint
-asyncGeneratorObject.next()
-asyncGeneratorObject.next(value)
+next()
+next(value)
 ```
 
 ### Parameters
@@ -36,7 +36,7 @@ A {{jsxref("Promise")}} which when resolved returns an {{jsxref("Object")}} with
 
 ### Using next()
 
-The following example shows a simple generator and the object that the `next` method returns:
+The following example shows a generator and the object that the `next` method returns:
 
 ```js
 // An async task. Pretend it's doing something more useful
@@ -64,7 +64,8 @@ asyncGen.next().then((res) => console.log(res)); // { value: undefined, done: tr
 
 In this example, `next` is called with a value.
 
-> **Note:** The first call does not log anything, because the generator was not yielding anything initially.
+> [!NOTE]
+> The first call does not log anything, because the generator was not yielding anything initially.
 
 ```js
 // An async task. Pretend it's doing something more useful
@@ -105,4 +106,4 @@ main();
 ## See also
 
 - {{jsxref("Statements/async_function*", "async function*")}}
-- [Iterators and generators](/en-US/docs/Web/JavaScript/Guide/Iterators_and_generators)
+- [Iterators and generators](/en-US/docs/Web/JavaScript/Guide/Iterators_and_generators) guide

@@ -3,12 +3,10 @@ title: "GPUValidationError: GPUValidationError() constructor"
 short-title: GPUValidationError()
 slug: Web/API/GPUValidationError/GPUValidationError
 page-type: web-api-constructor
-status:
-  - experimental
 browser-compat: api.GPUValidationError.GPUValidationError
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
 The **`GPUValidationError()`** constructor creates a new
 {{domxref("GPUValidationError")}} object instance.
@@ -22,7 +20,7 @@ new GPUValidationError(message)
 ### Parameters
 
 - `message`
-  - : A string providing a human-readable message that explains why the error ocurred.
+  - : A string providing a human-readable message that explains why the error occurred.
 
 ## Examples
 

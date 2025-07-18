@@ -3,13 +3,70 @@ title: list-style-position
 slug: Web/CSS/list-style-position
 page-type: css-property
 browser-compat: css.properties.list-style-position
+sidebar: cssref
 ---
-
-{{CSSRef}}
 
 The **`list-style-position`** [CSS](/en-US/docs/Web/CSS) property sets the position of the {{cssxref("::marker")}} relative to a list item.
 
-{{EmbedInteractiveExample("pages/css/list-style-position.html")}}
+{{InteractiveExample("CSS Demo: list-style-position")}}
+
+```css interactive-example-choice
+list-style-position: inside;
+```
+
+```css interactive-example-choice
+list-style-position: outside;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div>
+    <p>NASA Notable Missions</p>
+    <ul class="transition-all" id="example-element">
+      <li>Apollo 11: First Human Landing</li>
+      <li>City in Space: The International Space Station</li>
+      <li>Great Observatory: The Hubble Space Telescope</li>
+      <li>Everlasting Mars Rovers</li>
+    </ul>
+  </div>
+</section>
+```
+
+```css interactive-example
+.default-example {
+  font-size: 1.2rem;
+}
+
+#example-element {
+  width: 100%;
+  background: #be094b;
+  color: white;
+}
+
+section {
+  text-align: left;
+  flex-direction: column;
+}
+
+hr {
+  width: 50%;
+  color: lightgray;
+  margin: 0.5em;
+}
+
+.note {
+  font-size: 0.8rem;
+}
+
+.note a {
+  color: #009e5f;
+}
+
+@counter-style space-counter {
+  symbols: "\1F680" "\1F6F8" "\1F6F0" "\1F52D";
+  suffix: " ";
+}
+```
 
 ## Syntax
 
@@ -33,7 +90,7 @@ The `list-style-position` property is specified as one of the keyword values lis
 - `inside`
   - : The {{cssxref("::marker")}} is the first element among the list item's contents.
 - `outside`
-  - : The {{cssxref("::marker")}} is outside the principal block box.
+  - : The {{cssxref("::marker")}} is outside the principal block box. This is the default value for {{cssxref("list-style")}}.
 
 ## Description
 
@@ -96,7 +153,7 @@ It is often more convenient to use the shorthand {{cssxref("list-style")}}.
 
 .inside-img {
   list-style-position: inside;
-  list-style-image: url("starsolid.gif");
+  list-style-image: url("star-solid.gif");
 }
 ```
 
@@ -114,4 +171,9 @@ It is often more convenient to use the shorthand {{cssxref("list-style")}}.
 
 ## See also
 
-- {{Cssxref("list-style")}}, {{Cssxref("list-style-type")}}, {{Cssxref("list-style-image")}}
+- {{Cssxref("list-style")}} shorthand
+- {{Cssxref("list-style-type")}} property
+- {{Cssxref("list-style-image")}} property
+- {{cssxref("::marker")}} pseudo-element
+- [CSS lists and counters](/en-US/docs/Web/CSS/CSS_lists) module
+- [CSS counter styles](/en-US/docs/Web/CSS/CSS_counter_styles) module

@@ -1,9 +1,9 @@
 ---
 title: Build the brick field
 slug: Games/Tutorials/2D_breakout_game_Phaser/Build_the_brick_field
+page-type: guide
+sidebar: games
 ---
-
-{{GamesSidebar}}
 
 {{PreviousNext("Games/Workflows/2D_Breakout_game_Phaser/Game_over", "Games/Workflows/2D_Breakout_game_Phaser/Collision_detection")}}
 
@@ -101,7 +101,7 @@ for (let c = 0; c < brickInfo.count.col; c++) {
 }
 ```
 
-Here we're looping through the rows and columns to create the new bricks and place them on the screen. The newly created brick is enabled for the Arcade physics engine, it's body is set to be immovable (so it won't move when hit by the ball), and we're also setting the anchor to be in the middle and adding the brick to the group.
+Here we're looping through the rows and columns to create the new bricks and place them on the screen. The newly created brick is enabled for the Arcade physics engine, its body is set to be immovable (so it won't move when hit by the ball), and we're also setting the anchor to be in the middle and adding the brick to the group.
 
 The problem currently is that we're painting all the bricks in one place, at coordinates (0,0). What we need to do is draw each brick at its own x and y position. Update the `brickX` and `brickY` lines as follows:
 

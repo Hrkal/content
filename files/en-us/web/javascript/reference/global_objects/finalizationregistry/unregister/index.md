@@ -1,14 +1,13 @@
 ---
 title: FinalizationRegistry.prototype.unregister()
+short-title: unregister()
 slug: Web/JavaScript/Reference/Global_Objects/FinalizationRegistry/unregister
 page-type: javascript-instance-method
 browser-compat: javascript.builtins.FinalizationRegistry.unregister
+sidebar: jsref
 ---
 
-{{JSRef}}
-
-The **`unregister()`** method unregisters a target value from a
-{{jsxref("FinalizationRegistry")}} instance.
+The **`unregister()`** method of {{jsxref("FinalizationRegistry")}} instances unregisters a target value from this `FinalizationRegistry`.
 
 ## Syntax
 
@@ -19,7 +18,7 @@ unregister(unregisterToken)
 ### Parameters
 
 - `unregisterToken`
-  - : The token used with the {{jsxref("FinalizationRegistry.prototype.register", "register")}} method when registering the target value. Multiple cells registered with the same `unregisterToken` will be unregistered together.
+  - : The token used with the {{jsxref("FinalizationRegistry/register", "register()")}} method when registering the target value. Multiple cells registered with the same `unregisterToken` will be unregistered together.
 
 ### Return value
 

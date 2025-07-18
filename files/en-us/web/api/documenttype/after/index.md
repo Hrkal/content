@@ -18,7 +18,7 @@ Strings are inserted as equivalent {{domxref("Text")}} nodes.
 ```js-nolint
 after(param1)
 after(param1, param2)
-after(param1, param2, /* … ,*/ paramN)
+after(param1, param2, /* …, */ paramN)
 ```
 
 ### Parameters
@@ -58,3 +58,5 @@ myDoc.childNodes;
 ## See also
 
 - {{domxref("DocumentType.before()")}}
+- {{domxref("CharacterData.after()")}}
+- {{domxref("Element.after()")}}

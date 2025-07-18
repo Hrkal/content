@@ -1,7 +1,8 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 
-import YAML from "js-yaml";
+import YAML from "yaml";
+import * as prettier from "prettier";
 import AJV from "ajv";
 import grayMatter from "gray-matter";
 import addFormats from "ajv-formats";
@@ -53,9 +54,9 @@ export async function checkFrontMatter(filePath, options) {
 
   if (!options.fix && !isInOrder) {
     fixableError = `${getRelativePath(
-      filePath
+      filePath,
     )}\n\t Front matter attributes are not in required order: ${order.join(
-      "->"
+      "->",
     )}`;
   }
 
@@ -79,13 +80,12 @@ export async function checkFrontMatter(filePath, options) {
       }
     }
 
-    let yml = YAML.dump(fmOrdered, {
-      skipInvalid: true,
+    let yml = YAML.stringify(fmOrdered, null, {
       lineWidth: options.config.lineWidth,
-      quotingType: '"',
     });
     yml = yml.replace(/[\s\n]+$/g, "");
-    content = `---\n${yml}\n---\n${document.content}`;
+    yml = await prettier.format(yml, { parser: "yaml" });
+    content = `---\n${yml}---\n${document.content}`;
   } else {
     content = null;
   }

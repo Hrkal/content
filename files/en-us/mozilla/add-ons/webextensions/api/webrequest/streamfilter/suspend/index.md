@@ -3,9 +3,8 @@ title: webRequest.StreamFilter.suspend()
 slug: Mozilla/Add-ons/WebExtensions/API/webRequest/StreamFilter/suspend
 page-type: webextension-api-function
 browser-compat: webextensions.api.webRequest.StreamFilter.suspend
+sidebar: addonsidebar
 ---
-
-{{AddonSidebar()}}
 
 Suspends a request. After this is called, no more data will be delivered until the request is resumed with a call to {{WebExtAPIRef("webRequest.StreamFilter.resume()", "resume()")}}.
 
@@ -25,10 +24,6 @@ None.
 
 None.
 
-## Browser compatibility
-
-{{Compat}}
-
 ## Examples
 
 This example uses suspend/resume to delay a web request.
@@ -44,15 +39,18 @@ function listener(details) {
       filter.resume();
       filter.disconnect();
     }, 1000);
-
-  }
+  };
 }
 
 browser.webRequest.onBeforeRequest.addListener(
   listener,
-  {urls: ["https://example.org/"], types: ["main_frame"]},
-  ["blocking"]
+  { urls: ["https://example.org/"], types: ["main_frame"] },
+  ["blocking"],
 );
 ```
 
 {{WebExtExamples}}
+
+## Browser compatibility
+
+{{Compat}}

@@ -17,11 +17,13 @@ user. It is `null` by default.
 
 ## Value
 
+A {{domxref('PaymentAddress')}} object or `null`.
+
 ## Examples
 
 Generally, the user agent will fill the `shippingAddress` property value.
 You can trigger this by setting
-`PaymentOptions.requestShipping` to `true` when calling
+`options.requestShipping` to `true` when calling
 the `PaymentRequest` constructor.
 
 In the example below, the cost of shipping varies by geography. When the
@@ -39,7 +41,7 @@ payment.addEventListener("shippingaddresschange", (evt) => {
   evt.updateWith(
     new Promise((resolve) => {
       updateDetails(details, request.shippingAddress, resolve);
-    })
+    }),
   );
 });
 

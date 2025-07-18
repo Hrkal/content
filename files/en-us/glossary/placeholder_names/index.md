@@ -2,6 +2,7 @@
 title: Placeholder names
 slug: Glossary/Placeholder_names
 page-type: glossary-definition
+sidebar: glossarysidebar
 ---
 
 Placeholder names are commonly used in cryptography to indicate the participants in a conversation, without resorting to terminology such as "Party A," "eavesdropper," and "malicious attacker."

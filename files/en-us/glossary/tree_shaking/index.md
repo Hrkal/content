@@ -2,6 +2,7 @@
 title: Tree shaking
 slug: Glossary/Tree_shaking
 page-type: glossary-definition
+sidebar: glossarysidebar
 ---
 
 **Tree shaking** is a term commonly used within a JavaScript context to describe the removal of dead code.

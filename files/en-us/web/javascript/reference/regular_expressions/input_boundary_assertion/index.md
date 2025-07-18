@@ -3,9 +3,8 @@ title: "Input boundary assertion: ^, $"
 slug: Web/JavaScript/Reference/Regular_expressions/Input_boundary_assertion
 page-type: javascript-language-feature
 browser-compat: javascript.regular_expressions.input_boundary_assertion
+sidebar: jssidebar
 ---
-
-{{JsSidebar}}
 
 An **input boundary assertion** checks if the current position in the string is an input boundary. An input boundary is the start or end of the string; or, if the `m` flag is set, the start or end of a line.
 
@@ -77,10 +76,10 @@ const variables = ["foo", "foo:bar", "  foo  "];
 
 function toAssignment(key) {
   if (isValidIdentifier(key)) {
-    return `globalThis.${key} = undefined;`
+    return `globalThis.${key} = undefined;`;
   }
   // JSON.stringify() escapes quotes and other special characters
-  return `globalThis[${JSON.stringify(key)}] = undefined;`
+  return `globalThis[${JSON.stringify(key)}] = undefined;`;
 }
 
 const statements = variables.map(toAssignment).join("\n");
@@ -101,8 +100,8 @@ console.log(statements);
 
 ## See also
 
-- [Assertions](/en-US/docs/Web/JavaScript/Guide/Regular_expressions/Assertions)
-- [Regular expressions reference](/en-US/docs/Web/JavaScript/Reference/Regular_expressions)
+- [Assertions](/en-US/docs/Web/JavaScript/Guide/Regular_expressions/Assertions) guide
+- [Regular expressions](/en-US/docs/Web/JavaScript/Reference/Regular_expressions)
 - [Word boundary assertion: `\b`, `\B`](/en-US/docs/Web/JavaScript/Reference/Regular_expressions/Word_boundary_assertion)
 - [Lookahead assertion: `(?=...)`, `(?!...)`](/en-US/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion)
 - [Lookbehind assertion: `(?<=...)`, `(?<!...)`](/en-US/docs/Web/JavaScript/Reference/Regular_expressions/Lookbehind_assertion)

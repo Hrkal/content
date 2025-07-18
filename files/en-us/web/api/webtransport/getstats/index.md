@@ -8,11 +8,9 @@ status:
 browser-compat: api.WebTransport.getStats
 ---
 
-{{APIRef("WebTransport API")}}{{SeeCompatTable}}
+{{APIRef("WebTransport API")}}{{SeeCompatTable}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
 The **`getStats()`** method of the {{domxref("WebTransport")}} interface asynchronously returns an object containing HTTP/3 connection statistics.
-
-{{AvailableInWorkers}}
 
 ## Syntax
 
@@ -55,10 +53,8 @@ The returned object may have the following properties/statistics:
 - `minRtt`
   - : A {{domxref("DOMHighResTimeStamp")}} containing the minimum round-trip time observed on the entire connection.
 - `datagrams`
-
   - : An object containing statistics for datagram transmission over the connection.
     The object has the following properties:
-
     - `timestamp`
       - : A {{domxref("DOMHighResTimeStamp")}} indicating the timestamp at which the statistics were gathered, relative to Jan 1, 1970, UTC.
     - `expiredOutgoing`

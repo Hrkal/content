@@ -1,20 +1,17 @@
 ---
 title: Atomics.wait()
+short-title: wait()
 slug: Web/JavaScript/Reference/Global_Objects/Atomics/wait
 page-type: javascript-static-method
 browser-compat: javascript.builtins.Atomics.wait
+sidebar: jsref
 ---
 
-{{JSRef}}
+The **`Atomics.wait()`** static method verifies that a shared memory location contains a given value and if so sleeps, awaiting a wake-up notification or a time out. It returns a string which is `"not-equal"` if the memory location does not match the given value, `"ok"` if woken by {{jsxref("Atomics.notify()")}}, or `"timed-out"` if the timeout expires.
 
-The **`Atomics.wait()`** static
-method verifies that a given position in an {{jsxref("Int32Array")}} still contains a
-given value and if so sleeps, awaiting a wake-up notification or times out. It returns a string which
-is either `"ok"`, `"not-equal"`, or `"timed-out"`.
+`Atomics.wait()` and {{jsxref("Atomics.notify()")}} are used together to enable thread synchronization based on a value in shared memory. A thread can proceed immediately if the synchronization value has changed, or it can wait for notification from another thread when it reaches the synchronization point.
 
-> **Note:** This operation only works with a shared
-> {{jsxref("Int32Array")}} or {{jsxref("BigInt64Array")}} and may not be allowed on the main thread.
-> For a non-blocking, asynchronous version of this method, see {{jsxref("Atomics.waitAsync()")}}.
+This method only works with an {{jsxref("Int32Array")}} or {{jsxref("BigInt64Array")}} that views a {{jsxref("SharedArrayBuffer")}}. It is blocking and cannot be used in the main thread. For a non-blocking, asynchronous version of this method, see {{jsxref("Atomics.waitAsync()")}}.
 
 ## Syntax
 
@@ -26,22 +23,28 @@ Atomics.wait(typedArray, index, value, timeout)
 ### Parameters
 
 - `typedArray`
-  - : A shared {{jsxref("Int32Array")}} or {{jsxref("BigInt64Array")}}.
+  - : An {{jsxref("Int32Array")}} or {{jsxref("BigInt64Array")}} that views a {{jsxref("SharedArrayBuffer")}}.
 - `index`
   - : The position in the `typedArray` to wait on.
 - `value`
   - : The expected value to test.
 - `timeout` {{optional_inline}}
-  - : Time to wait in milliseconds. {{jsxref("Infinity")}}, if no time is provided.
+  - : Time to wait in milliseconds. {{jsxref("NaN")}} (and values that get converted to `NaN`, such as `undefined`) becomes {{jsxref("Infinity")}}. Negative values become `0`.
 
 ### Return value
 
-A string which is either `"ok"`, `"not-equal"`, or `"timed-out"`.
+A string which is either `"not-equal"`, `"ok"`, or `"timed-out"`.
+
+- `"not-equal"` is returned immediately if the initial `value` does not equal what is stored at `index`.
+- `"ok"` is returned if woken up by a call to `Atomics.notify()`, **regardless of whether the expected value has changed**.
+- `"timed-out"` is returned if a sleeping wait exceeds the specified `timeout` without being woken up by `Atomics.notify()`.
 
 ### Exceptions
 
 - {{jsxref("TypeError")}}
-  - : Thrown if `typedArray` is not a shared {{jsxref("Int32Array")}}.
+  - : Thrown in one of the following cases:
+    - If `typedArray` is not an {{jsxref("Int32Array")}} or {{jsxref("BigInt64Array")}} that views a {{jsxref("SharedArrayBuffer")}}.
+    - If the current thread cannot be blocked (for example, because it's the main thread).
 - {{jsxref("RangeError")}}
   - : Thrown if `index` is out of bounds in the `typedArray`.
 
@@ -56,9 +59,9 @@ const sab = new SharedArrayBuffer(1024);
 const int32 = new Int32Array(sab);
 ```
 
-A reading thread is sleeping and waiting on location 0 which is expected to be 0. As
-long as that is true, it will not go on. However, once the writing thread has stored a
-new value, it will be notified by the writing thread and return the new value (123).
+A reading thread is sleeping and waiting on location 0 because the provided `value` matches what is stored at the provided `index`.
+The reading thread will not move on until the writing thread has called `Atomics.notify()` on position 0 of the provided `typedArray`.
+Note that if, after being woken up, the value of location 0 has not been changed by the writing thread, the reading thread will **not** go back to sleep, but will continue on.
 
 ```js
 Atomics.wait(int32, 0, 0);

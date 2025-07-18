@@ -23,8 +23,7 @@ createExpression(expression, resolver)
 - `expression`
   - : A string representing the XPath expression to be created.
 - `resolver` {{optional_inline}}
-  - : Permits translation of all prefixes, including the `xml` namespace
-    prefix, within the XPath expression into appropriate namespace URIs.
+  - : A {{domxref("Node")}}, `null`, or any object implementing the {{domxref("Node/lookupNamespaceURI", "lookupNamespaceURI")}} method. Permits translation of all prefixes, including the `xml` namespace prefix, within the XPath expression into appropriate namespace URIs.
 
 ### Return value
 
@@ -36,13 +35,13 @@ expression.
 #### INVALID_EXPRESSION_ERR
 
 If the expression is not legal according to the rules of the
-`XPathEvaluator`, an {{domxref("XPathException")}} of type
+`XPathEvaluator`, a {{domxref("DOMException")}} of type
 `INVALID_EXPRESSION_ERR` is raised.
 
 #### NAMESPACE_ERR
 
 If the expression contains namespace prefixes which cannot be resolved by the specified
-{{domxref("XPathNSResolver")}}, a {{domxref("DOMException")}} of type
+`XPathNSResolver`, a {{domxref("DOMException")}} of type
 `NAMESPACE_ERROR` is raised.
 
 ## Examples
@@ -64,7 +63,7 @@ const evaluator = new XPathEvaluator();
 const expression = evaluator.createExpression(xpath);
 const result = expression.evaluate(
   document,
-  XPathResult.ORDERED_NODE_SNAPSHOT_TYPE
+  XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
 );
 document.querySelector("output").textContent = result.snapshotLength;
 ```

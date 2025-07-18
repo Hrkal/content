@@ -3,9 +3,8 @@ title: omnibox
 slug: Mozilla/Add-ons/WebExtensions/API/omnibox
 page-type: webextension-api
 browser-compat: webextensions.api.omnibox
+sidebar: addonsidebar
 ---
-
-{{AddonSidebar}}
 
 Enables extensions to implement customized behavior when the user types into the browser's address bar.
 
@@ -13,7 +12,7 @@ When the user focuses the browser's address bar and starts typing, the browser d
 
 The omnibox API provides the extension a way to customize the suggestions displayed in the drop-down, when the user enters a keyword defined by the extension. It works as follows:
 
-1. First, the extension must include an "[omnibox](/docs/Mozilla/Add-ons/WebExtensions/manifest.json/omnibox)" key in its [manifest.json](/docs/Mozilla/Add-ons/WebExtensions/manifest.json) file, which defines a keyword.
+1. First, the extension must include an "[omnibox](/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/omnibox)" key in its [manifest.json](/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json) file, which defines a keyword.
 2. When the user focuses the address bar and types the keyword followed by a space, the extension gets an {{WebExtAPIRef("omnibox.onInputStarted")}} event.
 3. Optionally, the extension can call {{WebExtAPIRef("omnibox.setDefaultSuggestion()")}} to define the first suggestion displayed in the address bar drop-down.
 4. As the user continues to type characters, the extension gets {{WebExtAPIRef("omnibox.onInputChanged")}} events. The event listener is passed the value the user has typed and can populate the address bar drop-down with suggestions. If the extension sets a default suggestion using {{WebExtAPIRef("omnibox.setDefaultSuggestion()")}}, this suggestion is displayed first in the drop-down.
@@ -52,4 +51,5 @@ The omnibox API provides the extension a way to customize the suggestions displa
 
 {{Compat}}
 
-> **Note:** This API is based on Chromium's [`chrome.omnibox`](https://developer.chrome.com/docs/extensions/reference/omnibox/) API.
+> [!NOTE]
+> This API is based on Chromium's [`chrome.omnibox`](https://developer.chrome.com/docs/extensions/reference/api/omnibox) API.

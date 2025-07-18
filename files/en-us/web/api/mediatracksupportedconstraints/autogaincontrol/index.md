@@ -3,7 +3,7 @@ title: "MediaTrackSupportedConstraints: autoGainControl property"
 short-title: autoGainControl
 slug: Web/API/MediaTrackSupportedConstraints/autoGainControl
 page-type: web-api-instance-property
-browser-compat: api.MediaTrackSupportedConstraints.autoGainControl
+browser-compat: api.MediaStreamTrack.applyConstraints.autoGainControl_constraint
 ---
 
 {{APIRef("Media Capture and Streams")}}
@@ -30,7 +30,9 @@ This example displays whether or not your browser supports the `autoGainControl`
 
 ```css hidden
 #result {
-  font: 14px "Arial", sans-serif;
+  font:
+    14px "Arial",
+    sans-serif;
 }
 ```
 

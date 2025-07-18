@@ -3,9 +3,8 @@ title: Logical OR (||)
 slug: Web/JavaScript/Reference/Operators/Logical_OR
 page-type: javascript-operator
 browser-compat: javascript.operators.logical_or
+sidebar: jssidebar
 ---
-
-{{jsSidebar("Operators")}}
 
 The **logical OR (`||`)** (logical disjunction) operator for a set of operands
 is true if and only if one or more of its operands is true. It is typically used with
@@ -14,7 +13,15 @@ the `||` operator actually returns the value of one of the specified
 operands, so if this operator is used with non-Boolean values, it will return a
 non-Boolean value.
 
-{{EmbedInteractiveExample("pages/js/expressions-logical-or.html", "shorter")}}
+{{InteractiveExample("JavaScript Demo: Logical OR (||) operator", "shorter")}}
+
+```js interactive-example
+const a = 3;
+const b = -2;
+
+console.log(a > 0 || b > 0);
+// Expected output: true
+```
 
 ## Syntax
 
@@ -41,10 +48,9 @@ Examples of expressions that can be converted to false are:
 
 Even though the `||` operator can be used with operands that are not Boolean
 values, it can still be considered a boolean operator since its return value can always
-be converted to a [boolean primitive](/en-US/docs/Web/JavaScript/Data_structures#boolean_type).
+be converted to a [boolean primitive](/en-US/docs/Web/JavaScript/Guide/Data_structures#boolean_type).
 To explicitly convert its return value (or any expression in general) to the
-corresponding boolean value, use a double {{JSxRef("Operators/Logical_NOT", "NOT
-operator", "", 1)}} or the {{jsxref("Global_Objects/Boolean/Boolean", "Boolean")}}
+corresponding boolean value, use a double {{jsxref("Operators/Logical_NOT", "NOT operator", "", 1)}} or the {{jsxref("Boolean/Boolean", "Boolean()")}}
 constructor.
 
 ### Short-circuit evaluation
@@ -82,7 +88,7 @@ The following expressions might seem equivalent, but they are not, because the
 `&&` operator is executed before the `||` operator
 (see [operator precedence](/en-US/docs/Web/JavaScript/Reference/Operators/Operator_precedence)).
 
-```js
+```js-nolint
 true || false && false; // returns true, because && is executed first
 (true || false) && false; // returns false, because grouping has the highest precedence
 ```
@@ -106,7 +112,8 @@ false || ""; // f || f returns ""
 false || varObject; // f || object returns varObject
 ```
 
-> **Note:** If you use this operator to provide a default value to some
+> [!NOTE]
+> If you use this operator to provide a default value to some
 > variable, be aware that any _falsy_ value will not be used. If you only need to
 > filter out [`null`](/en-US/docs/Web/JavaScript/Reference/Operators/null) or {{jsxref("undefined")}}, consider using
 > [the nullish coalescing operator](/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing).
@@ -168,7 +175,7 @@ is always equal to:
 
 ## See also
 
-- [The nullish coalescing operator (`??`)](/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing)
+- [Nullish coalescing operator (`??`)](/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing)
 - {{jsxref("Boolean")}}
 - {{Glossary("Truthy")}}
 - {{Glossary("Falsy")}}

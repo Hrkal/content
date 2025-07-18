@@ -13,10 +13,14 @@ The **`HTMLSlotElement`** interface of the [Shadow DOM API](/en-US/docs/Web/API/
 
 ## Instance properties
 
+_Also inherits properties from its parent interface, {{domxref("HTMLElement")}}._
+
 - {{domxref('HTMLSlotElement.name')}}
   - : A string used to get and set the slot's name.
 
 ## Instance methods
+
+_Also inherits methods from its parent interface, {{domxref("HTMLElement")}}._
 
 - {{domxref('HTMLSlotElement.assign()')}}
   - : Sets the manually assigned nodes for this slot to the given nodes.
@@ -27,8 +31,12 @@ The **`HTMLSlotElement`** interface of the [Shadow DOM API](/en-US/docs/Web/API/
 
 ## Events
 
+_Also inherits events from its parent interface, {{domxref("HTMLElement")}}._
+
+Listen to these events using {{DOMxRef("EventTarget.addEventListener", "addEventListener()")}} or by assigning an event listener to the `oneventname` property of this interface.
+
 - {{domxref('HTMLSlotElement.slotchange_event', 'slotchange')}}
-  - : Fired on an `HTMLSlotElement` instance ([`<slot>`](/en-US/docs/Web/HTML/Element/slot) element) when the node(s) contained in that slot change.
+  - : Fired on an `HTMLSlotElement` instance ([`<slot>`](/en-US/docs/Web/HTML/Reference/Elements/slot) element) when the node(s) contained in that slot change.
 
 ## Examples
 
@@ -39,7 +47,7 @@ let slots = this.shadowRoot.querySelectorAll("slot");
 slots[1].addEventListener("slotchange", (e) => {
   let nodes = slots[1].assignedNodes();
   console.log(
-    `Element in Slot "${slots[1].name}" changed to "${nodes[0].outerHTML}".`
+    `Element in Slot "${slots[1].name}" changed to "${nodes[0].outerHTML}".`,
   );
 });
 ```

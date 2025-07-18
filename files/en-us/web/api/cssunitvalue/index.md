@@ -7,7 +7,7 @@ browser-compat: api.CSSUnitValue
 
 {{APIRef("CSS Typed Object Model API")}}
 
-The **`CSSUnitValue`** interface of the {{domxref('CSS_Object_Model#css_typed_object_model','','',' ')}} represents values that contain a single unit type. For example, "42px" would be represented by a `CSSNumericValue`.
+The **`CSSUnitValue`** interface of the [CSS Typed Object Model API](/en-US/docs/Web/API/CSS_Object_Model#css_typed_object_model) represents values that contain a single unit type. For example, "42px" would be represented by a `CSSNumericValue`.
 
 {{InheritanceDiagram}}
 
@@ -31,10 +31,6 @@ _The interface may also inherit methods from its parent interface, {{domxref("CS
 
 _The interface may also inherit methods from its parent interface, {{domxref("CSSNumericValue")}}._
 
-## Event handlers
-
-None.
-
 ## Examples
 
 The following shows a method of creating a {{domxref('CSSPositionValue')}} from individual `CSSUnitValue` constructors.
@@ -42,7 +38,7 @@ The following shows a method of creating a {{domxref('CSSPositionValue')}} from 
 ```js
 let pos = new CSSPositionValue(
   new CSSUnitValue(5, "px"),
-  new CSSUnitValue(10, "px")
+  new CSSUnitValue(10, "px"),
 );
 ```
 

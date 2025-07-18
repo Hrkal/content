@@ -16,15 +16,15 @@ would be represented by a `CSSNumericValue`.
 ## Syntax
 
 ```js-nolint
-new CSSUnitValue()
+new CSSUnitValue(value, unit)
 ```
 
 ### Parameters
 
 - `value`
-  - : Returns a double indicating the number of units.
+  - : A double indicating the number of units.
 - `unit`
-  - : Returns a string indicating the type of unit.
+  - : A string indicating the type of unit.
 
 ## Examples
 
@@ -34,7 +34,7 @@ individual `CSSUnitValue` constructors.
 ```js
 let pos = new CSSPositionValue(
   new CSSUnitValue(5, "px"),
-  new CSSUnitValue(10, "px")
+  new CSSUnitValue(10, "px"),
 );
 ```
 

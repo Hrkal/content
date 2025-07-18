@@ -6,7 +6,7 @@ page-type: web-api-instance-method
 browser-compat: api.ReadableStreamDefaultReader.read
 ---
 
-{{APIRef("Streams")}}
+{{APIRef("Streams")}}{{AvailableInWorkers}}
 
 The **`read()`** method of the {{domxref("ReadableStreamDefaultReader")}} interface returns a {{jsxref("Promise")}} providing access to the next chunk in the stream's internal queue.
 
@@ -90,7 +90,7 @@ async function* makeTextFileLineIterator(fileURL) {
   let { value: chunk, done: readerDone } = await reader.read();
   chunk = chunk ? utf8Decoder.decode(chunk, { stream: true }) : "";
 
-  let re = /\r\n|\n|\r/gm;
+  let re = /\r?\n/g;
   let startIndex = 0;
 
   for (;;) {

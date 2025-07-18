@@ -23,7 +23,8 @@ lookupPrefix(namespace)
 
 - `namespace`
   - : A string containing the namespace to look the prefix up.
-    > **Note:** This parameter is not optional but can be set to `null`.
+    > [!NOTE]
+    > This parameter is not optional but can be set to `null`.
 
 ### Return value
 
@@ -63,14 +64,14 @@ button.addEventListener("click", () => {
   const result = document.getElementsByTagName("output");
   result[0].value = aHtmlElt.lookupPrefix("http://www.w3.org/2000/svg"); // true
   result[1].value = aHtmlElt.lookupPrefix(
-    "http://www.w3.org/XML/1998/namespace"
+    "http://www.w3.org/XML/1998/namespace",
   ); // false
   result[2].value = aHtmlElt.lookupPrefix("http://www.w3.org/TR/html4/"); // true
   result[3].value = aHtmlElt.lookupPrefix("https://www.w3.org/1999/xlink"); // false
   result[4].value = aSvgElt.lookupPrefix("http://www.w3.org/2000/svg"); // true
   result[5].value = aSvgElt.lookupPrefix("https://www.w3.org/1999/xlink"); // true
   result[6].value = aSvgElt.lookupPrefix(
-    "http://www.w3.org/XML/1998/namespace"
+    "http://www.w3.org/XML/1998/namespace",
   ); // false
 });
 ```
@@ -84,7 +85,3 @@ button.addEventListener("click", () => {
 ## Browser compatibility
 
 {{Compat}}
-
-## See also
-
-- [http://www.w3.org/TR/DOM-Level-3-Cor...amespacePrefix](https://www.w3.org/TR/DOM-Level-3-Core/core.html#Node3-lookupNamespacePrefix)

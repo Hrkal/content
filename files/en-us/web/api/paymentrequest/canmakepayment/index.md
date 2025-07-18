@@ -40,7 +40,8 @@ request using the {{domxref('PaymentRequest.PaymentRequest()','PaymentRequest')}
 constructor. If the payment can't be processed, the promise receives a value of
 `false`.
 
-> **Note:** If you call this too often, the browser may reject the
+> [!NOTE]
+> If you call this too often, the browser may reject the
 > returned promise with a `DOMException`.
 
 ## Examples
@@ -64,7 +65,7 @@ async function initPaymentRequest() {
 
   const supportsApplePay = new PaymentRequest(
     [{ supportedMethods: "https://apple.com/apple-pay" }],
-    details
+    details,
   ).canMakePayment();
 
   // Supports Apple Pay?
@@ -76,7 +77,7 @@ async function initPaymentRequest() {
   // Otherwise, let's see if we can use Example Pay
   const supportsExamplePay = await new PaymentRequest(
     [{ supportedMethods: "https://example.com/pay" }],
-    details
+    details,
   ).canMakePayment();
 
   if (supportsExamplePay) {

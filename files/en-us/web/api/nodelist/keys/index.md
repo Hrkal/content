@@ -18,6 +18,10 @@ in this object. The keys are `unsigned integer`.
 keys()
 ```
 
+### Parameters
+
+None.
+
 ### Return value
 
 Returns an {{jsxref("Iteration_protocols","iterator")}}.
@@ -44,7 +48,7 @@ for (const key of list.keys()) {
 
 The result is:
 
-```
+```plain
 0
 1
 2

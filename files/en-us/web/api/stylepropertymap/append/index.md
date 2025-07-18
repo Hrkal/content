@@ -21,7 +21,7 @@ append(property, value)
 ### Parameters
 
 - `property`
-  - : An identifier indicating the stylistic feature (e.g. font, width, background
+  - : An identifier indicating the stylistic feature (e.g., font, width, background
     color) to add.
 - `value`
   - : The value the given property should have.
@@ -43,7 +43,7 @@ const buttonEl = document.querySelector("button");
 // append another value to the background-image property set on the attribute
 buttonEl.attributeStyleMap.append(
   "background-image",
-  "linear-gradient(180deg, blue, black)"
+  "linear-gradient(180deg, blue, black)",
 );
 ```
 

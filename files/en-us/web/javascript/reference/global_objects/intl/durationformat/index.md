@@ -3,9 +3,8 @@ title: Intl.DurationFormat
 slug: Web/JavaScript/Reference/Global_Objects/Intl/DurationFormat
 page-type: javascript-class
 browser-compat: javascript.builtins.Intl.DurationFormat
+sidebar: jsref
 ---
-
-{{JSRef}} {{SeeCompatTable}}
 
 The **`Intl.DurationFormat`** object enables language-sensitive duration formatting.
 
@@ -25,13 +24,13 @@ These properties are defined on `Intl.DurationFormat.prototype` and shared by al
 
 - {{jsxref("Object/constructor", "Intl.DurationFormat.prototype.constructor")}}
   - : The constructor function that created the instance object. For `Intl.DurationFormat` instances, the initial value is the {{jsxref("Intl/DurationFormat/DurationFormat", "Intl.DurationFormat")}} constructor.
-- `Intl.DurationFormat.prototype[@@toStringTag]`
-  - : The initial value of the [`@@toStringTag`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag) property is the string `"Intl.DurationFormat"`. This property is used in {{jsxref("Object.prototype.toString()")}}.
+- `Intl.DurationFormat.prototype[Symbol.toStringTag]`
+  - : The initial value of the [`[Symbol.toStringTag]`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag) property is the string `"Intl.DurationFormat"`. This property is used in {{jsxref("Object.prototype.toString()")}}.
 
 ## Instance methods
 
 - {{jsxref("Intl/DurationFormat/format", "Intl.DurationFormat.prototype.format()")}}
-  - : Getter function that formats a duration according to the locale and formatting options of this {{jsxref("Intl/DurationFormat", "DurationFormat")}} object.
+  - : Getter function that formats a duration according to the locale and formatting options of this `DurationFormat` object.
 - {{jsxref("Intl/DurationFormat/formatToParts", "Intl.DurationFormat.prototype.formatToParts()")}}
   - : Returns an {{jsxref("Array")}} of objects representing the formatted duration in parts.
 - {{jsxref("Intl/DurationFormat/resolvedOptions", "Intl.DurationFormat.prototype.resolvedOptions()")}}
@@ -58,7 +57,7 @@ new Intl.DurationFormat("fr-FR", { style: "long" }).format(duration);
 new Intl.DurationFormat("en", { style: "short" }).format(duration);
 // "1 hr, 46 min and 40 sec"
 
-// With style set to "short" and locale "pt"
+// With style set to "narrow" and locale "pt"
 new Intl.DurationFormat("pt", { style: "narrow" }).format(duration);
 // "1h 46min 40s"
 ```
@@ -73,4 +72,6 @@ new Intl.DurationFormat("pt", { style: "narrow" }).format(duration);
 
 ## See also
 
+- [Polyfill of `Intl.DurationFormat` in FormatJS](https://formatjs.github.io/docs/polyfills/intl-durationformat/)
 - {{jsxref("Intl")}}
+- {{jsxref("Temporal/Duration/toLocaleString", "Temporal.Duration.prototype.toLocaleString()")}}

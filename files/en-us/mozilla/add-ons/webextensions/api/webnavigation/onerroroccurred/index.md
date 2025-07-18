@@ -3,9 +3,8 @@ title: webNavigation.onErrorOccurred
 slug: Mozilla/Add-ons/WebExtensions/API/webNavigation/onErrorOccurred
 page-type: webextension-api-event
 browser-compat: webextensions.api.webNavigation.onErrorOccurred
+sidebar: addonsidebar
 ---
-
-{{AddonSidebar()}}
 
 Fired when an error occurs and the navigation is aborted. This can happen if either a network error occurred, or the user aborted the navigation.
 
@@ -22,12 +21,8 @@ browser.webNavigation.onErrorOccurred.hasListener(listener)
 
 Events have three functions:
 
-- `addListener(listener)`
-
-  `addListener(listener, filter)`
-
+- `addListener(listener)`, `addListener(listener, filter)`
   - : Adds a listener to this event.
-
 - `removeListener(listener)`
   - : Stop listening to this event. The `listener` argument is the listener to remove.
 - `hasListener(listener)`
@@ -38,23 +33,18 @@ Events have three functions:
 ### Parameters
 
 - `listener`
-
   - : The function called when this event occurs.
 
     The `listener` function is called with these arguments:
-
     - `details`
-
       - : [`object`](#details). Details about the navigation event. **`details`** has the following properties:
-
         - `tabId`
           - : `integer`. The ID of the tab in which the navigation was happening.
         - `url`
           - : `string`. The URL to which the given frame was navigating.
-        - `processId`
-          - : `integer`. The ID of the process in which this tab is being rendered.
+        - `processId` {{optional_inline}} {{deprecated_inline}}
+          - : `integer`. This value is never set in modern browsers. It used to represent the ID of the process running the renderer for this tab.
         - `frameId`
-
           - : `integer`. Frame in which the navigation was happening.
 
             `0` indicates that navigation happened in the tab's top-level browsing context, not in a nested {{HTMLElement("iframe")}}.
@@ -69,16 +59,11 @@ Events have three functions:
           - : `string`. The error code. This is an internal error code, and is not guaranteed to stay the same or be consistent from one browser to another.
 
 - `filter` {{optional_inline}}
-
   - : `object`. An object containing a single property `url`, which is an `Array` of {{WebExtAPIRef("events.UrlFilter")}} objects.
 
     If you include this parameter, then the event fires only for transitions to URLs which match at least one `UrlFilter` in the array.
 
     If you omit this parameter, the event fires for all transitions.
-
-## Browser compatibility
-
-{{Compat}}
 
 ## Examples
 
@@ -86,12 +71,8 @@ Logs the target URLs for `onErrorOccurred`, if the target URL's `hostname` conta
 
 ```js
 const filter = {
-  url:
-  [
-    {hostContains: "example.com"},
-    {hostPrefix: "developer"}
-  ]
-}
+  url: [{ hostContains: "example.com" }, { hostPrefix: "developer" }],
+};
 
 function logOnErrorOccurred(details) {
   console.log(`onErrorOccurred: ${details.url}`);
@@ -103,7 +84,12 @@ browser.webNavigation.onErrorOccurred.addListener(logOnErrorOccurred, filter);
 
 {{WebExtExamples}}
 
-> **Note:** This API is based on Chromium's [`chrome.webNavigation`](https://developer.chrome.com/docs/extensions/reference/webNavigation/#event-onBeforeNavigate) API. This documentation is derived from [`web_navigation.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/web_navigation.json) in the Chromium code.
+## Browser compatibility
+
+{{Compat}}
+
+> [!NOTE]
+> This API is based on Chromium's [`chrome.webNavigation`](https://developer.chrome.com/docs/extensions/reference/api/webNavigation#event-onBeforeNavigate) API. This documentation is derived from [`web_navigation.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/web_navigation.json) in the Chromium code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

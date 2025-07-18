@@ -4,7 +4,7 @@ slug: Web/API/WebGL_API/By_example/Detect_WebGL
 page-type: guide
 ---
 
-{{PreviousNext("Learn/WebGL/By_example","Learn/WebGL/By_example/Clearing_with_colors")}}
+{{DefaultAPISidebar("WebGL")}}{{PreviousNext("Web/API/WebGL_API/By_example","Web/API/WebGL_API/By_example/Clearing_with_colors")}}
 
 This example demonstrates how to detect a {{Glossary("WebGL")}} rendering context and reports the result to the user.
 
@@ -61,10 +61,10 @@ window.addEventListener(
           : "Failed. Your browser or device may not support WebGL.";
     }
   },
-  false
+  false,
 );
 ```
 
 The source code of this example is also available on [GitHub](https://github.com/idofilin/webgl-by-example/tree/master/detect-webgl).
 
-{{PreviousNext("Learn/WebGL/By_example","Learn/WebGL/By_example/Clearing_with_colors")}}
+{{PreviousNext("Web/API/WebGL_API/By_example","Web/API/WebGL_API/By_example/Clearing_with_colors")}}

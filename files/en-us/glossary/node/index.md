@@ -2,6 +2,7 @@
 title: Node
 slug: Glossary/Node
 page-type: glossary-disambiguation
+sidebar: glossarysidebar
 ---
 
 The term **node** can have several meanings depending on the context. It may refer to:

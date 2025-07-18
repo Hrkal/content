@@ -13,22 +13,22 @@ point relative to the viewport, not including any scroll offset.
 
 ## Value
 
-A `long` representing the X coordinate of the touch point relative to the
-viewport, not including any scroll offset.
+A `double` floating point value representing the X coordinate of the touch point
+relative to the viewport, not including any scroll offset.
 
 ## Examples
 
 This example illustrates using the {{domxref("Touch")}} object's
-{{domxref("Touch.clientX")}} and {{domxref("Touch.clientY")}} properties. The
-{{domxref("Touch.clientX")}} property is the horizontal coordinate of a touch point
+`Touch.clientX` and {{domxref("Touch.clientY")}} properties. The
+`Touch.clientX` property is the horizontal coordinate of a touch point
 relative to the browser's viewport excluding any scroll offset. The
 {{domxref("Touch.clientY")}} property is the vertical coordinate of the touch point
-relative to the browser's viewport excluding any scroll offset .
+relative to the browser's viewport excluding any scroll offset.
 
 In this example, we assume the user initiates a touch on an element with an id of
 `source`, moves within the element or out of the element and then releases
 contact with the surface. When the {{domxref("Element/touchend_event", "touchend")}}
-event handler is invoked, the changes in the {{domxref("Touch.clientX")}} and
+event handler is invoked, the changes in the `Touch.clientX` and
 {{domxref("Touch.clientY")}} coordinates, from the starting touch point to the ending
 touch point, are calculated.
 
@@ -45,7 +45,7 @@ src.addEventListener(
     clientX = e.touches[0].clientX;
     clientY = e.touches[0].clientY;
   },
-  false
+  false,
 );
 
 src.addEventListener(
@@ -62,7 +62,7 @@ src.addEventListener(
 
     // Process the data…
   },
-  false
+  false,
 );
 ```
 

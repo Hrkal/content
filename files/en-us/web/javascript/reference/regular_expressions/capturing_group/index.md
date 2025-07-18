@@ -3,9 +3,8 @@ title: "Capturing group: (...)"
 slug: Web/JavaScript/Reference/Regular_expressions/Capturing_group
 page-type: javascript-language-feature
 browser-compat: javascript.regular_expressions.capturing_group
+sidebar: jssidebar
 ---
-
-{{JsSidebar}}
 
 A **capturing group** groups a subpattern, allowing you to apply a [quantifier](/en-US/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) to the entire group or use [disjunctions](/en-US/docs/Web/JavaScript/Reference/Regular_expressions/Disjunction) within it. It memorizes information about the subpattern match, so that you can refer back to it later with a [backreference](/en-US/docs/Web/JavaScript/Reference/Regular_expressions/Backreference), or access the information through the [match results](/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec#return_value).
 
@@ -32,7 +31,8 @@ Capturing groups are numbered by the order of their opening parentheses. The fir
 - The `pN` parameters of the {{jsxref("String.prototype.replace()")}} and {{jsxref("String.prototype.replaceAll()")}} methods' `replacement` callback function
 - [Backreferences](/en-US/docs/Web/JavaScript/Reference/Regular_expressions/Backreference) within the same pattern
 
-> **Note:** Even in `exec()`'s result array, capturing groups are accessed by numbers `1`, `2`, etc., because the `0` element is the entire match. `\0` is not a backreference, but a [character escape](/en-US/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape) for the NUL character.
+> [!NOTE]
+> Even in `exec()`'s result array, capturing groups are accessed by numbers `1`, `2`, etc., because the `0` element is the entire match. `\0` is not a backreference, but a [character escape](/en-US/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape) for the NUL character.
 
 Capturing groups in the regex source code correspond to their results one-to-one. If a capturing group is not matched (for example, it belongs to an unmatched alternative in a [disjunction](/en-US/docs/Web/JavaScript/Reference/Regular_expressions/Disjunction)), the corresponding result is `undefined`.
 
@@ -49,9 +49,9 @@ Capturing groups can be [quantified](/en-US/docs/Web/JavaScript/Reference/Regula
 Capturing groups can be used in [lookahead](/en-US/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion) and [lookbehind](/en-US/docs/Web/JavaScript/Reference/Regular_expressions/Lookbehind_assertion) assertions. Because lookbehind assertions match their atoms backwards, the final match corresponding to this group is the one that appears to the _left_ end of the string. However, the indices of the match groups still correspond to their relative locations in the regex source.
 
 ```js
-/c(?=(ab))/.exec("cab"); // ['', 'ab']
-/(?<=(a)(b))c/.exec("abc"); // ['', 'a', 'b']
-/(?<=([ab])+)c/.exec("abc"); // ['', 'a']; because "a" is seen by the lookbehind after the lookbehind has seen "b"
+/c(?=(ab))/.exec("cab"); // ['c', 'ab']
+/(?<=(a)(b))c/.exec("abc"); // ['c', 'a', 'b']
+/(?<=([ab])+)c/.exec("abc"); // ['c', 'a']; because "a" is seen by the lookbehind after the lookbehind has seen "b"
 ```
 
 Capturing groups can be nested, in which case the outer group is numbered first, then the inner group, because they are ordered by their opening parentheses. If a nested group is repeated by a quantifier, then each time the group matches, the subgroups' results are all overwritten, sometimes with `undefined`.
@@ -117,8 +117,8 @@ parseTitle('title="Named capturing groups\' advantages"'); // "Named capturing g
 
 ## See also
 
-- [Groups and backreferences](/en-US/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences)
-- [Regular expressions reference](/en-US/docs/Web/JavaScript/Reference/Regular_expressions)
+- [Groups and backreferences](/en-US/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences) guide
+- [Regular expressions](/en-US/docs/Web/JavaScript/Reference/Regular_expressions)
 - [Non-capturing group: `(?:...)`](/en-US/docs/Web/JavaScript/Reference/Regular_expressions/Non-capturing_group)
 - [Named capturing group: `(?<name>...)`](/en-US/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group)
 - [Backreference: `\1`, `\2`](/en-US/docs/Web/JavaScript/Reference/Regular_expressions/Backreference)

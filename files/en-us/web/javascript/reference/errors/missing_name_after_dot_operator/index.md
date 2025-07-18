@@ -2,9 +2,8 @@
 title: "SyntaxError: missing name after . operator"
 slug: Web/JavaScript/Reference/Errors/Missing_name_after_dot_operator
 page-type: javascript-error
+sidebar: jssidebar
 ---
-
-{{jsSidebar("Errors")}}
 
 The JavaScript exception "missing name after . operator" occurs when there is a problem
 with how the dot operator (`.`) is used
@@ -12,7 +11,7 @@ for [property access](/en-US/docs/Web/JavaScript/Reference/Operators/Property_ac
 
 ## Message
 
-```
+```plain
 SyntaxError: missing name after . operator (Firefox)
 SyntaxError: Unexpected token '['. Expected a property name after '.'. (Safari)
 ```
@@ -38,7 +37,7 @@ case. Please see the examples below.
 in JavaScript use either the dot (.) or square brackets (`[]`), but not both.
 Square brackets allow computed property access.
 
-```js example-bad
+```js-nolint example-bad
 const obj = { foo: { bar: "baz", bar2: "baz2" } };
 const i = 2;
 
@@ -67,7 +66,7 @@ obj.foo[`bar${i}`]; // "baz2"
 If you are coming from another programming language (like [PHP](/en-US/docs/Glossary/PHP)), it is also easy to mix up the dot operator
 (`.`) and the concatenation operator (`+`).
 
-```js example-bad
+```js-nolint example-bad
 console.log("Hello" . "world");
 
 // SyntaxError: missing name after . operator

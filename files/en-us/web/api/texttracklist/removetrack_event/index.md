@@ -1,7 +1,7 @@
 ---
-title: "TextTrackList: removeTrack event"
-short-title: removeTrack
-slug: Web/API/TextTrackList/removeTrack_event
+title: "TextTrackList: removetrack event"
+short-title: removetrack
+slug: Web/API/TextTrackList/removetrack_event
 page-type: web-api-event
 browser-compat: api.TextTrackList.removetrack_event
 ---
@@ -14,10 +14,10 @@ The **`removetrack`** event is fired when a track is removed from a [`TextTrackL
 
 Use the event name in methods like {{domxref("EventTarget.addEventListener", "addEventListener()")}}, or set an event handler property.
 
-```js
-addEventListener("removetrack", (event) => {});
+```js-nolint
+addEventListener("removetrack", (event) => { })
 
-onremovetrack = (event) => {};
+onremovetrack = (event) => { }
 ```
 
 ## Event type

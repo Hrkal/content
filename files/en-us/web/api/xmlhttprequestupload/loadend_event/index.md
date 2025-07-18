@@ -6,7 +6,7 @@ page-type: web-api-event
 browser-compat: api.XMLHttpRequestUpload.loadend_event
 ---
 
-{{APIRef}}
+{{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
 The **`loadend`** event is fired when a request has completed, whether successfully (after {{domxref("XMLHttpRequestUpload/load_event", "load")}}) or unsuccessfully (after {{domxref("XMLHttpRequestUpload/abort_event", "abort")}} or {{domxref("XMLHttpRequestUpload/error_event", "error")}}).
 
@@ -16,10 +16,10 @@ The `loadend` event is also sent when the request has been interrupted (by a {{d
 
 Use the event name in methods like {{domxref("EventTarget.addEventListener", "addEventListener()")}}, or set an event handler property.
 
-```js
-addEventListener("loadend", (event) => {});
+```js-nolint
+addEventListener("loadend", (event) => { })
 
-onloadend = (event) => {};
+onloadend = (event) => { }
 ```
 
 ## Event type
@@ -41,7 +41,7 @@ _In addition to the properties listed below, properties from the parent interfac
 
 ## Examples
 
-## Using the `loadend` event
+### Using the `loadend` event
 
 You can use the `loadend` event to detect the (successful or not) termination of an upload. For a complete code example that uploads a file and displays a progress bar, see the main {{domxref("XMLHttpRequestUpload")}} page.
 

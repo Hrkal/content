@@ -3,13 +3,26 @@ title: continue
 slug: Web/JavaScript/Reference/Statements/continue
 page-type: javascript-statement
 browser-compat: javascript.statements.continue
+sidebar: jssidebar
 ---
-
-{{jsSidebar("Statements")}}
 
 The **`continue`** statement terminates execution of the statements in the current iteration of the current or labeled loop, and continues execution of the loop with the next iteration.
 
-{{EmbedInteractiveExample("pages/js/statement-continue.html")}}
+{{InteractiveExample("JavaScript Demo: continue statement")}}
+
+```js interactive-example
+let text = "";
+
+for (let i = 0; i < 10; i++) {
+  if (i === 3) {
+    continue;
+  }
+  text += i;
+}
+
+console.log(text);
+// Expected output: "012456789"
+```
 
 ## Syntax
 
@@ -72,7 +85,7 @@ checkIAndJ: while (i < 4) {
     console.log(`j: ${j}`);
     j -= 1;
 
-    if (j % 2 === 0) continue checkJ;
+    if (j % 2 === 0) continue;
     console.log(`${j} is odd.`);
   }
   console.log(`i = ${i}`);
@@ -82,17 +95,17 @@ checkIAndJ: while (i < 4) {
 
 Output:
 
-```
+```plain
 i: 0
 
-// start checkj
+// start checkJ
 j: 8
 7 is odd.
 j: 7
 j: 6
 5 is odd.
 j: 5
-// end checkj
+// end checkJ
 
 i = 1
 j = 4
@@ -114,7 +127,7 @@ j = 4
 
 `continue` cannot be used within loops across function boundaries.
 
-```js
+```js-nolint example-bad
 for (let i = 0; i < 10; i++) {
   (() => {
     continue; // SyntaxError: Illegal continue statement: no surrounding iteration statement
@@ -124,7 +137,7 @@ for (let i = 0; i < 10; i++) {
 
 When referencing a label, the labeled statement must contain the `continue` statement.
 
-```js
+```js-nolint example-bad
 label: for (let i = 0; i < 10; i++) {
   console.log(i);
 }
@@ -136,7 +149,7 @@ for (let i = 0; i < 10; i++) {
 
 The labeled statement must be a loop.
 
-```js
+```js-nolint example-bad
 label: {
   for (let i = 0; i < 10; i++) {
     continue label; // SyntaxError: Illegal continue statement: 'label' does not denote an iteration statement

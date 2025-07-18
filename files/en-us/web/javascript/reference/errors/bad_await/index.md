@@ -2,15 +2,14 @@
 title: "SyntaxError: await is only valid in async functions, async generators and modules"
 slug: Web/JavaScript/Reference/Errors/Bad_await
 page-type: javascript-error
+sidebar: jssidebar
 ---
-
-{{jsSidebar("Errors")}}
 
 The JavaScript exception "await is only valid in async functions, async generators and modules" occurs when an {{jsxref("Operators/await", "await")}} expression is used outside of [async functions](/en-US/docs/Web/JavaScript/Reference/Statements/async_function) or [modules](/en-US/docs/Web/JavaScript/Guide/Modules) or other async contexts.
 
 ## Message
 
-```
+```plain
 SyntaxError: await is only valid in async functions and the top level bodies of modules (V8-based)
 SyntaxError: await is only valid in async functions, async generators and modules (Firefox)
 SyntaxError: Unexpected identifier (Safari)
@@ -49,7 +48,7 @@ Instead, make the script a module:
 
 You cannot use `await` in a sync callback:
 
-```js example-bad
+```js-nolint example-bad
 urls.forEach((url) => {
   await fetch(url);
   // SyntaxError: await is only valid in async functions, async generators and modules
@@ -59,9 +58,11 @@ urls.forEach((url) => {
 Instead, make the callback async. See more explanation in the [Using promises guide](/en-US/docs/Web/JavaScript/Guide/Using_promises#composition).
 
 ```js example-good
-Promise.all(urls.map(async (url) => {
-  await fetch(url);
-});
+Promise.all(
+  urls.map(async (url) => {
+    await fetch(url);
+  }),
+);
 ```
 
 ## See also

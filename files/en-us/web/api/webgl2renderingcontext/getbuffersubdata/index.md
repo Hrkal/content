@@ -6,7 +6,7 @@ page-type: web-api-instance-method
 browser-compat: api.WebGL2RenderingContext.getBufferSubData
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
 The **`WebGL2RenderingContext.getBufferSubData()`** method of
 the [WebGL 2 API](/en-US/docs/Web/API/WebGL_API) reads data from a buffer
@@ -24,9 +24,7 @@ getBufferSubData(target, srcByteOffset, dstData, dstOffset, length)
 ### Parameters
 
 - `target`
-
   - : A {{domxref("WebGL_API/Types", "GLenum")}} specifying the binding point (target). Possible values:
-
     - `gl.ARRAY_BUFFER`
       - : Buffer containing vertex attributes, such as
         vertex coordinates, texture coordinate data, or vertex color data.
@@ -90,7 +88,7 @@ gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
 gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
 
 const arrBuffer = new ArrayBuffer(
-  vertices.length * Float32Array.BYTES_PER_ELEMENT
+  vertices.length * Float32Array.BYTES_PER_ELEMENT,
 );
 gl.getBufferSubData(gl.ARRAY_BUFFER, 0, new Float32Array(arrBuffer));
 ```

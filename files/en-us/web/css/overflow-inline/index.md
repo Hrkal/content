@@ -3,13 +3,13 @@ title: overflow-inline
 slug: Web/CSS/overflow-inline
 page-type: css-property
 browser-compat: css.properties.overflow-inline
+sidebar: cssref
 ---
-
-{{CSSRef}}
 
 The **`overflow-inline`** [CSS](/en-US/docs/Web/CSS) property sets what shows when content overflows the inline start and end edges of a box. This may be nothing, a scroll bar, or the overflow content.
 
-> **Note:** The `overflow-inline` property maps to {{Cssxref("overflow-y")}} or {{Cssxref("overflow-x")}} depending on the writing mode of the document.
+> [!NOTE]
+> The `overflow-inline` property maps to {{Cssxref("overflow-y")}} or {{Cssxref("overflow-x")}} depending on the writing mode of the document.
 
 ## Syntax
 
@@ -133,7 +133,7 @@ div {
 ## See also
 
 - {{cssxref("clip")}}, {{cssxref("display")}}, {{cssxref("overflow")}}, {{cssxref("overflow-block")}}, {{cssxref("overflow-clip-margin")}}, {{cssxref("overflow-x")}}, {{cssxref("overflow-y")}}, {{cssxref("text-overflow")}}, {{cssxref("white-space")}}
-- [CSS overflow](/en-US/docs/Web/CSS/CSS_Overflow) module
-- [CSS logical properties](/en-US/docs/Web/CSS/CSS_Logical_Properties)
-- [CSS writing modes](/en-US/docs/Web/CSS/CSS_Writing_Modes)
-- [CSS building blocks: Overflowing content](/en-US/docs/Learn/CSS/Building_blocks/Overflowing_content)
+- [CSS overflow](/en-US/docs/Web/CSS/CSS_overflow) module
+- [CSS logical properties](/en-US/docs/Web/CSS/CSS_logical_properties_and_values)
+- [CSS writing modes](/en-US/docs/Web/CSS/CSS_writing_modes)
+- [Learn: Overflowing content](/en-US/docs/Learn_web_development/Core/Styling_basics/Overflow)

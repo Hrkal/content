@@ -3,42 +3,41 @@ title: "CSS: registerProperty() static method"
 short-title: registerProperty()
 slug: Web/API/CSS/registerProperty_static
 page-type: web-api-static-method
-browser-compat: api.CSS.registerProperty
+browser-compat: api.CSS.registerProperty_static
 ---
 
 {{APIRef("CSSOM")}}
 
 The **`CSS.registerProperty()`** static method registers
-{{cssxref('--*', 'custom properties')}}, allowing for property type checking, default
+[custom properties](/en-US/docs/Web/CSS/--*), allowing for property type checking, default
 values, and properties that do or do not inherit their value.
 
 Registering a custom property allows you to tell the browser how the custom property
-should behave; what are allowed types, whether the custom property inherits its value,
+should behave; what types are allowed, whether the custom property inherits its value,
 and what the default value of the custom property is.
 
 ## Syntax
 
 ```js-nolint
-CSS.registerProperty(PropertyDefinition)
+CSS.registerProperty(propertyDefinition)
 ```
 
 ### Parameters
 
-A `PropertyDefinition` dictionary object, which can contain the following
-members:
-
-- `name`
-  - : A string representing the
-    name of the property being defined.
-- `syntax` {{optional_inline}}
-  - : A string representing
-    the expected syntax of the defined property. Defaults to `"*"`.
-- `inherits`
-  - : A boolean value defining whether the defined property should be inherited
-    (`true`), or not (`false`). Defaults to `false`.
-- `initialValue` {{optional_inline}}
-  - : A string representing
-    the initial value of the defined property.
+- `propertyDefinition`
+  - : An object containing the following properties:
+    - `name`
+      - : A string representing the
+        name of the property being defined.
+    - `syntax` {{optional_inline}}
+      - : A string representing
+        the expected syntax of the defined property. Defaults to `"*"`.
+    - `inherits`
+      - : A boolean value defining whether the defined property should be inherited
+        (`true`), or not (`false`). Defaults to `false`.
+    - `initialValue` {{optional_inline}}
+      - : A string representing
+        the initial value of the defined property.
 
 ### Return value
 
@@ -50,14 +49,14 @@ members:
   - : The given `name` has already been registered.
 - `SyntaxError` {{domxref("DOMException")}}
   - : The given `name` isn't a valid custom property name (starts with two
-    dashes, e.g. `--foo`).
+    dashes, e.g., `--foo`).
 - {{jsxref("TypeError")}}
   - : The required `name` and/or `inherits` dictionary members were
     not provided.
 
 ## Examples
 
-The following will register a {{cssxref('--*', 'custom property')}},
+The following will register a [custom property](/en-US/docs/Web/CSS/--*),
 `--my-color`, using `registerProperty()`, as a color, give it a
 default value, and have it not inherit its value:
 
@@ -123,6 +122,7 @@ We can add these styles to some buttons:
 
 - [Using the CSS properties and values API](/en-US/docs/Web/API/CSS_Properties_and_Values_API/guide)
 - {{DOMxRef("CSS")}}
-- {{DOMxRef("CSS.supports()")}}
-- {{DOMxRef("CSS.escape()")}}
-- {{DOMxRef("CSS.factory_functions", 'CSS factory functions')}}
+- {{DOMxRef("CSS/supports_static", "CSS.supports()")}}
+- {{DOMxRef("CSS/escape_static", "CSS.escape()")}}
+- [CSS factory functions](/en-US/docs/Web/API/CSS/factory_functions_static)
+- CSS {{cssxref("@property")}}

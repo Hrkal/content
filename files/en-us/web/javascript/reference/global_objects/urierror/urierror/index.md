@@ -1,11 +1,11 @@
 ---
 title: URIError() constructor
+short-title: URIError()
 slug: Web/JavaScript/Reference/Global_Objects/URIError/URIError
 page-type: javascript-constructor
 browser-compat: javascript.builtins.URIError.URIError
+sidebar: jsref
 ---
-
-{{JSRef}}
 
 The **`URIError()`** constructor creates {{jsxref("URIError")}} objects.
 
@@ -25,7 +25,8 @@ URIError(message, fileName)
 URIError(message, fileName, lineNumber)
 ```
 
-> **Note:** `URIError()` can be called with or without [`new`](/en-US/docs/Web/JavaScript/Reference/Operators/new). Both create a new `URIError` instance.
+> [!NOTE]
+> `URIError()` can be called with or without [`new`](/en-US/docs/Web/JavaScript/Reference/Operators/new). Both create a new `URIError` instance.
 
 ### Parameters
 
@@ -80,7 +81,7 @@ try {
 ## See also
 
 - {{jsxref("Error")}}
-- {{jsxref("Global_Objects/decodeURI", "decodeURI()")}}
-- {{jsxref("Global_Objects/decodeURIComponent", "decodeURIComponent()")}}
-- {{jsxref("Global_Objects/encodeURI", "encodeURI()")}}
-- {{jsxref("Global_Objects/encodeURIComponent", "encodeURIComponent()")}}
+- {{jsxref("decodeURI()")}}
+- {{jsxref("decodeURIComponent()")}}
+- {{jsxref("encodeURI()")}}
+- {{jsxref("encodeURIComponent()")}}

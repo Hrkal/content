@@ -1,17 +1,32 @@
 ---
 title: Intl.Locale.prototype.minimize()
+short-title: minimize()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/Locale/minimize
 page-type: javascript-instance-method
 browser-compat: javascript.builtins.Intl.Locale.minimize
+sidebar: jsref
 ---
-
-{{JSRef}}
 
 The **`minimize()`** method of {{jsxref("Intl.Locale")}} instances attempts to
 remove information about this locale that would be added by calling
 {{jsxref("Intl/Locale/maximize", "maximize()")}}.
 
-{{EmbedInteractiveExample("pages/js/intl-locale-prototype-minimize.html")}}
+{{InteractiveExample("JavaScript Demo: Intl.Locale.prototype.minimize()")}}
+
+```js interactive-example
+const english = new Intl.Locale("en-Latn-US");
+const korean = new Intl.Locale("ko-Kore-KR");
+const arabic = new Intl.Locale("ar-Arab-EG");
+
+console.log(english.minimize().baseName);
+// Expected output: "en"
+
+console.log(korean.minimize().baseName);
+// Expected output: "ko"
+
+console.log(arabic.minimize().baseName);
+// Expected output: "ar"
+```
 
 ## Syntax
 
@@ -19,9 +34,13 @@ remove information about this locale that would be added by calling
 minimize()
 ```
 
+### Parameters
+
+None.
+
 ### Return value
 
-A {{jsxref("Intl/Locale", "Locale")}} instance whose `baseName` property returns
+A {{jsxref("Intl.Locale")}} instance whose `baseName` property returns
 the result of the [Remove Likely Subtags](https://www.unicode.org/reports/tr35/#Likely_Subtags) algorithm
 executed against _{{jsxref("Intl/Locale/baseName", "locale.baseName")}}_.
 
@@ -45,11 +64,11 @@ in the locale identifier are called extension subtags and are not affected by th
 
 ```js
 const myLocale = new Intl.Locale("fr-Latn-FR", {
-  hourCycle: "h24",
+  hourCycle: "h12",
   calendar: "gregory",
 });
 console.log(myLocale.baseName); // Prints "fr-Latn-FR"
-console.log(myLocale.toString()); // Prints "fr-Latn-FR-u-ca-gregory-hc-h24"
+console.log(myLocale.toString()); // Prints "fr-Latn-FR-u-ca-gregory-hc-h12"
 
 const myLocMinimized = myLocale.minimize();
 
@@ -57,7 +76,7 @@ const myLocMinimized = myLocale.minimize();
 // and is most likely to be spoken in France.
 console.log(myLocMinimized.baseName);
 
-// Prints "fr-u-ca-gregory-hc-h24".
+// Prints "fr-u-ca-gregory-hc-h12".
 // Note that the extension tags (after "-u") remain unchanged.
 console.log(myLocMinimized.toString());
 ```

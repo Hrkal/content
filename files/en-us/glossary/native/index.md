@@ -2,6 +2,7 @@
 title: Native
 slug: Glossary/Native
 page-type: glossary-definition
+sidebar: glossarysidebar
 ---
 
 A _native_ application has been compiled to run on the hardware/software environment that comprises the targeted architecture.

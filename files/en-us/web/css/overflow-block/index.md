@@ -3,13 +3,13 @@ title: overflow-block
 slug: Web/CSS/overflow-block
 page-type: css-property
 browser-compat: css.properties.overflow-block
+sidebar: cssref
 ---
-
-{{CSSRef}}
 
 The **`overflow-block`** [CSS](/en-US/docs/Web/CSS) property sets what shows when content overflows the block start and block end edges of a box. This may be nothing, a scroll bar, or the overflow content.
 
-> **Note:** The `overflow-block` property maps to {{Cssxref("overflow-y")}} or {{Cssxref("overflow-x")}} depending on the writing mode of the document.
+> [!NOTE]
+> The `overflow-block` property maps to {{Cssxref("overflow-y")}} or {{Cssxref("overflow-x")}} depending on the writing mode of the document.
 
 ## Syntax
 
@@ -134,7 +134,7 @@ div {
 #scroll {
   overflow-block: scroll;
 }
-#scroll {
+#clip {
   overflow-block: clip;
 }
 #visible {
@@ -160,8 +160,8 @@ div {
 ## See also
 
 - {{cssxref("text-overflow")}}, {{cssxref("white-space")}}, {{Cssxref("overflow")}}, {{Cssxref("overflow-inline")}}, {{Cssxref("overflow-x")}}, {{Cssxref("overflow-y")}}, {{Cssxref("clip")}}, {{Cssxref("display")}}
-- [CSS logical properties](/en-US/docs/Web/CSS/CSS_Logical_Properties)
-- [CSS overflow](/en-US/docs/Web/CSS/CSS_Overflow) module
-- [CSS scrollbars style](/en-US/docs/Web/CSS/CSS_Scrollbars) module
-- [CSS writing modes](/en-US/docs/Web/CSS/CSS_Writing_Modes)
-- [CSS building blocks: Overflowing content](/en-US/docs/Learn/CSS/Building_blocks/Overflowing_content)
+- [CSS logical properties](/en-US/docs/Web/CSS/CSS_logical_properties_and_values)
+- [CSS overflow](/en-US/docs/Web/CSS/CSS_overflow) module
+- [CSS scrollbars style](/en-US/docs/Web/CSS/CSS_scrollbars_styling) module
+- [CSS writing modes](/en-US/docs/Web/CSS/CSS_writing_modes)
+- [Learn: Overflowing content](/en-US/docs/Learn_web_development/Core/Styling_basics/Overflow)

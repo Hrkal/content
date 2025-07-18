@@ -3,13 +3,26 @@ title: Grouping operator ( )
 slug: Web/JavaScript/Reference/Operators/Grouping
 page-type: javascript-operator
 browser-compat: javascript.operators.grouping
+sidebar: jssidebar
 ---
-
-{{jsSidebar("Operators")}}
 
 The **grouping `( )`** operator controls the precedence of evaluation in expressions. It also acts as a container for arbitrary expressions in certain syntactic constructs, where ambiguity or syntax errors would otherwise occur.
 
-{{EmbedInteractiveExample("pages/js/expressions-groupingoperator.html")}}
+{{InteractiveExample("JavaScript Demo: Grouping operator")}}
+
+```js-nolint interactive-example
+console.log(1 + 2 * 3); // 1 + 6
+// Expected output: 7
+
+console.log(1 + (2 * 3)); // 1 + 6
+// Expected output: 7
+
+console.log((1 + 2) * 3); // 3 * 3
+// Expected output: 9
+
+console.log(1 * 3 + 2 * 3); // 3 + 6
+// Expected output: 9
+```
 
 ## Syntax
 
@@ -62,7 +75,7 @@ The function `a` will be called before the function `b`, which will be called be
 
 An [expression statement](/en-US/docs/Web/JavaScript/Reference/Statements/Expression_statement) cannot start with the keyword `function`, because the parser would see it as the start of a [function declaration](/en-US/docs/Web/JavaScript/Reference/Statements/function). This means the following [IIFE](/en-US/docs/Glossary/IIFE) syntax is invalid:
 
-```js example-bad
+```js-nolint example-bad
 function () {
   // code
 }();
@@ -78,7 +91,7 @@ The grouping operator can be used to eliminate this ambiguity, since when the pa
 
 You may also use the [`void`](/en-US/docs/Web/JavaScript/Reference/Operators/void#immediately_invoked_function_expressions) operator to eliminate ambiguity.
 
-In an [arrow function](/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) concise body (one that directly returns an expression without the keyword `return`), the grouping operator can be used to return an object literal expression, because otherwise the left curly brace would be interpreted as the start of the function body.
+In an [arrow function](/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) expression body (one that directly returns an expression without the keyword `return`), the grouping operator can be used to return an object literal expression, because otherwise the left curly brace would be interpreted as the start of the function body.
 
 ```js
 const f = () => ({ a: 1 });
@@ -126,7 +139,7 @@ This code would be parsed as:
 const a = 1(1).toString();
 ```
 
-Which throws "TypeError: 1 is not a function". If your coding style does not use semicolons, remember that when a line starts with a left parenthesis, _prefix_ it with a semicolon. This practice is recommended by several formatters and/or style guides, including [Prettier](https://prettier.io/docs/en/rationale.html#semicolons) and [standard](https://standardjs.com/rules.html#semicolons).
+Which throws "TypeError: 1 is not a function". If your coding style does not use semicolons, remember that when a line starts with a left parenthesis, _prefix_ it with a semicolon. This practice is recommended by several formatters and/or style guides, including [Prettier](https://prettier.io/docs/rationale.html#semicolons) and [standard](https://standardjs.com/rules.html#semicolons).
 
 ```js-nolint example-good
 const a = 1

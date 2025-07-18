@@ -6,14 +6,14 @@ page-type: web-api-constructor
 browser-compat: api.DOMPoint.DOMPoint
 ---
 
-{{APIRef("DOM")}}
+{{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
 The **`DOMPoint()`** constructor
 creates and returns a new {{domxref("DOMPoint")}} object, given the values for some or
 all of its properties.
 
 You can also create a `DOMPoint` by calling the
-{{domxref("DOMPoint.fromPoint()")}} static function. That function accepts any object with the required parameters, including a `DOMPoint` or
+{{domxref("DOMPoint.fromPoint_static", "DOMPoint.fromPoint()")}} static function. That function accepts any object with the required parameters, including a `DOMPoint` or
 {{domxref("DOMPointReadOnly")}}.
 
 ## Syntax

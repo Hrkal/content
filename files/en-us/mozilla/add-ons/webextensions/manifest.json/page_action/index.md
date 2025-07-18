@@ -3,9 +3,8 @@ title: page_action
 slug: Mozilla/Add-ons/WebExtensions/manifest.json/page_action
 page-type: webextension-manifest-key
 browser-compat: webextensions.manifest.page_action
+sidebar: addonsidebar
 ---
-
-{{AddonSidebar}}
 
 <table class="fullwidth-table standard-table">
   <tbody>
@@ -43,9 +42,9 @@ A page action is an icon that your extension adds inside the browser's URL bar.
 
 Your extension may optionally also supply an associated popup whose content is specified using HTML, CSS, and JavaScript.
 
-If you supply a popup, then the popup is opened when the user clicks the icon, and your JavaScript running in the popup can handle the user's interaction with it. If you don't supply a popup, then a click event is dispatched to your extension's [background scripts](/en-US/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension#background_pages) when the user clicks the icon.
+You must specify this key to include a page action in your extension. When specified, you can manipulate the button programmatically using the {{WebExtAPIRef("pageAction")}} API.
 
-You can also create and manipulate page actions programmatically using the {{WebExtAPIRef("pageAction", "pageAction API")}}.
+If you supply a popup, then the popup is opened when the user clicks the icon, and your JavaScript running in the popup can handle the user's interaction with it. If you don't supply a popup, then a click event is dispatched to your extension's [background scripts](/en-US/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension#background_scripts) when the user clicks the icon.
 
 Page actions are like browser actions, except that they are associated with particular web pages rather than with the browser as a whole. If an action is only relevant on certain pages, then you should use a page action and display it only on relevant pages. If an action is relevant to all pages or to the browser itself, use a browser action.
 
@@ -79,7 +78,7 @@ The `page_action` key is an object that may have any of three properties, all op
         <p>Optional. Defaults to <code>false</code>.</p>
         <div class="notecard warning">
           <p>
-            Do not set <code>browser_style</code> to true: it is deprecated in Manifest V3, and support will be removed in Firefox 118. See <a href="/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles#manifest_v3_migration">Manifest V3 migration for <code>browser_style</code></a>.
+            Do not set <code>browser_style</code> to true: its not support in Manifest V3 from Firefox 118. See <a href="/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles#manifest_v3_migration">Manifest V3 migration for <code>browser_style</code></a>.
           </p>
         </div>
         <p>
@@ -90,7 +89,7 @@ The `page_action` key is an object that may have any of three properties, all op
         <p>
           The
           <a
-            href="https://github.com/mdn/webextensions-examples/tree/master/latest-download"
+            href="https://github.com/mdn/webextensions-examples/tree/main/latest-download"
             >latest-download</a
           >
           example extension uses <code>browser_style</code> in its popup.
@@ -135,29 +134,29 @@ The `page_action` key is an object that may have any of three properties, all op
         <p>
           The HTML file may include CSS and JavaScript files using
           <code
-            ><a href="/en-US/docs/Web/HTML/Element/link">&#x3C;link></a></code
+            ><a href="/en-US/docs/Web/HTML/Reference/Elements/link">&#x3C;link></a></code
           >
           and
           <code
-            ><a href="/en-US/docs/Web/HTML/Element/script"
+            ><a href="/en-US/docs/Web/HTML/Reference/Elements/script"
               >&#x3C;script></a
             ></code
           >
           elements, just like a normal web page. However, don't use
           <code
-            ><a href="/en-US/docs/Web/HTML/Element/script"
+            ><a href="/en-US/docs/Web/HTML/Reference/Elements/script"
               >&#x3C;script></a
             ></code
           >
           with embedded code, because you'll get a Content Violation Policy
           error. Instead,
           <code
-            ><a href="/en-US/docs/Web/HTML/Element/script"
+            ><a href="/en-US/docs/Web/HTML/Reference/Elements/script"
               >&#x3C;script></a
             ></code
           >
           must use the
-          <code><a href="/en-US/docs/Web/HTML/Element/script">src</a></code>
+          <code><a href="/en-US/docs/Web/HTML/Reference/Elements/script">src</a></code>
           attribute to load a separate script file.
         </p>
         <p>
@@ -272,7 +271,7 @@ The `page_action` key is an object that may have any of three properties, all op
 A page action with just an icon, specified in 2 different sizes. The extension's background scripts can receive click events when the user clicks the icon using code like this:
 
 ```js
- browser.pageAction.onClicked.addListener(handleClick);
+browser.pageAction.onClicked.addListener(handleClick);
 ```
 
 ```json

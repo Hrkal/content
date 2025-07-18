@@ -2,17 +2,17 @@
 title: Locale-specific message reference
 slug: Mozilla/Add-ons/WebExtensions/API/i18n/Locale-Specific_Message_reference
 page-type: guide
+sidebar: addonsidebar
 ---
-
-{{AddonSidebar()}}
 
 Each internationalized extension has at least one file named `messages.json` that provides locale-specific strings. This page describes the format of `messages.json` files.
 
-> **Note:** For information on how to internationalize your extensions, see our [i18n](/en-US/docs/Mozilla/Add-ons/WebExtensions/Internationalization) guide.
+> [!NOTE]
+> For information on how to internationalize your extensions, see our [i18n](/en-US/docs/Mozilla/Add-ons/WebExtensions/Internationalization) guide.
 
 ## messages.json example
 
-The following code shows an example `messages.json file`, taken from our [notify-link-clicks-i18n example](https://github.com/mdn/webextensions-examples/tree/master/notify-link-clicks-i18n) extension. Only the "_name_" and "message" fields are required.
+The following code shows an example `messages.json file`, taken from our [notify-link-clicks-i18n example](https://github.com/mdn/webextensions-examples/tree/main/notify-link-clicks-i18n) extension. Only the "_name_" and "message" fields are required.
 
 ```json
 {
@@ -35,9 +35,9 @@ The following code shows an example `messages.json file`, taken from our [notify
     "message": "You clicked $URL$.",
     "description": "Tells the user which link they clicked.",
     "placeholders": {
-      "url" : {
-        "content" : "$1",
-        "example" : "https://developer.mozilla.org"
+      "url": {
+        "content": "$1",
+        "example": "https://developer.mozilla.org"
       }
     }
   }
@@ -64,7 +64,8 @@ The name can include the following characters:
 - \_ (underscore)
 - @
 
-> **Note:** You shouldn't define names that start with @@. Such names are reserved for [predefined messages](/en-US/docs/Mozilla/Add-ons/WebExtensions/Internationalization#predefined_messages).
+> [!NOTE]
+> You shouldn't define names that start with @@. Such names are reserved for [predefined messages](/en-US/docs/Mozilla/Add-ons/WebExtensions/Internationalization#predefined_messages).
 
 ### message
 
@@ -103,7 +104,7 @@ Each placeholder substring definition has a number of values of its own:
 
 #### placeholder name
 
-The placeholder name is used to represent the placeholder in the substitution string (e.g. `"url"` becomes `$url$`). It is case insensitive and can contain the same characters as a message string [name](#name).
+The placeholder name is used to represent the placeholder in the substitution string (e.g., `"url"` becomes `$url$`). It is case insensitive and can contain the same characters as a message string [name](#name).
 
 #### content
 

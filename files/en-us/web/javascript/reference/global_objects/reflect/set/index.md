@@ -1,15 +1,29 @@
 ---
 title: Reflect.set()
+short-title: set()
 slug: Web/JavaScript/Reference/Global_Objects/Reflect/set
 page-type: javascript-static-method
 browser-compat: javascript.builtins.Reflect.set
+sidebar: jsref
 ---
-
-{{JSRef}}
 
 The **`Reflect.set()`** static method is like the [property accessor](/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors) and [assignment](/en-US/docs/Web/JavaScript/Reference/Operators/Assignment) syntax, but as a function.
 
-{{EmbedInteractiveExample("pages/js/reflect-set.html")}}
+{{InteractiveExample("JavaScript Demo: Reflect.set()")}}
+
+```js interactive-example
+const object1 = {};
+Reflect.set(object1, "property1", 42);
+
+console.log(object1.property1);
+// Expected output: 42
+
+const array1 = ["duck", "duck", "duck"];
+Reflect.set(array1, 2, "goose");
+
+console.log(array1[2]);
+// Expected output: "goose"
+```
 
 ## Syntax
 
@@ -56,12 +70,12 @@ Note that in a normal property access, `target` and `receiver` would observably 
 
 ```js
 // Object
-let obj = {};
+const obj = {};
 Reflect.set(obj, "prop", "value"); // true
 obj.prop; // "value"
 
 // Array
-let arr = ["duck", "duck", "duck"];
+const arr = ["duck", "duck", "duck"];
 Reflect.set(arr, 2, "goose"); // true
 arr[2]; // "goose"
 
@@ -70,7 +84,6 @@ Reflect.set(arr, "length", 1); // true
 arr; // ["duck"]
 
 // With just one argument, propertyKey and value are "undefined".
-let obj = {};
 Reflect.set(obj); // true
 Reflect.getOwnPropertyDescriptor(obj, "undefined");
 // { value: undefined, writable: true, enumerable: true, configurable: true }
@@ -114,4 +127,4 @@ Reflect.set(target, "a", 2, receiver); // true
 - [Polyfill of `Reflect.set` in `core-js`](https://github.com/zloirock/core-js#ecmascript-reflect)
 - {{jsxref("Reflect")}}
 - [Property accessors](/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors)
-- [`Proxy`'s `set` handler](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/set)
+- [`handler.set()`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/set)

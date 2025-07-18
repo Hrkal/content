@@ -3,13 +3,26 @@ title: break
 slug: Web/JavaScript/Reference/Statements/break
 page-type: javascript-statement
 browser-compat: javascript.statements.break
+sidebar: jssidebar
 ---
-
-{{jsSidebar("Statements")}}
 
 The **`break`** statement terminates the current loop or {{jsxref("Statements/switch", "switch")}} statement and transfers program control to the statement following the terminated statement. It can also be used to jump past a [labeled statement](/en-US/docs/Web/JavaScript/Reference/Statements/label) when used within that labeled statement.
 
-{{EmbedInteractiveExample("pages/js/statement-break.html")}}
+{{InteractiveExample("JavaScript Demo: break statement")}}
+
+```js interactive-example
+let i = 0;
+
+while (i < 6) {
+  if (i === 3) {
+    break;
+  }
+  i += 1;
+}
+
+console.log(i);
+// Expected output: 3
+```
 
 ## Syntax
 
@@ -89,7 +102,7 @@ outerBlock: {
 
 A `break` statement must be nested within any label it references. The following code also uses `break` statements with labeled blocks, but generates a syntax error because its `break` statement references `block2` but it's not nested within `block2`.
 
-```js example-bad
+```js-nolint example-bad
 block1: {
   console.log("1");
   break block2; // SyntaxError: label not found
@@ -102,7 +115,7 @@ block2: {
 
 Syntax errors are also generated in the following code examples which use `break` statements within functions that are nested within a loop, or labeled block that the `break` statements are intended to break out of.
 
-```js example-bad
+```js-nolint example-bad
 function testBreak(x) {
   let i = 0;
 
@@ -121,7 +134,7 @@ function testBreak(x) {
 testBreak(1); // SyntaxError: Illegal break statement
 ```
 
-```js example-bad
+```js-nolint example-bad
 block1: {
   console.log("1");
   (() => {

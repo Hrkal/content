@@ -3,17 +3,13 @@ title: "URLPattern: URLPattern() constructor"
 short-title: URLPattern()
 slug: Web/API/URLPattern/URLPattern
 page-type: web-api-constructor
-status:
-  - experimental
 browser-compat: api.URLPattern.URLPattern
 ---
 
-{{APIRef("URLPattern API")}}{{SeeCompatTable}}
+{{APIRef("URLPattern API")}} {{AvailableInWorkers}}
 
 The **`URLPattern()`** constructor returns a new {{domxref("URLPattern")}}
 object representing the url pattern defined by the parameters.
-
-{{AvailableInWorkers}}
 
 ## Syntax
 
@@ -39,14 +35,17 @@ new URLPattern(input, baseURL, options)
     - `search`
     - `hash`
     - `baseURL`
-      > **Note:** Omitted parts of the object will be treated as wildcards (`*`).
+
+    > [!NOTE]
+    > Omitted parts of the object will be treated as wildcards (`*`).
+
 - `baseURL` {{Optional_Inline}}
   - : A string representing the base URL to use in cases where
     `input` is a relative pattern. If not specified, it defaults to `undefined`.
 - `options` {{Optional_Inline}}
   - : An object providing options for matching the given pattern. The possible object members are as follows:
-    - `ignoreCase`
-      - Enables case-insensitive matching if set to `true`. If omitted or set to `false`, matching will be case-sensitive.
+    - `ignoreCase` {{Optional_Inline}}
+      - : Enables case-insensitive matching if set to `true`. If omitted or set to `false`, matching will be case-sensitive.
 
 ### Exceptions
 

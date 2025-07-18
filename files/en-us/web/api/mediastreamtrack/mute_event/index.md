@@ -14,7 +14,8 @@ When the track is once again able to produce media output, an {{domxref("MediaSt
 
 During the time between the `mute` event and the `unmute` event, the value of the track's {{domxref("MediaStreamTrack.muted", "muted")}} property is `true`.
 
-> **Note:** The condition that most people think of as "muted" (that is, a user-toggled state of silencing a track) is actually managed using the {{domxref("MediaStreamTrack.enabled")}} property, for which there are no events.
+> [!NOTE]
+> The condition that most people think of as "muted" (that is, a user-toggled state of silencing a track) is actually managed using the {{domxref("MediaStreamTrack.enabled")}} property, for which there are no events.
 
 This event is not cancelable and does not bubble.
 
@@ -22,10 +23,10 @@ This event is not cancelable and does not bubble.
 
 Use the event name in methods like {{domxref("EventTarget.addEventListener", "addEventListener()")}}, or set an event handler property.
 
-```js
-addEventListener("mute", (event) => {});
+```js-nolint
+addEventListener("mute", (event) => { })
 
-onmute = (event) => {};
+onmute = (event) => { }
 ```
 
 ## Event type
@@ -42,7 +43,7 @@ musicTrack.addEventListener(
   (event) => {
     document.getElementById("timeline-widget").style.backgroundColor = "#aaa";
   },
-  false
+  false,
 );
 
 musicTrack.addEventListener(
@@ -50,7 +51,7 @@ musicTrack.addEventListener(
   (event) => {
     document.getElementById("timeline-widget").style.backgroundColor = "#fff";
   },
-  false
+  false,
 );
 ```
 

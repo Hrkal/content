@@ -3,9 +3,8 @@ title: override-colors
 slug: Web/CSS/@font-palette-values/override-colors
 page-type: css-at-rule-descriptor
 browser-compat: css.at-rules.font-palette-values.override-colors
+sidebar: cssref
 ---
-
-{{CSSRef}}
 
 The **`override-colors`** CSS [descriptor](/en-US/docs/Glossary/CSS_Descriptor) is used to override colors in the chosen [base-palette](/en-US/docs/Web/CSS/@font-palette-values/base-palette) for a color font.
 
@@ -22,13 +21,19 @@ override-colors: 0 red;
 override-colors: 0 #f00;
 
 /* using rgb */
-override-colors: 0 rgb(255, 0, 0);
+override-colors: 0 rgb(255 0 0);
 
 /* overriding multiple colors */
-override-colors: 0 #f00, 1 #0f0, 2 #00f;
+override-colors:
+  0 #f00,
+  1 #0f0,
+  2 #00f;
 
 /* overriding multiple colors with readability */
-override-colors: 0 #f00, 1 #0f0, 2 #00f;
+override-colors:
+  0 #f00,
+  1 #0f0,
+  2 #00f;
 ```
 
 The `override-colors` [descriptor](/en-US/docs/Glossary/CSS_Descriptor) takes a comma-separated list of the color index and new color value.
@@ -54,7 +59,7 @@ For each key-value pair of index and color, the color with the index in the spec
 
 ### Changing colors of emojis
 
-This example shows how to override colors in the [Noto Color Emoji](https://fonts.google.com/noto/specimen/Noto+Color+Emoji/) color font to match your site's brand.
+This example shows how to override colors in the [Noto Color Emoji](https://fonts.google.com/noto/specimen/Noto+Color+Emoji) color font to match your site's brand.
 
 #### HTML
 
@@ -81,7 +86,7 @@ This example shows how to override colors in the [Noto Color Emoji](https://font
 }
 ```
 
-```css-nolint
+```css
 @font-face {
   font-family: "Noto Color Emoji";
   font-style: normal;
@@ -91,17 +96,17 @@ This example shows how to override colors in the [Noto Color Emoji](https://font
 }
 
 .emoji {
-  font-family: "Noto Color Emoji";
+  font-family: "Noto Color Emoji", emoji;
   font-size: 3rem;
 }
 @font-palette-values --red {
   font-family: "Noto Color Emoji";
   override-colors:
-    0 rgb(74, 11, 0),
-    1 rgb(149, 22, 1),
-    2 rgb(183, 27, 1),
-    3 rgb(193, 28, 1),
-    4 rgb(230, 34, 1);
+    0 rgb(74 11 0),
+    1 rgb(149 22 1),
+    2 rgb(183 27 1),
+    3 rgb(193 28 1),
+    4 rgb(230 34 1);
 }
 .red-hat {
   font-palette: --red;
@@ -131,7 +136,7 @@ Using [Rocher Color Font](https://www.harbortype.com/fonts/rocher-color/), this 
   src: url("[path-to-font]/RocherColorGX.woff2") format("woff2");
 }
 h2 {
-  font-family: "Rocher";
+  font-family: "Rocher", fantasy;
 }
 @font-palette-values --override-palette {
   font-family: "Rocher";
@@ -152,7 +157,7 @@ h2 {
 
 #### Result
 
-This example shows the that in `base-palette` `3`, the color at index 0 is overridden with `rebeccapurple`.
+This example shows that in `base-palette` `3`, the color at index 0 is overridden with `rebeccapurple`.
 
 ![Example showing base-palette and base-palette with 1 color overridden](override-base-palette-color.jpg)
 

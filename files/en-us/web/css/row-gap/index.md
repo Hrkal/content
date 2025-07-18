@@ -3,13 +3,58 @@ title: row-gap
 slug: Web/CSS/row-gap
 page-type: css-property
 browser-compat: css.properties.row-gap
+sidebar: cssref
 ---
-
-{{CSSRef}}
 
 The **`row-gap`** [CSS](/en-US/docs/Web/CSS) property sets the size of the gap ({{glossary("gutters","gutter")}}) between an element's rows.
 
-{{EmbedInteractiveExample("pages/css/row-gap.html")}}
+Early versions of the specification called this property `grid-row-gap`, and to maintain compatibility with legacy websites, browsers will still accept `grid-row-gap` as an alias for `row-gap`.
+
+{{InteractiveExample("CSS Demo: row-gap")}}
+
+```css interactive-example-choice
+row-gap: 0;
+```
+
+```css interactive-example-choice
+row-gap: 1ch;
+```
+
+```css interactive-example-choice
+row-gap: 1em;
+```
+
+```css interactive-example-choice
+row-gap: 20px;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="example-container">
+    <div class="transition-all" id="example-element">
+      <div>One</div>
+      <div>Two</div>
+      <div>Three</div>
+      <div>Four</div>
+      <div>Five</div>
+    </div>
+  </div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  border: 1px solid #c5c5c5;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 200px;
+}
+
+#example-element > div {
+  background-color: rgb(0 0 255 / 0.2);
+  border: 3px solid blue;
+}
+```
 
 ## Syntax
 
@@ -30,8 +75,6 @@ row-gap: revert;
 row-gap: revert-layer;
 row-gap: unset;
 ```
-
-Note that `grid-row-gap` is an alias for this property.
 
 ### Values
 
@@ -95,6 +138,9 @@ Note that `grid-row-gap` is an alias for this property.
   <div></div>
   <div></div>
   <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
 </div>
 ```
 
@@ -104,7 +150,7 @@ Note that `grid-row-gap` is an alias for this property.
 #grid {
   display: grid;
   height: 200px;
-  grid-template-columns: 200px;
+  grid-template-columns: 150px 1fr;
   grid-template-rows: repeat(3, 1fr);
   row-gap: 20px;
 }
@@ -129,5 +175,6 @@ Note that `grid-row-gap` is an alias for this property.
 
 ## See also
 
-- Related CSS properties: {{CSSxRef("column-gap")}}, {{CSSxRef("gap")}}
-- Grid Layout Guide: _[Basic concepts of grid layout - Gutters](/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout#gutters)_
+- {{CSSxRef("column-gap")}}
+- {{CSSxRef("gap")}}
+- [Basic concepts of grid layout: gutters](/en-US/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout#gutters)

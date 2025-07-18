@@ -12,7 +12,8 @@ The **`unmute`** event is sent to a {{domxref("MediaStreamTrack")}} when the tra
 
 This ends the {{domxref("MediaStreamTrack.muted", "muted")}} state that began with the {{domxref("MediaStreamTrack/mute_event", "mute")}} event.
 
-> **Note:** The condition that most people think of as "muted" (that is, a user-controllable way to silence a track) is actually managed using the {{domxref("MediaStreamTrack.enabled")}} property, for which there are no events.
+> [!NOTE]
+> The condition that most people think of as "muted" (that is, a user-controllable way to silence a track) is actually managed using the {{domxref("MediaStreamTrack.enabled")}} property, for which there are no events.
 
 This event is not cancelable and does not bubble.
 
@@ -20,10 +21,10 @@ This event is not cancelable and does not bubble.
 
 Use the event name in methods like {{domxref("EventTarget.addEventListener", "addEventListener()")}}, or set an event handler property.
 
-```js
-addEventListener("unmute", (event) => {});
+```js-nolint
+addEventListener("unmute", (event) => { })
 
-onunmute = (event) => {};
+onunmute = (event) => { }
 ```
 
 ## Event type
@@ -40,7 +41,7 @@ musicTrack.addEventListener(
   (event) => {
     document.getElementById("timeline-widget").style.backgroundColor = "#aaa";
   },
-  false
+  false,
 );
 
 musicTrack.addEventListener(
@@ -48,7 +49,7 @@ musicTrack.addEventListener(
   (event) => {
     document.getElementById("timeline-widget").style.backgroundColor = "#fff";
   },
-  false
+  false,
 );
 ```
 
@@ -61,7 +62,7 @@ musicTrack.onmute = (event) => {
   document.getElementById("timeline-widget").style.backgroundColor = "#aaa";
 };
 
-musicTrack.mute = (event) => {
+musicTrack.onunmute = (event) => {
   document.getElementById("timeline-widget").style.backgroundColor = "#fff";
 };
 ```

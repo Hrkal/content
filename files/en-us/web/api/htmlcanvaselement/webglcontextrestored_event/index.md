@@ -18,10 +18,10 @@ This event does not bubble.
 
 Use the event name in methods like {{domxref("EventTarget.addEventListener", "addEventListener()")}}, or set an event handler property.
 
-```js
-addEventListener("webglcontextrestored", (event) => {});
+```js-nolint
+addEventListener("webglcontextrestored", (event) => { })
 
-onwebglcontextrestored = (event) => {};
+onwebglcontextrestored = (event) => { }
 ```
 
 ## Event type
@@ -50,7 +50,7 @@ canvas.addEventListener(
   (e) => {
     console.log(e);
   },
-  false
+  false,
 );
 
 gl.getExtension("WEBGL_lose_context").restoreContext();

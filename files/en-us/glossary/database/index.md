@@ -2,6 +2,7 @@
 title: Database
 slug: Glossary/Database
 page-type: glossary-definition
+sidebar: glossarysidebar
 ---
 
 A **database** is a storing system that collects organized data, to make some works easier like searching, structure, and extend.
@@ -15,7 +16,6 @@ Browsers also have their own database system called {{glossary("IndexedDB")}}.
 ## See also
 
 - [Database](https://en.wikipedia.org/wiki/Database) on Wikipedia
-- Glossary
-
+- Related glossary terms:
   - {{Glossary("IndexedDB")}}
   - {{Glossary("SQL")}}

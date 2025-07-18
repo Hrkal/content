@@ -1,15 +1,26 @@
 ---
 title: RegExp.prototype.unicode
+short-title: unicode
 slug: Web/JavaScript/Reference/Global_Objects/RegExp/unicode
 page-type: javascript-instance-accessor-property
 browser-compat: javascript.builtins.RegExp.unicode
+sidebar: jsref
 ---
-
-{{JSRef}}
 
 The **`unicode`** accessor property of {{jsxref("RegExp")}} instances returns whether or not the `u` flag is used with this regular expression.
 
-{{EmbedInteractiveExample("pages/js/regexp-prototype-unicode.html", "taller")}}
+{{InteractiveExample("JavaScript Demo: RegExp.prototype.unicode")}}
+
+```js interactive-example
+const regex1 = /\u{61}/;
+const regex2 = /\u{61}/u;
+
+console.log(regex1.unicode);
+// Expected output: false
+
+console.log(regex2.unicode);
+// Expected output: true
+```
 
 ## Description
 
@@ -22,6 +33,12 @@ The **`unicode`** accessor property of {{jsxref("RegExp")}} instances returns wh
 There are other changes to the parsing behavior that prevent possible syntax mistakes (which are analogous to [strict mode](/en-US/docs/Web/JavaScript/Reference/Strict_mode) for regex syntax). These syntaxes are all [deprecated and only kept for web compatibility](/en-US/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#regexp), and you should not rely on them.
 
 The set accessor of `unicode` is `undefined`. You cannot change this property directly.
+
+### Unicode-aware mode
+
+When we refer to _Unicode-aware mode_, we mean the regex has either the `u` or the [`v`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicodeSets) flag, in which case the regex enables Unicode-related features (such as [Unicode character class escape](/en-US/docs/Web/JavaScript/Reference/Regular_expressions/Unicode_character_class_escape)) and has much stricter syntax rules. Because `u` and `v` interpret the same regex in incompatible ways, using both flags results in a {{jsxref("SyntaxError")}}.
+
+Similarly, a regex is _Unicode-unaware_ if it has neither the `u` nor the `v` flag. In this case, the regex is interpreted as a sequence of UTF-16 code units, and there are many legacy syntaxes that do not become syntax errors.
 
 ## Examples
 
@@ -44,10 +61,10 @@ console.log(regex.unicode); // true
 ## See also
 
 - {{jsxref("RegExp.prototype.lastIndex")}}
-- {{JSxRef("RegExp.prototype.dotAll")}}
-- {{JSxRef("RegExp.prototype.global")}}
-- {{JSxRef("RegExp.prototype.hasIndices")}}
-- {{JSxRef("RegExp.prototype.ignoreCase")}}
-- {{JSxRef("RegExp.prototype.multiline")}}
-- {{JSxRef("RegExp.prototype.source")}}
-- {{JSxRef("RegExp.prototype.sticky")}}
+- {{jsxref("RegExp.prototype.dotAll")}}
+- {{jsxref("RegExp.prototype.global")}}
+- {{jsxref("RegExp.prototype.hasIndices")}}
+- {{jsxref("RegExp.prototype.ignoreCase")}}
+- {{jsxref("RegExp.prototype.multiline")}}
+- {{jsxref("RegExp.prototype.source")}}
+- {{jsxref("RegExp.prototype.sticky")}}

@@ -8,7 +8,7 @@ browser-compat: api.Element.closest
 
 {{APIRef('DOM')}}
 
-The **`closest()`** method of the {{domxref("Element")}} interface traverses the element and its parents (heading toward the document root) until it finds a node that matches the specified [CSS selector](/en-US/docs/Learn/CSS/Building_blocks/Selectors).
+The **`closest()`** method of the {{domxref("Element")}} interface traverses the element and its parents (heading toward the document root) until it finds a node that matches the specified [CSS selector](/en-US/docs/Learn_web_development/Core/Styling_basics/Basic_selectors).
 
 ## Syntax
 
@@ -19,7 +19,7 @@ closest(selectors)
 ### Parameters
 
 - `selectors`
-  - : A string of valid [CSS selector](/en-US/docs/Learn/CSS/Building_blocks/Selectors) to match the {{domxref("Element")}} and its ancestors against.
+  - : A string of valid [CSS selectors](/en-US/docs/Learn_web_development/Core/Styling_basics/Basic_selectors) to match the {{domxref("Element")}} and its ancestors against.
 
 ### Return value
 
@@ -81,5 +81,5 @@ console.log(el.closest(":not(div)")); // <article>
 
 ## See also
 
-- [CSS selectors reference](/en-US/docs/Web/CSS/CSS_Selectors)
+- [CSS selectors](/en-US/docs/Web/CSS/CSS_selectors) module
 - Other {{domxref("Element")}} methods that take selectors: {{domxref("Element.querySelector()")}}, {{domxref("Element.querySelectorAll()")}}, and {{domxref("Element.matches()")}}.

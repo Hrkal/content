@@ -3,9 +3,8 @@ title: inverted-colors
 slug: Web/CSS/@media/inverted-colors
 page-type: css-media-feature
 browser-compat: css.at-rules.media.inverted-colors
+sidebar: cssref
 ---
-
-{{CSSRef}}
 
 The **`inverted-colors`** [CSS](/en-US/docs/Web/CSS) [media feature](/en-US/docs/Web/CSS/@media#media_features) is used to test if the {{glossary("user agent")}} or the underlying operating system has inverted all colors.
 
@@ -87,5 +86,5 @@ p {
 ## See also
 
 - [@media](/en-US/docs/Web/CSS/@media)
-- [CSS media queries](/en-US/docs/Web/CSS/Media_Queries) module
-- [Using media queries](/en-US/docs/Web/CSS/Media_Queries/Using_media_queries)
+- [CSS media queries](/en-US/docs/Web/CSS/CSS_media_queries) module
+- [Using media queries](/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries)

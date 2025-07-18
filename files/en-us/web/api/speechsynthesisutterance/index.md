@@ -8,7 +8,7 @@ browser-compat: api.SpeechSynthesisUtterance
 {{APIRef("Web Speech API")}}
 
 The **`SpeechSynthesisUtterance`** interface of the [Web Speech API](/en-US/docs/Web/API/Web_Speech_API) represents a speech request.
-It contains the content the speech service should read and information about how to read it (e.g. language, pitch and volume.)
+It contains the content the speech service should read and information about how to read it (e.g., language, pitch and volume.)
 
 {{InheritanceDiagram}}
 
@@ -62,7 +62,7 @@ Listen to these events using [`addEventListener()`](/en-US/docs/Web/API/EventTar
 
 ## Examples
 
-In our basic [Speech synthesizer demo](https://github.com/mdn/dom-examples/tree/main/web-speech-api/speak-easy-synthesis), we first grab a reference to the SpeechSynthesis controller using `window.speechSynthesis`.
+In our basic [Speech synthesizer demo](https://mdn.github.io/dom-examples/web-speech-api/speak-easy-synthesis/), we first grab a reference to the SpeechSynthesis controller using `window.speechSynthesis`.
 After defining some necessary variables, we retrieve a list of the voices available using {{domxref("SpeechSynthesis.getVoices()")}} and populate a select menu with them so the user can choose what voice they want.
 
 Inside the `inputForm.onsubmit` handler, we stop the form submitting with {{domxref("Event.preventDefault","preventDefault()")}}, use the {{domxref("SpeechSynthesisUtterance.SpeechSynthesisUtterance()", "constructor")}} to create a new utterance instance containing the text from the text {{htmlelement("input")}}, set the utterance's {{domxref("SpeechSynthesisUtterance.voice","voice")}} to the voice selected in the {{htmlelement("select")}} element, and start the utterance speaking via the {{domxref("SpeechSynthesis.speak()")}} method.
@@ -78,9 +78,9 @@ let voices;
 
 function loadVoices() {
   voices = synth.getVoices();
-  for (let i = 0; i < voices.length; i++) {
+  for (const [i, voice] of voices.entries()) {
     const option = document.createElement("option");
-    option.textContent = `${voices[i].name} (${voices[i].lang})`;
+    option.textContent = `${voice.name} (${voice.lang})`;
     option.value = i;
     voiceSelect.appendChild(option);
   }

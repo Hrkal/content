@@ -9,7 +9,7 @@ browser-compat: api.RTCStatsReport
 
 The **`RTCStatsReport`** interface of the [WebRTC API](/en-US/docs/Web/API/WebRTC_API) provides a statistics report for a {{domxref("RTCPeerConnection")}}, {{domxref("RTCRtpSender")}}, or {{domxref("RTCRtpReceiver")}}.
 
-The report is a read-only [`Map`-like](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) object, in which each key is an identifier for an object for which statistics are being reported, and the corresponding value is a dictionary object providing the statistics.
+An `RTCStatsReport` instance is a read-only [`Map`-like object](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map#map-like_browser_apis), in which each key is an identifier for an object for which statistics are being reported, and the corresponding value is a dictionary object providing the statistics.
 
 ## Instance properties
 
@@ -31,7 +31,7 @@ The report is a read-only [`Map`-like](/en-US/docs/Web/JavaScript/Reference/Glob
   - : Returns a new [Iterator](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator) object that contains the keys (IDs) for each element in the `RTCStatsReport` object, in insertion order.
 - {{domxref("RTCStatsReport.values()")}}
   - : Returns a new [Iterator](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator) object that contains the values (statistics object) for each element in the `RTCStatsReport` object, in insertion order.
-- [`RTCStatsReport.[@@iterator]()`](/en-US/docs/Web/API/RTCStatsReport/@@iterator)
+- [`RTCStatsReport[Symbol.iterator]()`](/en-US/docs/Web/API/RTCStatsReport/Symbol.iterator)
   - : Returns a new [Iterator](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator) object that contains a two-member array of `[id, statistic-dictionary]` for each element in the `RTCStatsReport` object, in insertion order.
 
 ## Description
@@ -117,7 +117,7 @@ It assumes you already have an `RTCRtpSender` object named "sender".
 const stats = await sender.getStats();
 
 for (const stat of stats.values()) {
-  if (stat.type != "outbound-rtp") continue;
+  if (stat.type !== "outbound-rtp") continue;
   Object.keys(stat).forEach((statName) => {
     console.log(`${statName}: ${report[statName]}`);
   });

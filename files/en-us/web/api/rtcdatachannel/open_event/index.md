@@ -16,10 +16,10 @@ This event is not cancelable and does not bubble.
 
 Use the event name in methods like {{domxref("EventTarget.addEventListener", "addEventListener()")}}, or set an event handler property.
 
-```js
-addEventListener("open", (event) => {});
+```js-nolint
+addEventListener("open", (event) => { })
 
-onopen = (event) => {};
+onopen = (event) => { }
 ```
 
 ## Event type
@@ -50,7 +50,7 @@ dc.addEventListener(
 
     messageInputBox.focus();
   },
-  false
+  false,
 );
 ```
 
@@ -66,6 +66,10 @@ dc.onopen = (ev) => {
   messageInputBox.focus();
 };
 ```
+
+## Specifications
+
+{{Specifications}}
 
 ## Browser compatibility
 

@@ -1,48 +1,87 @@
 ---
-title: ":nth-child()"
+title: :nth-child()
 slug: Web/CSS/:nth-child
 page-type: css-pseudo-class
 browser-compat: css.selectors.nth-child
+sidebar: cssref
 ---
 
-{{CSSRef}}
+The **`:nth-child()`** [CSS](/en-US/docs/Web/CSS) [pseudo-class](/en-US/docs/Web/CSS/Pseudo-classes) matches elements based on the indexes of the elements in the child list of their parents. In other words, the `:nth-child()` selector selects child elements according to their position among all the sibling elements within a parent element.
 
-The **`:nth-child()`** [CSS](/en-US/docs/Web/CSS) [pseudo-class](/en-US/docs/Web/CSS/Pseudo-classes) matches elements based on their position among a group of siblings.
+{{InteractiveExample("CSS Demo: :nth-child", "tabbed-shorter")}}
 
-{{EmbedInteractiveExample("pages/tabbed/pseudo-class-nth-child.html", "tabbed-shorter")}}
+```css interactive-example
+p {
+  font-weight: bold;
+}
 
-> **Note:** In the `element:nth-child()` syntax, the child count includes sibling children of any element type; but it is considered a match only if the element _at that child position_ matches the other components of the selector.
+li:nth-child(-n + 3) {
+  border: 2px solid orange;
+  margin-bottom: 1px;
+}
+
+li:nth-child(even) {
+  background-color: lightyellow;
+}
+```
+
+```html interactive-example
+<p>Track &amp; field champions:</p>
+<ul>
+  <li>Adhemar da Silva</li>
+  <li>Wang Junxia</li>
+  <li>Wilma Rudolph</li>
+  <li>Babe Didrikson-Zaharias</li>
+  <li>Betty Cuthbert</li>
+  <li>Fanny Blankers-Koen</li>
+  <li>Florence Griffith-Joyner</li>
+  <li>Irena Szewinska</li>
+  <li>Jackie Joyner-Kersee</li>
+  <li>Shirley Strickland</li>
+  <li>Carl Lewis</li>
+  <li>Emil Zatopek</li>
+  <li>Haile Gebrselassie</li>
+  <li>Jesse Owens</li>
+  <li>Jim Thorpe</li>
+  <li>Paavo Nurmi</li>
+  <li>Sergei Bubka</li>
+  <li>Usain Bolt</li>
+</ul>
+```
+
+> [!NOTE]
+> In the `element:nth-child()` syntax, the child count includes sibling children of any element type; but it is considered a match only if the element _at that child position_ matches the other components of the selector.
 
 ## Syntax
 
-`:nth-child()` takes a single argument that describes a pattern for matching element indices in a list of siblings. Element indices are 1-based.
-
 ```css-nolint
-:nth-child(<nth> [of <complex-selector-list>]?) {
+:nth-child([ <An+B> | even | odd ] [of <complex-selector-list>]?) {
   /* ... */
 }
 ```
 
-### Keyword values
+### Parameters
+
+`:nth-child()` takes a single argument that describes a pattern for matching element indices in a list of siblings. Element indices are 1-based.
+
+#### Keyword values
 
 - `odd`
   - : Represents elements whose numeric position in a series of siblings is odd: 1, 3, 5, etc.
 - `even`
   - : Represents elements whose numeric position in a series of siblings is even: 2, 4, 6, etc.
 
-### Functional notation
+#### Functional notation
 
 - `<An+B>`
-
   - : Represents elements whose numeric position in a series of siblings matches the pattern `An+B`, for every positive integer or zero value of `n`, where:
-
     - `A` is an integer step size,
     - `B` is an integer offset,
     - `n` is all nonnegative integers, starting from 0.
 
     It can be read as the `An+B`-th element of a list. The `A` and `B` must both have {{cssxref("&lt;integer&gt;")}} values.
 
-### The `of <selector>` syntax
+#### The `of <selector>` syntax
 
 By passing a selector argument, we can select the **nth** element that matches that selector. For example, the following selector matches the first three list items which have a `class="important"` set.
 
@@ -54,7 +93,8 @@ By passing a selector argument, we can select the **nth** element that matches t
 This is different from moving the selector outside of the function, like:
 
 ```css
-li.important: nth-child(-n + 3);
+li.important:nth-child(-n + 3) {
+}
 ```
 
 This selector selects list items if they are among the first three children and match the selector `li.important`.
@@ -342,10 +382,6 @@ A common practice for tables is to use _zebra-stripes_ which alternates between 
 
 #### HTML
 
-```html-nolint hidden
-<div class="wrapper">
-```
-
 ```html-nolint
 <table class="broken">
   <thead>
@@ -375,14 +411,10 @@ A common practice for tables is to use _zebra-stripes_ which alternates between 
 </table>
 ```
 
-```html hidden
-</div>
-```
-
 #### CSS
 
 ```css hidden
-.wrapper {
+body {
   display: flex;
   justify-content: space-around;
 }
@@ -407,9 +439,67 @@ td {
 
 In the first table this is just using `:nth-child(even)` the third row has the `hidden` attribute applied to it. So in this instance the 3rd row is not visible and the 2nd & 4th rows are counted as even, which technically they are but visually they are not.
 
-In the second table the _of syntax_ is used to target only the `tr`s that are **not** hidden using `:nth-child(even of :not(hidden))`.
+In the second table the _of syntax_ is used to target only the `tr`s that are **not** hidden using `:nth-child(even of :not([hidden]))`.
 
 {{EmbedLiveSample('Using_of_selector_to_fix_striped_tables', 550, 180)}}
+
+### Styling a table column
+
+To style a table column, you can't set the style on the {{HTMLElement("col")}} element as table cells are not children of it (as you can with the row element, {{HTMLElement("tr")}}). Pseudo-classes like `:nth-child()` are handy to select the column cells.
+
+In this example, we set different styles for each of the column.
+
+#### HTML
+
+```html-nolint
+<table>
+<caption>Student roster</caption>
+<colgroup>
+  <col/>
+  <col/>
+  <col/>
+</colgroup>
+  <thead>
+    <tr><th>Name</th><th>Age</th><th>Country</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Mamitiana</td><td>23</td><td>Madagascar</td></tr>
+    <tr><td>Yuki</td><td>48</td><td>Japan</td></tr>
+  </tbody>
+</table>
+
+```
+
+#### CSS
+
+```css
+td {
+  padding: 0.125rem 0.5rem;
+  height: 3rem;
+  border: 1px solid black;
+}
+
+tr :nth-child(1) {
+  text-align: left;
+  vertical-align: bottom;
+  background-color: silver;
+}
+
+tbody tr :nth-child(2) {
+  text-align: center;
+  vertical-align: middle;
+}
+
+tbody tr :nth-child(3) {
+  text-align: right;
+  vertical-align: top;
+  background-color: tomato;
+}
+```
+
+#### Result
+
+{{EmbedLiveSample('Styling_a_table_column', 100, 200)}}
 
 ## Specifications
 
@@ -421,5 +511,8 @@ In the second table the _of syntax_ is used to target only the `tr`s that are **
 
 ## See also
 
-- {{ Cssxref(":nth-of-type") }}
-- {{ Cssxref(":nth-last-child") }}
+- {{ Cssxref(":nth-of-type", ":nth-of-type()") }}
+- {{ Cssxref(":nth-last-child", ":nth-last-child()") }}
+- {{ Cssxref(":has", ":has()") }}: pseudo-class for selecting parent element
+- [Tree-structural pseudo-classes](/en-US/docs/Web/CSS/Pseudo-classes#tree-structural_pseudo-classes)
+- [CSS selectors](/en-US/docs/Web/CSS/CSS_selectors) module

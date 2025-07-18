@@ -16,10 +16,10 @@ This event is not cancelable and does not bubble.
 
 Use the event name in methods like {{domxref("EventTarget.addEventListener", "addEventListener()")}}, or set an event handler property.
 
-```js
-addEventListener("bufferedamountlow", (event) => {});
+```js-nolint
+addEventListener("bufferedamountlow", (event) => { })
 
-onbufferedamountlow = (event) => {};
+onbufferedamountlow = (event) => { }
 ```
 
 ## Event type
@@ -43,13 +43,13 @@ pc.addEventListener(
       dc.send(source.readFile(65536));
     }
   },
-  false
+  false,
 );
 ```
 
 After creating the `RTCPeerConnection`, this calls {{domxref("RTCPeerConnection.createDataChannel()")}} to create the data channel. Then a listener is created for `bufferedamountlow` to refill the incoming data buffer any time its contents fall below 65536 bytes.
 
-You can also set up a listener for `bufferedamountlow` using its event handler property, {{domxref("RTCDataChannel.bufferedamountlow_event", "onbufferedamountlow")}}:
+You can also set up a listener for `bufferedamountlow` using its event handler property, `onbufferedamountlow`:
 
 ```js
 pc.onbufferedamountlow = (ev) => {
