@@ -68,7 +68,7 @@ The `overlay` property is only present in the list of transitioned properties. A
 
 ```css
 html {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Helvetica", "Arial", sans-serif;
 }
 
 [popover]:popover-open {
@@ -105,7 +105,7 @@ html {
 /* Transition for the popover's backdrop */
 
 [popover]::backdrop {
-  background-color: rgb(0 0 0 / 0%);
+  background-color: transparent;
   transition:
     display 0.7s allow-discrete,
     overlay 0.7s allow-discrete,
@@ -123,7 +123,7 @@ html {
 
 @starting-style {
   [popover]:popover-open::backdrop {
-    background-color: rgb(0 0 0 / 0%);
+    background-color: transparent;
   }
 }
 ```

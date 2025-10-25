@@ -5,7 +5,7 @@ page-type: web-api-interface
 browser-compat: api.XSLTProcessor
 ---
 
-{{APIRef("XSLT")}}
+{{APIRef("DOM")}}
 
 An **`XSLTProcessor`** applies an [XSLT](/en-US/docs/Web/XML/XSLT) stylesheet transformation to an XML document to
 produce a new XML document as output. It has methods to load the XSLT stylesheet, to
@@ -92,7 +92,7 @@ You can use the {{domxref("DOMParser")}} to create an XML document from a string
 
 ```js
 const parser = new DOMParser();
-const doc = parser.parseFromString(aStr, "text/xml");
+const doc = parser.parseFromString(str, "text/xml");
 ```
 
 ### Performing the transformation
@@ -330,6 +330,3 @@ async function sort() {
 
 - [XSLT](/en-US/docs/Web/XML/XSLT)
 - [Transforming with XSLT](/en-US/docs/Web/XML/XSLT/Guides/Transforming_XML_with_XSLT)
-- [Chapter 15 of the XML 1.1 Bible: XSL Transformations](https://www.ibiblio.org/xml/books/bible3/chapters/ch15.html)
-- [XSLT Tutorial](https://zvon.org/xxl/XSLTutorial/Books/Book1/index.html) at [zvon.org](https://zvon.org/)
-- [XPath Tutorial](https://zvon.org/xxl/XPathTutorial/General/examples.html) at [zvon.org](https://zvon.org/)

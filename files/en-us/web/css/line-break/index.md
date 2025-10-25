@@ -36,8 +36,8 @@ line-break: loose;
 
 ```css interactive-example
 #example-element {
-  font-family: "Yu Gothic", YuGothic, Meiryo, "ＭＳ ゴシック", sans-serif;
-  border: 2px dashed #999;
+  font-family: "Yu Gothic", "YuGothic", "Meiryo", "ＭＳ ゴシック", sans-serif;
+  border: 2px dashed #999999;
   text-align: left;
   width: 240px;
   font-size: 16px;

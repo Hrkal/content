@@ -6,7 +6,7 @@ browser-compat: css.types.cos
 sidebar: cssref
 ---
 
-The **`cos()`** [CSS](/en-US/docs/Web/CSS) [function](/en-US/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) is a trigonometric function that returns the cosine of a number, which is a value between `-1` and `1`. The function contains a single calculation that must resolve to either a {{cssxref("&lt;number&gt;")}} or an {{cssxref("&lt;angle&gt;")}} by interpreting the result of the argument as radians. That is, `cos(45deg)`, `cos(0.125turn)`, and `cos(3.14159 / 4)` all represent the same value, approximately `0.707`.
+The **`cos()`** [CSS](/en-US/docs/Web/CSS) [function](/en-US/docs/Web/CSS/CSS_values_and_units/CSS_value_functions) is a trigonometric function that returns the cosine of a number, which is a value between `-1` and `1`. The function contains a single calculation that must resolve to either a {{cssxref("&lt;number&gt;")}} or an {{cssxref("&lt;angle&gt;")}} by interpreting the result of the argument as radians. That is, `cos(45deg)`, `cos(0.125turn)`, and `cos(3.14159 / 4)` all represent the same value, approximately `0.707`.
 
 {{InteractiveExample("CSS Demo: cos()")}}
 
@@ -44,7 +44,7 @@ transform: translateX(calc(cos(-45deg) * 140px))
 ```css interactive-example
 :root {
   --radius: 140px;
-  --dotsize: 10px;
+  --dot-size: 10px;
 }
 .circle {
   display: grid;
@@ -53,18 +53,18 @@ transform: translateX(calc(cos(-45deg) * 140px))
   width: calc(var(--radius) * 2);
   aspect-ratio: 1;
   border-radius: 50%;
-  border: 2px solid #666;
+  border: 2px solid #666666;
   background-image:
-    radial-gradient(black var(--dotsize), transparent var(--dotsize)),
-    linear-gradient(135deg, #0000ff, #00c9ff, #92fe9d, #e6e6fa, #f0fff0);
+    radial-gradient(black var(--dot-size), transparent var(--dot-size)),
+    linear-gradient(135deg, blue, deepskyblue, lightgreen, lavender, honeydew);
 }
 .dot {
   display: block;
-  width: var(--dotsize);
+  width: var(--dot-size);
   aspect-ratio: 1;
   border-radius: 50%;
-  border: 2px solid #666;
-  background-color: #f66;
+  border: 2px solid #666666;
+  background-color: #ff6666;
   transform: translateX(calc(cos(0deg) * var(--radius)))
     translateY(calc(sin(0deg) * var(--radius) * -1));
 }

@@ -22,7 +22,7 @@ The **`<summary>`** [HTML](/en-US/docs/Web/HTML) element specifies a summary, ca
 
 ```css interactive-example
 details {
-  border: 1px solid #aaa;
+  border: 1px solid #aaaaaa;
   border-radius: 4px;
   padding: 0.5em 0.5em 0;
 }
@@ -38,7 +38,7 @@ details[open] {
 }
 
 details[open] summary {
-  border-bottom: 1px solid #aaa;
+  border-bottom: 1px solid #aaaaaa;
   margin-bottom: 0.5em;
 }
 ```
@@ -146,7 +146,7 @@ In the first disclosure widget, we style the `::marker`, changing the {{cssxref(
 ```css
 details {
   font-size: 1rem;
-  font-family: "Open Sans", Calibri, sans-serif;
+  font-family: "Open Sans", "Calibri", sans-serif;
   border: solid;
   padding: 2px 6px;
   margin-bottom: 1em;

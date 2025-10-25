@@ -363,9 +363,9 @@ The contrast ratio is defined in [WCAG 2.2](https://w3c.github.io/wcag/guideline
 
 It's best if you can adjust the contrast before it is uploaded or published to the web. For videos and animated GIFs, the Adobe Suite of products is a phenomenal resource for traditional images. Also for images, an online tool available is pinetools.com's [Brightness and contrast online](https://pinetools.com/brightness-contrast-image). If you intend to make animated GIFs, for example, start with one that has a lower contrast ratio.
 
-JavaScript is also an option for reducing contrast dynamically. Here's a code example from the section titled, ["Example: Setting the background color of a paragraph"](/en-US/docs/Web/API/Document_Object_Model/Traversing_an_HTML_table_with_JavaScript_and_DOM_Interfaces#setting_the_background_color_of_a_paragraph) from the MDN document, [Traversing an HTML table with JavaScript and DOM Interfaces](/en-US/docs/Web/API/Document_Object_Model/Traversing_an_HTML_table_with_JavaScript_and_DOM_Interfaces). Notice that the color in the example is described in the **RGB** color space.
+JavaScript is also an option for reducing contrast dynamically. Here's a code example from the section titled, ["Example: Setting the background color of a paragraph"](/en-US/docs/Web/API/Document_Object_Model/Building_and_updating_the_DOM_tree#setting_the_background_color_of_a_paragraph). Notice that the color in the example is described in the **RGB** color space.
 
-**HTML Content [(link to source page)](/en-US/docs/Web/API/Document_Object_Model/Traversing_an_HTML_table_with_JavaScript_and_DOM_Interfaces#html_2)**
+**HTML Content [(link to source page)](/en-US/docs/Web/API/Document_Object_Model/Building_and_updating_the_DOM_tree#html_2)**
 
 ```html
 <body>
@@ -375,7 +375,7 @@ JavaScript is also an option for reducing contrast dynamically. Here's a code ex
 </body>
 ```
 
-**JavaScript Content [(link to source page)](/en-US/docs/Web/API/Document_Object_Model/Traversing_an_HTML_table_with_JavaScript_and_DOM_Interfaces#javascript_2)**
+**JavaScript Content [(link to source page)](/en-US/docs/Web/API/Document_Object_Model/Building_and_updating_the_DOM_tree#javascript_2)**
 
 ```js
 function setBackground() {
@@ -430,8 +430,8 @@ Use the {{HTMLElement('link')}} element, alongside with and together with the at
 **{{CSSxref('@import')}}** is also a way to incorporate style sheets, but it is not quite as well supported as the {{HTMLElement('link')}} element.
 
 ```css
-@import url(alternate1.css);
-@import url(alternate2.css);
+@import "alternate1.css";
+@import "alternate2.css";
 ```
 
 By using alternate style sheets (remember to add the titles) you are setting it up for users to be able to use their browsers to choose alternate styles.
@@ -588,12 +588,6 @@ The requirement for the `literal` property is taken from [WAI-Adapt: Help and Su
 ### GPII
 
 - [Accessibility Master List](https://ds.gpii.net/learn/accessibility-masterlist) Gregg Vanderheiden Ph.D. Editor
-
-### Harding
-
-Along with the PEAT tool, is generally recognized to be one of the two "gold standards" for analyzing flashes.
-
-- [Harding Flash and Pattern Analyzer](https://www.hardingfpa.com/)
 
 ### ISO
 

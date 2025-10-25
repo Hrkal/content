@@ -45,8 +45,6 @@ background-position-y: bottom 32px;
 }
 ```
 
-<!-- The source for this interactive example is stored in a GitHub repository. If you'd like to contribute to the interactive examples project, please clone https://github.com/mdn/interactive-examples and send us a pull request. -->
-
 The value of this property is overridden by any declaration of the {{cssxref("background")}} or {{cssxref("background-position")}} shorthand properties applied to the element after it.
 
 ## Syntax
@@ -122,7 +120,7 @@ div {
   width: 300px;
   height: 300px;
   background-color: skyblue;
-  background-image: url(https://mdn.dev/archives/media/attachments/2020/07/29/17350/3b4892b7e820122ac6dd7678891d4507/firefox.png);
+  background-image: url("https://mdn.dev/archives/media/attachments/2020/07/29/17350/3b4892b7e820122ac6dd7678891d4507/firefox.png");
   background-repeat: no-repeat;
   background-position-x: center;
   background-position-y: bottom;
@@ -150,7 +148,7 @@ div {
   width: 300px;
   height: 300px;
   background-color: seagreen;
-  background-image: url(https://mdn.dev/archives/media/attachments/2020/07/29/17350/3b4892b7e820122ac6dd7678891d4507/firefox.png);
+  background-image: url("https://mdn.dev/archives/media/attachments/2020/07/29/17350/3b4892b7e820122ac6dd7678891d4507/firefox.png");
   background-repeat: no-repeat;
   background-position-x: right 20px;
   background-position-y: bottom 10px;

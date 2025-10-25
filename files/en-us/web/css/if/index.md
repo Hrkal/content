@@ -10,14 +10,14 @@ sidebar: cssref
 
 {{SeeCompatTable}}
 
-The **`if()`** [CSS](/en-US/docs/Web/CSS) [function](/en-US/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) allows different values to be set for a property depending on the result of a conditional test. The test can be based on a [style query](/en-US/docs/Web/CSS/CSS_containment/Container_size_and_style_queries#container_style_queries), a [media query](/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries), or a [feature query](/en-US/docs/Web/CSS/CSS_conditional_rules/Using_feature_queries).
+The **`if()`** [CSS](/en-US/docs/Web/CSS) [function](/en-US/docs/Web/CSS/CSS_values_and_units/CSS_value_functions) allows different values to be set for a property depending on the result of a conditional test. The test can be based on a [style query](/en-US/docs/Web/CSS/CSS_containment/Container_size_and_style_queries#container_style_queries), a [media query](/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries), or a [feature query](/en-US/docs/Web/CSS/CSS_conditional_rules/Using_feature_queries).
 
 ## Syntax
 
 ```css-nolint
 /* Single <if-test> */
-if(style(--scheme: dark): #eee;)
-if(media(print): #000;)
+if(style(--scheme: dark): #eeeeee;)
+if(media(print): black;)
 if(media(width > 700px): 0 auto;)
 if(supports(color: lch(7.1% 60.23 300.16)): lch(7.1% 60.23 300.16);)
 
@@ -30,8 +30,8 @@ if(
   else: #03045e;
 )
 if(
-  supports(color: lch(77.7% 0 0)): 3px solid lch(77.7% 0 0);
-  else: 3px solid #c0c0c0;
+  supports(color: lch(75% 0 0)): 3px solid lch(75% 0 0);
+  else: 3px solid silver;
 )
 
 /* Multiple <if-test>s */
@@ -193,12 +193,12 @@ if(
 
 A [media query](/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries) `<if-test>` can be used to set a value for a property depending on whether a media query test returns true.
 
-You can use media types. For example, the following `<if-test> : <value>` pair returns a value of `white` on print media, while the `else` clause causes `#eee` to be returned on non-print media.
+You can use media types. For example, the following `<if-test> : <value>` pair returns a value of `white` on print media, while the `else` clause causes `#eeeeee` to be returned on non-print media.
 
 ```css-nolint
 background-color: if(
   media(print): white;
-  else: #eee;
+  else: #eeeeee;
 )
 ```
 
@@ -240,8 +240,8 @@ For example, the following returns an {{cssxref("color_value/lch()")}} color if 
 
 ```css-nolint
 color: if(
-  supports(color: lch(77.7% 0 0)): lch(77.7% 0 0);
-  else: rgb(192 192 192);
+  supports(color: lch(75% 0 0)): lch(75% 0 0);
+  else: rgb(185 185 185);
 )
 ```
 
@@ -292,8 +292,8 @@ An `if()` function can be set as the value of any CSS property, but it can also 
 
 ```css-nolint
 border: if(
-  supports(color: lch(77.7% 0 0)): 3px solid lch(77.7% 0 0);
-  else: 3px solid #c0c0c0;
+  supports(color: lch(75% 0 0)): 3px solid lch(75% 0 0);
+  else: 3px solid silver;
 );
 ```
 
@@ -302,7 +302,7 @@ However, we could use the `if()` function to determine the {{cssxref("border-col
 ```css-nolint
 border: 3px solid
   if(
-    supports(color: lch(77.7% 0 0)): lch(77.7% 0 0); else: #c0c0c0;
+    supports(color: lch(75% 0 0)): lch(75% 0 0); else: silver;
   );
 ```
 
@@ -489,7 +489,7 @@ In our CSS, we give the `<body>` element a {{cssxref("max-width")}} of `700px` a
 }
 
 html {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Helvetica", "Arial", sans-serif;
 }
 
 p {
@@ -608,4 +608,4 @@ Try selecting different color scheme values to see the effect on the look and fe
 - [Container style queries](/en-US/docs/Web/CSS/CSS_containment/Container_size_and_style_queries#container_style_queries)
 - [Media queries](/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries)
 - [Feature queries](/en-US/docs/Web/CSS/CSS_conditional_rules/Using_feature_queries)
-- [CSS values and units module](/en-US/docs/Web/CSS/CSS_Values_and_Units)
+- [CSS values and units module](/en-US/docs/Web/CSS/CSS_values_and_units)

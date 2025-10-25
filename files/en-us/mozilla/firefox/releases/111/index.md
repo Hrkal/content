@@ -1,5 +1,5 @@
 ---
-title: Firefox 111 for developers
+title: Firefox 111 release notes for developers
 short-title: Firefox 111
 slug: Mozilla/Firefox/Releases/111
 page-type: firefox-release-notes
@@ -52,7 +52,7 @@ No notable changes.
 
 #### Media, WebRTC, and Web Audio
 
-- [`RTCInboundRtpStreamStats.trackIdentifier`](/en-US/docs/Web/API/RTCInboundRtpStreamStats#trackidentifier) is now supported.
+- [`RTCInboundRtpStreamStats.trackIdentifier`](/en-US/docs/Web/API/RTCInboundRtpStreamStats/trackIdentifier) is now supported.
   This allows developers to associate `inbound-rtp` statistics with a particular track when using {{domxref("RTCPeerConnection.getStats()")}}.
   (For more information see [Firefox bug 1804676](https://bugzil.la/1804676).)
 

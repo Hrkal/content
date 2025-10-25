@@ -6,7 +6,7 @@ browser-compat: css.types.filter-function.drop-shadow
 sidebar: cssref
 ---
 
-The **`drop-shadow()`** [CSS](/en-US/docs/Web/CSS) [function](/en-US/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) applies a drop shadow effect to the input image. Its result is a {{cssxref("&lt;filter-function&gt;")}}.
+The **`drop-shadow()`** [CSS](/en-US/docs/Web/CSS) [function](/en-US/docs/Web/CSS/CSS_values_and_units/CSS_value_functions) applies a drop shadow effect to the input image. Its result is a {{cssxref("&lt;filter-function&gt;")}}.
 
 {{InteractiveExample("CSS Demo: drop-shadow()")}}
 
@@ -58,7 +58,7 @@ drop-shadow(5px 5px 15px red)
 
 /* The order of color and length values can be changed */
 /* drop-shadow( <color> <length> <length> <length> ) */
-drop-shadow(#e23 0.5rem 0.5rem 1rem)
+drop-shadow(#ee2233 0.5rem 0.5rem 1rem)
 
 /* Pass multiple drop-shadows to a filter to stack them */
 drop-shadow(10px 10px red) drop-shadow(-5px -5px yellow)
@@ -101,7 +101,7 @@ div {
   height: 100px;
   width: 190px;
   vertical-align: top;
-  background-color: #222;
+  background-color: #222222;
 
   color: lime;
 }

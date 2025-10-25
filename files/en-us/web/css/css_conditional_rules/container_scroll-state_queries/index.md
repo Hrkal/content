@@ -238,7 +238,7 @@ The `.back-to-top` link is given a {{cssxref("position")}} value of `fixed`, pla
 }
 
 html {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Helvetica", "Arial", sans-serif;
   height: 100%;
 }
 
@@ -284,8 +284,8 @@ img {
 .back-to-top {
   text-decoration: none;
   border-radius: 50%;
-  border: 1px solid #0007;
-  background-color: #0007;
+  border: 1px solid #00000077;
+  background-color: #00000077;
   color: white;
   font-size: 3rem;
   text-shadow: 0 0 2px black;
@@ -294,7 +294,7 @@ img {
 
 .back-to-top:hover,
 .back-to-top:focus {
-  background: #0009;
+  background: #00000099;
 }
 ```
 
@@ -487,7 +487,7 @@ The `<section>` elements are designated as snap targets by setting a non-`none` 
 
 ```css live-sample___snapped
 section {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Helvetica", "Arial", sans-serif;
   width: 150px;
   height: 150px;
   margin: 50px auto;
@@ -501,7 +501,7 @@ section {
   width: 100%;
   height: 100%;
   border-radius: 5px;
-  background: #eee;
+  background: #eeeeee;
   box-shadow:
     inset 1px 1px 4px rgb(255 255 255 / 0.5),
     inset -1px -1px 4px rgb(0 0 0 / 0.5);
@@ -758,7 +758,7 @@ Each `<header>` has a {{cssxref("position")}} value of `sticky` and a {{cssxref(
 }
 
 html {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Helvetica", "Arial", sans-serif;
   height: 100%;
 }
 
@@ -820,8 +820,8 @@ Next, we define a {{cssxref("@container")}} block that sets the container name w
 @container sticky-heading scroll-state(stuck: top) {
   h2,
   p {
-    background: #ccc;
-    box-shadow: 0 5px 2px #0007;
+    background: #cccccc;
+    box-shadow: 0 5px 2px #00000077;
   }
 }
 ```
